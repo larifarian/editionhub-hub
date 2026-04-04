@@ -111,7 +111,7 @@
                 document.getElementById('diaryLabel').textContent = `Heute vor ${yearsAgo} Jahren`;
                 document.getElementById('diaryDate').textContent = dateLabel;
 
-                const personId = 'http://id.editionhub.org/entity/person/1';
+                const personId = 'http://id.editionhub.org/entity/person/4';
 
                 // Person-Label schnell nachladen (gecacht), parallel zum Diary-Call
                 fetch(`https://historia.editionhub.org/api/index?type=person&id=${encodeURIComponent(personId)}`)
