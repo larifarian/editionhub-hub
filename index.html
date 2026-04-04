@@ -41,16 +41,14 @@
                     erschließbar per Filter, Register und KI-Assistent.
                 </p>
 
-                <!-- Heute vor ... Jahren (Diary API — dummy) -->
-                <div class="mb-4 bg-amber-50 border border-amber-100 rounded-lg p-4">
+                <!-- Heute vor ... Jahren (Diary API) -->
+                <div id="diaryBox" class="mb-4 bg-amber-50 border border-amber-100 rounded-lg p-4 hidden">
                     <div class="flex items-center justify-between mb-2">
-                        <p class="text-xs font-medium text-amber-700 uppercase tracking-wide">Heute vor 252 Jahren</p>
-                        <span class="text-xs text-amber-600 font-mono">16. August 1774</span>
+                        <p class="text-xs font-medium text-amber-700 uppercase tracking-wide" id="diaryLabel">Tagebuch</p>
+                        <span class="text-xs text-amber-600 font-mono" id="diaryDate"></span>
                     </div>
-                    <p class="text-sm text-gray-700 leading-relaxed mb-1">
-                        <span class="font-medium text-gray-900">Goethe</span> schreibt aus Frankfurt einen Brief an <span class="font-medium text-gray-900">Johann Christian Kestner</span> in Wetzlar.
-                    </p>
-                    <p class="text-xs text-gray-500">Propyläen — Goethes Biographica · Briefkorrespondenz</p>
+                    <p class="text-sm text-gray-700 leading-relaxed whitespace-pre-line" id="diaryEntry"></p>
+                    <p class="text-xs text-gray-500 mt-2" id="diaryMeta"></p>
                 </div>
 
                 <!-- Verfügbare Editionen -->
@@ -82,6 +80,44 @@
     <!-- Footer -->
     <footer class="py-6 text-center text-sm text-gray-400">
     </footer>
+
+    <script>
+        (async function loadDiary() {
+            const box = document.getElementById('diaryBox');
+            try {
+                const today = new Date();
+                const mm = String(today.getMonth() + 1).padStart(2, '0');
+                const dd = String(today.getDate()).padStart(2, '0');
+                const date = `1774-${mm}-${dd}`;
+
+                const res = await fetch('https://historia.editionhub.org/api/diary', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        personId: 'http://id.editionhub.org/entity/person/1',
+                        date: date
+                    })
+                });
+                if (!res.ok) return;
+                const data = await res.json();
+                if (!data.entry) return;
+
+                const year = parseInt(date.substring(0, 4), 10);
+                const yearsAgo = today.getFullYear() - year;
+                const dateObj = new Date(date);
+                const dateLabel = dateObj.toLocaleDateString('de-DE', { day: 'numeric', month: 'long', year: 'numeric' });
+
+                document.getElementById('diaryLabel').textContent = `Heute vor ${yearsAgo} Jahren`;
+                document.getElementById('diaryDate').textContent = dateLabel;
+                document.getElementById('diaryEntry').textContent = data.entry;
+                document.getElementById('diaryMeta').textContent =
+                    `${data.person?.label || ''} · ${data.handlungen?.length || 0} Handlung(en)`;
+                box.classList.remove('hidden');
+            } catch (e) {
+                // API nicht erreichbar — Box bleibt versteckt
+            }
+        })();
+    </script>
 
 </body>
 </html>
