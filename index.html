@@ -42,14 +42,27 @@
                 </p>
 
                 <!-- Heute vor ... Jahren (Diary API) -->
-                <div id="diaryBox" class="mb-4 bg-amber-50 border border-amber-100 rounded-lg p-4 hidden">
+                <div id="diaryBox" class="mb-4 bg-amber-50 border border-amber-100 rounded-lg p-4">
                     <div class="flex items-center justify-between mb-2">
                         <p class="text-xs font-medium text-amber-700 uppercase tracking-wide" id="diaryLabel">Tagebuch</p>
                         <span class="text-xs text-amber-600 font-mono" id="diaryDate"></span>
                     </div>
-                    <p class="text-sm text-gray-700 leading-relaxed whitespace-pre-line" id="diaryEntry"></p>
+                    <p class="text-sm text-gray-700 leading-relaxed whitespace-pre-line italic" id="diaryEntry">Johann Wolfgang Goethe erinnert sich<span class="diary-dots"></span></p>
                     <p class="text-xs text-gray-500 mt-2" id="diaryMeta"></p>
                 </div>
+                <style>
+                    .diary-dots::after {
+                        content: '';
+                        animation: diaryDots 1.4s steps(4, end) infinite;
+                    }
+                    @keyframes diaryDots {
+                        0%   { content: ''; }
+                        25%  { content: ' .'; }
+                        50%  { content: ' ..'; }
+                        75%  { content: ' ...'; }
+                        100% { content: ''; }
+                    }
+                </style>
 
                 <!-- Verfügbare Editionen -->
                 <div class="mb-4">
@@ -84,10 +97,19 @@
     <script>
         (async function loadDiary() {
             const box = document.getElementById('diaryBox');
+            const entryEl = document.getElementById('diaryEntry');
             try {
                 const today = new Date();
                 // TEST: fixes Datum
                 const date = '1774-08-16';
+
+                // Label + Datum schon vor dem Fetch setzen
+                const year = parseInt(date.substring(0, 4), 10);
+                const yearsAgo = today.getFullYear() - year;
+                const dateObj = new Date(date);
+                const dateLabel = dateObj.toLocaleDateString('de-DE', { day: 'numeric', month: 'long', year: 'numeric' });
+                document.getElementById('diaryLabel').textContent = `Heute vor ${yearsAgo} Jahren`;
+                document.getElementById('diaryDate').textContent = dateLabel;
 
                 const res = await fetch('https://historia.editionhub.org/api/diary', {
                     method: 'POST',
@@ -97,23 +119,16 @@
                         date: date
                     })
                 });
-                if (!res.ok) return;
+                if (!res.ok) { box.classList.add('hidden'); return; }
                 const data = await res.json();
-                if (!data.entry) return;
+                if (!data.entry) { box.classList.add('hidden'); return; }
 
-                const year = parseInt(date.substring(0, 4), 10);
-                const yearsAgo = today.getFullYear() - year;
-                const dateObj = new Date(date);
-                const dateLabel = dateObj.toLocaleDateString('de-DE', { day: 'numeric', month: 'long', year: 'numeric' });
-
-                document.getElementById('diaryLabel').textContent = `Heute vor ${yearsAgo} Jahren`;
-                document.getElementById('diaryDate').textContent = dateLabel;
-                document.getElementById('diaryEntry').textContent = data.entry;
+                entryEl.classList.remove('italic');
+                entryEl.textContent = data.entry;
                 document.getElementById('diaryMeta').textContent =
                     `${data.person?.label || ''} · ${data.handlungen?.length || 0} Handlung(en)`;
-                box.classList.remove('hidden');
             } catch (e) {
-                // API nicht erreichbar — Box bleibt versteckt
+                box.classList.add('hidden');
             }
         })();
     </script>
