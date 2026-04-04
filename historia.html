@@ -71,20 +71,30 @@
                 </p>
 
                 <h3 class="text-sm font-semibold text-gray-700 mb-3">Was wir brauchen</h3>
-                <ul class="space-y-2 mb-6">
-                    <li class="flex items-start gap-2 text-sm text-gray-600">
-                        <svg class="w-4 h-4 mt-0.5 text-blue-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4"/></svg>
-                        Digitale Edition mit strukturierten Daten (TEI/XML oder vergleichbar)
-                    </li>
+                <ul class="space-y-2 mb-4">
                     <li class="flex items-start gap-2 text-sm text-gray-600">
                         <svg class="w-4 h-4 mt-0.5 text-blue-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4"/></svg>
                         Historische Handlungen mit Akteuren und/oder Orten
                     </li>
                     <li class="flex items-start gap-2 text-sm text-gray-600">
                         <svg class="w-4 h-4 mt-0.5 text-blue-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4"/></svg>
+                        Strukturierte Daten im HAIF-Format (JSON) — oder TEI/XML bzw. vergleichbare Quellformate, die wir gemeinsam nach HAIF überführen
+                    </li>
+                    <li class="flex items-start gap-2 text-sm text-gray-600">
+                        <svg class="w-4 h-4 mt-0.5 text-blue-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4"/></svg>
                         Normierte Entitäten (GND, Wikidata o.ä.) — hilfreich, aber nicht zwingend
                     </li>
                 </ul>
+
+                <div class="bg-blue-50 border border-blue-100 rounded-lg p-4 mb-6">
+                    <p class="text-sm text-gray-700 leading-relaxed">
+                        <strong class="text-gray-900">HAIF</strong> (Historical Activity Interchange Format) ist ein schlankes JSON-Format für historische Handlungen — mit rund fünf Feldern pro Eintrag und GND/Wikidata als Brücke zu Personen und Orten. Es senkt die Einstiegshürde für Editionsprojekte erheblich und ist der empfohlene Weg, Daten an EH historia zu übergeben.
+                    </p>
+                    <a href="https://historia.editionhub.org/content/haif.html" class="inline-flex items-center gap-1 mt-3 text-sm font-medium text-blue-600 hover:text-blue-800 no-underline">
+                        HAIF-Spezifikation ansehen
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+                    </a>
+                </div>
 
                 <h3 class="text-sm font-semibold text-gray-700 mb-3">Wie es funktioniert</h3>
                 <div class="space-y-3 mb-6">
