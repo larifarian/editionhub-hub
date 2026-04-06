@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="HASE für Ihr Projekt — Passt HASE zu Ihrem DH-Projekt? Übersicht über Projekttypen und Modellierungsmöglichkeiten.">
+    <meta property="og:title" content="HASE für Ihr Projekt — EditionHub">
+    <meta property="og:description" content="Welche DH-Projekte können HASE nutzen? Übersicht über Projekttypen und Modellierungsmöglichkeiten.">
+    <meta property="og:type" content="website">
+    <title>HASE für Ihr Projekt — EditionHub</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen flex flex-col">
+
+    <!-- Header -->
+    <header class="py-8 text-center">
+        <a href="/" class="text-4xl font-bold text-gray-900 tracking-tight no-underline hover:opacity-80 transition">Edition<span class="text-blue-600">Hub</span></a>
+        <p class="mt-3 text-lg text-gray-500 max-w-xl mx-auto">Offene Forschungsplattform für Digitale Editionen</p>
+    </header>
+
+    <!-- Main -->
+    <main class="flex-1 flex items-start justify-center px-4 pb-16">
+        <div class="max-w-3xl w-full">
+
+            <!-- Titel -->
+            <div class="mb-8">
+                <div class="flex items-center gap-3 mb-2">
+                    <a href="/hase" class="text-sm text-blue-600 hover:text-blue-800 no-underline flex items-center gap-1">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
+                        HASE
+                    </a>
+                </div>
+                <h1 class="text-3xl font-bold text-gray-900 tracking-tight">HASE f&uuml;r Ihr Projekt</h1>
+                <p class="mt-2 text-gray-500">Passt HASE zu Ihrem Vorhaben? Ein Schnelltest f&uuml;r DH-Projekte.</p>
+            </div>
+
+            <!-- Kernfrage -->
+            <section class="bg-white rounded-2xl shadow-sm border border-gray-200 p-8 mb-6">
+                <h2 class="text-xl font-bold text-gray-900 mb-4">Die Kernfrage</h2>
+                <div class="bg-blue-50 border border-blue-200 rounded-lg p-5 mb-4">
+                    <p class="text-sm text-blue-900 font-semibold leading-relaxed text-center">
+                        Enthält Ihr Projekt Daten der Form:<br>
+                        <span class="text-lg mt-2 block">Jemand tat etwas &mdash; irgendwo &mdash; irgendwann?</span>
+                    </p>
+                </div>
+                <p class="text-sm text-gray-700 leading-relaxed">
+                    HASE modelliert <strong>historische Handlungen</strong> (Activities) und die <strong>Quellen</strong> (Sources), die sie bezeugen.
+                    Das Grundmuster ist immer dasselbe: ein Akteur, eine Handlung, ein Ort, ein Zeitpunkt &mdash; und optional die Quelle, aus der wir das wissen.
+                    Nicht jedes Feld muss gef&uuml;llt sein &mdash; aber mindestens <code class="font-mono text-xs bg-gray-100 px-1 py-0.5 rounded">id</code> und <code class="font-mono text-xs bg-gray-100 px-1 py-0.5 rounded">type</code> braucht jede Handlung.
+                </p>
+            </section>
+
+            <!-- Passt gut -->
+            <section class="bg-white rounded-2xl shadow-sm border border-gray-200 p-8 mb-6">
+                <h2 class="text-xl font-bold text-gray-900 mb-4">
+                    <span class="inline-block w-3 h-3 rounded-full bg-green-500 mr-2 align-middle"></span>
+                    Passt gut
+                </h2>
+                <p class="text-sm text-gray-700 leading-relaxed mb-4">
+                    Diese Projekttypen lassen sich direkt oder mit wenigen eigenen Typen in HASE abbilden:
+                </p>
+                <div class="space-y-3">
+
+                    <div class="border border-gray-200 rounded-lg p-4">
+                        <h3 class="text-sm font-semibold text-gray-800">Korrespondenzen</h3>
+                        <p class="text-xs text-gray-500 mt-1">Briefwechsel mit Sendern, Empf&auml;ngern, Orten und Daten. Der Kernfall von HASE.</p>
+                        <p class="text-xs text-gray-400 mt-1 font-mono">LETTER_SENDING + LETTER_RECEIVING &rarr; CORRESPONDENCE</p>
+                    </div>
+
+                    <div class="border border-gray-200 rounded-lg p-4">
+                        <h3 class="text-sm font-semibold text-gray-800">Biographik &amp; Tageb&uuml;cher</h3>
+                        <p class="text-xs text-gray-500 mt-1">Begegnungen, Besuche, Gespr&auml;che &mdash; alles, was ein Leben in Handlungen gliedert.</p>
+                        <p class="text-xs text-gray-400 mt-1 font-mono">ENCOUNTER_PARTICIPATION &rarr; ENCOUNTER</p>
+                    </div>
+
+                    <div class="border border-gray-200 rounded-lg p-4">
+                        <h3 class="text-sm font-semibold text-gray-800">Reiseforschung</h3>
+                        <p class="text-xs text-gray-500 mt-1">Stationen, &Uuml;bernachtungen, Reiserouten mit Orten und Zeitangaben.</p>
+                        <p class="text-xs text-gray-400 mt-1 font-mono">TRAVEL_STOP + OVERNIGHT_STAY &rarr; JOURNEY</p>
+                    </div>
+
+                    <div class="border border-gray-200 rounded-lg p-4">
+                        <h3 class="text-sm font-semibold text-gray-800">Theater- &amp; Auff&uuml;hrungsgeschichte</h3>
+                        <p class="text-xs text-gray-500 mt-1">Theaterbesuche, Konzerte, Aufführungen &mdash; Akteur, Ort, Datum, Programm.</p>
+                        <p class="text-xs text-gray-400 mt-1 font-mono">PERFORMANCE_ATTENDANCE (proposed)</p>
+                    </div>
+
+                    <div class="border border-gray-200 rounded-lg p-4">
+                        <h3 class="text-sm font-semibold text-gray-800">Lekt&uuml;re &amp; Rezeption</h3>
+                        <p class="text-xs text-gray-500 mt-1">Wer hat wann was gelesen? Lesetageb&uuml;cher, Bibliothekskataloge, Rezensionen.</p>
+                        <p class="text-xs text-gray-400 mt-1 font-mono">READING + thing.references (Werk)</p>
+                    </div>
+
+                    <div class="border border-gray-200 rounded-lg p-4">
+                        <h3 class="text-sm font-semibold text-gray-800">Diplomatik &amp; Archivwesen</h3>
+                        <p class="text-xs text-gray-500 mt-1">Urkunden, Regesten &mdash; HASE bildet die Handlung ab, die Quelle verweist auf Archiv, Signatur und Digitalisat.</p>
+                        <p class="text-xs text-gray-400 mt-1 font-mono">source: { archive, shelfmark, iiif, catalogUrl }</p>
+                    </div>
+
+                    <div class="border border-gray-200 rounded-lg p-4">
+                        <h3 class="text-sm font-semibold text-gray-800">Prosopographie</h3>
+                        <p class="text-xs text-gray-500 mt-1">Personen-Netzwerke entstehen automatisch: Wer taucht in denselben Handlungen auf?</p>
+                        <p class="text-xs text-gray-400 mt-1">Kein eigener Typ n&ouml;tig &mdash; ergibt sich aus den Daten</p>
+                    </div>
+
+                    <div class="border border-gray-200 rounded-lg p-4">
+                        <h3 class="text-sm font-semibold text-gray-800">Handelsgeschichte</h3>
+                        <p class="text-xs text-gray-500 mt-1">Transaktionen, Vertr&auml;ge, Lieferungen &mdash; Akteur, Gegenstand, Ort, Datum.</p>
+                        <p class="text-xs text-gray-400 mt-1 font-mono">TRANSACTION (proposed) + thing</p>
+                    </div>
+
+                    <div class="border border-gray-200 rounded-lg p-4">
+                        <h3 class="text-sm font-semibold text-gray-800">Rechtsgeschichte</h3>
+                        <p class="text-xs text-gray-500 mt-1">Gerichtsakten, Vertragsunterzeichnungen, Urteile.</p>
+                        <p class="text-xs text-gray-400 mt-1 font-mono">CONTRACT_SIGNING, COURT_HEARING (proposed)</p>
+                    </div>
+
+                    <div class="border border-gray-200 rounded-lg p-4">
+                        <h3 class="text-sm font-semibold text-gray-800">Provenienzforschung</h3>
+                        <p class="text-xs text-gray-500 mt-1">Besitzerwechsel von Kunstwerken, B&uuml;chern, Sammlungen &mdash; als Kette von Handlungen.</p>
+                        <p class="text-xs text-gray-400 mt-1 font-mono">OWNERSHIP_TRANSFER (proposed) + thing + continued</p>
+                    </div>
+
+                    <div class="border border-gray-200 rounded-lg p-4">
+                        <h3 class="text-sm font-semibold text-gray-800">Wissenschaftsgeschichte</h3>
+                        <p class="text-xs text-gray-500 mt-1">Experimente, Publikationen, Akademie-Sitzungen &mdash; Akteure in institutionellen Kontexten.</p>
+                        <p class="text-xs text-gray-400 mt-1 font-mono">PUBLICATION, EXPERIMENT (proposed)</p>
+                    </div>
+
+                    <div class="border border-gray-200 rounded-lg p-4">
+                        <h3 class="text-sm font-semibold text-gray-800">Musikgeschichte</h3>
+                        <p class="text-xs text-gray-500 mt-1">Kompositionen, Auff&uuml;hrungen, Konzertprogramme.</p>
+                        <p class="text-xs text-gray-400 mt-1 font-mono">COMPOSITION, PERFORMANCE (proposed)</p>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- Passt mit Einschränkungen -->
+            <section class="bg-white rounded-2xl shadow-sm border border-gray-200 p-8 mb-6">
+                <h2 class="text-xl font-bold text-gray-900 mb-4">
+                    <span class="inline-block w-3 h-3 rounded-full bg-yellow-400 mr-2 align-middle"></span>
+                    Passt mit Einschr&auml;nkungen
+                </h2>
+                <p class="text-sm text-gray-700 leading-relaxed mb-4">
+                    Diese Projekttypen lassen sich modellieren, aber HASE ist nicht das naheliegendste Format:
+                </p>
+                <div class="space-y-3">
+
+                    <div class="border border-yellow-200 rounded-lg p-4">
+                        <h3 class="text-sm font-semibold text-gray-800">Arch&auml;ologie</h3>
+                        <p class="text-xs text-gray-500 mt-1">Fundereignisse k&ouml;nnen als Handlungen modelliert werden (Ort + Objekt + Datum), aber Grabungskontexte und Schichtinformationen passen nicht ins Schema.</p>
+                        <p class="text-xs text-yellow-700 mt-1">Workaround: FINDING_EVENT (proposed)</p>
+                    </div>
+
+                    <div class="border border-yellow-200 rounded-lg p-4">
+                        <h3 class="text-sm font-semibold text-gray-800">Inschriften</h3>
+                        <p class="text-xs text-gray-500 mt-1">Oft ist kein Akteur bekannt &mdash; nur Ort und Objekt. Das geht, weil <code class="font-mono text-xs">actor</code> optional ist.</p>
+                        <p class="text-xs text-yellow-700 mt-1">Einschr&auml;nkung: Handlung ohne Akteur ist untypisch</p>
+                    </div>
+
+                    <div class="border border-yellow-200 rounded-lg p-4">
+                        <h3 class="text-sm font-semibold text-gray-800">Zeitungen &amp; Massendaten</h3>
+                        <p class="text-xs text-gray-500 mt-1">Tausende Ereignismeldungen sind modellierbar, aber viele anonyme Akteure und die Skalierung k&ouml;nnen problematisch werden.</p>
+                        <p class="text-xs text-yellow-700 mt-1">Einschr&auml;nkung: Sinnvoll ab ca. 100, getestet bis 10.000 Handlungen</p>
+                    </div>
+
+                    <div class="border border-yellow-200 rounded-lg p-4">
+                        <h3 class="text-sm font-semibold text-gray-800">Genealogie</h3>
+                        <p class="text-xs text-gray-500 mt-1">Geburten, Hochzeiten, Todesf&auml;lle sind Handlungen &mdash; aber HASE hat keine Standard-Typen daf&uuml;r und keine Verwandtschaftsbeziehungen.</p>
+                        <p class="text-xs text-yellow-700 mt-1">Workaround: BIRTH, MARRIAGE, DEATH (proposed); Beziehungen nur &uuml;ber Kookkurrenz</p>
+                    </div>
+
+                    <div class="border border-yellow-200 rounded-lg p-4">
+                        <h3 class="text-sm font-semibold text-gray-800">Mehrstufige Prozesse</h3>
+                        <p class="text-xs text-gray-500 mt-1">HASE kennt nur lineare Ketten (<code class="font-mono text-xs">continued</code> / <code class="font-mono text-xs">wasContinuedBy</code>), keine Baumstrukturen oder parallele Str&auml;nge.</p>
+                        <p class="text-xs text-yellow-700 mt-1">Workaround: <code class="font-mono text-xs">context</code>-Gruppierung f&uuml;r zusammengeh&ouml;rige Handlungen</p>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- Passt nicht -->
+            <section class="bg-white rounded-2xl shadow-sm border border-gray-200 p-8 mb-6">
+                <h2 class="text-xl font-bold text-gray-900 mb-4">
+                    <span class="inline-block w-3 h-3 rounded-full bg-red-400 mr-2 align-middle"></span>
+                    Passt nicht
+                </h2>
+                <p class="text-sm text-gray-700 leading-relaxed mb-4">
+                    F&uuml;r diese Projekttypen gibt es bessere Formate:
+                </p>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-sm">
+                        <thead><tr class="text-left text-xs text-gray-500 border-b border-gray-200"><th class="pb-1 pr-4">Projekttyp</th><th class="pb-1 pr-4">Warum nicht</th><th class="pb-1">Bessere Alternative</th></tr></thead>
+                        <tbody class="text-gray-700">
+                            <tr class="border-b border-gray-100"><td class="py-2 pr-4 text-xs font-semibold">Reine Textedition</td><td class="py-2 pr-4 text-xs">Kein Aktivit&auml;tsmodell &mdash; HASE modelliert keine Texte</td><td class="py-2 text-xs">TEI XML</td></tr>
+                            <tr class="border-b border-gray-100"><td class="py-2 pr-4 text-xs font-semibold">Linguistische Korpora</td><td class="py-2 pr-4 text-xs">Token/Annotation-Modell, kein Event-Modell</td><td class="py-2 text-xs">TEI, CoNLL, PAULA</td></tr>
+                            <tr class="border-b border-gray-100"><td class="py-2 pr-4 text-xs font-semibold">Bild-/Objektsammlungen</td><td class="py-2 pr-4 text-xs">Objekte ohne historischen Handlungskontext</td><td class="py-2 text-xs">IIIF, LIDO, Dublin Core</td></tr>
+                            <tr class="border-b border-gray-100"><td class="py-2 pr-4 text-xs font-semibold">Kartographie</td><td class="py-2 pr-4 text-xs">R&auml;ume ohne Handlungen</td><td class="py-2 text-xs">GeoJSON, WFS</td></tr>
+                            <tr class="border-b border-gray-100"><td class="py-2 pr-4 text-xs font-semibold">Quantitative Analyse</td><td class="py-2 pr-4 text-xs">Statistische Daten, keine diskreten Handlungen</td><td class="py-2 text-xs">CSV, Parquet, R/Python</td></tr>
+                            <tr><td class="py-2 pr-4 text-xs font-semibold">Vokabular-/Ontologieprojekte</td><td class="py-2 pr-4 text-xs">Begriffsmodellierung, keine Handlungen</td><td class="py-2 text-xs">SKOS, OWL</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Entscheidungshilfe -->
+            <section class="bg-white rounded-2xl shadow-sm border border-gray-200 p-8 mb-6">
+                <h2 class="text-xl font-bold text-gray-900 mb-4">Schnelltest</h2>
+                <p class="text-sm text-gray-700 leading-relaxed mb-4">
+                    Drei Fragen, die helfen:
+                </p>
+                <div class="space-y-3">
+                    <div class="flex gap-3 items-start">
+                        <span class="text-lg mt-0.5">1.</span>
+                        <div>
+                            <p class="text-sm text-gray-800 font-semibold">Haben Ihre Daten Zeitangaben?</p>
+                            <p class="text-xs text-gray-500 mt-0.5">HASE ordnet alles auf einer Zeitachse an. Ohne Daten wird es schwierig.</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-3 items-start">
+                        <span class="text-lg mt-0.5">2.</span>
+                        <div>
+                            <p class="text-sm text-gray-800 font-semibold">Sind Personen oder Orte beteiligt?</p>
+                            <p class="text-xs text-gray-500 mt-0.5">Mindestens eines davon macht HASE sinnvoll &mdash; weil EditionHub &uuml;ber GND automatisch projekt&uuml;bergreifend verkn&uuml;pft.</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-3 items-start">
+                        <span class="text-lg mt-0.5">3.</span>
+                        <div>
+                            <p class="text-sm text-gray-800 font-semibold">L&auml;sst sich das, was passiert ist, als Handlung beschreiben?</p>
+                            <p class="text-xs text-gray-500 mt-0.5">&bdquo;Goethe schickte einen Brief&ldquo;, &bdquo;Schiller besuchte das Theater&ldquo;, &bdquo;Humboldt &uuml;bernachtete in Quito&ldquo; &mdash; wenn Ihre Daten so klingen, passt HASE.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-green-50 border border-green-200 rounded-lg p-4 mt-5">
+                    <p class="text-xs text-green-800 leading-relaxed">
+                        <strong>Dreimal Ja?</strong> Dann k&ouml;nnen Sie direkt mit dem
+                        <a href="/hase#hase-minimalbeispiel" class="text-green-700 underline hover:text-green-900">Minimalbeispiel</a> starten.
+                        Bei Fragen helfen wir gern &mdash; schreiben Sie uns &uuml;ber die
+                        <a href="/historia" class="text-green-700 underline hover:text-green-900">Kontaktseite</a>.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Eigene Typen -->
+            <section class="bg-white rounded-2xl shadow-sm border border-gray-200 p-8 mb-6">
+                <h2 class="text-xl font-bold text-gray-900 mb-4">Eigene Handlungstypen vorschlagen</h2>
+                <p class="text-sm text-gray-700 leading-relaxed mb-4">
+                    HASE hat sechs Standard-Handlungstypen. Wenn Ihr Projekt andere braucht, deklarieren Sie sie einfach in Ihrer HASE-Datei:
+                </p>
+                <div class="bg-gray-900 rounded-lg p-4 overflow-x-auto mb-4">
+                    <pre class="text-xs text-green-400 font-mono leading-relaxed">"activityTypes": {
+  "THEATER_VISIT": {
+    "label": { "en": "Theater visit", "de": "Theaterbesuch" },
+    "status": "proposed",
+    "description": {
+      "en": "Attendance at a theater performance.",
+      "de": "Besuch einer Theaterauff&uuml;hrung."
+    }
+  }
+}</pre>
+                </div>
+                <p class="text-xs text-gray-500 leading-relaxed">
+                    <code class="font-mono">status: "proposed"</code> markiert den Typ als Vorschlag Ihres Projekts.
+                    Nach Pr&uuml;fung durch das EditionHub-Team kann er in den Kernkatalog aufgenommen und damit f&uuml;r alle Projekte nutzbar werden.
+                </p>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-6 text-center text-sm text-gray-400">
+    </footer>
+
+</body>
+</html>
