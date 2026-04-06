@@ -12,7 +12,8 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
-        body { font-family: 'Inter', sans-serif; }
+        body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
+        .toc-link.active { color: #2563eb; font-weight: 600; border-left: 2px solid #2563eb; margin-left: -13px; padding-left: 11px; }
     </style>
 </head>
 <body class="bg-gray-50 min-h-screen flex flex-col">
@@ -25,6 +26,14 @@
 
     <!-- Main -->
     <main class="flex-1 flex items-start justify-center px-4 pb-16">
+        <!-- Sidebar Navigation (Desktop) -->
+        <nav id="toc" class="hidden xl:block sticky top-8 w-48 shrink-0 mr-8 self-start">
+            <ul class="text-xs text-gray-400 space-y-1.5 border-l border-gray-200 pl-3">
+                <li><a href="#was-ist-eh-historia" class="toc-link hover:text-gray-700 transition block py-0.5">Was ist EH historia?</a></li>
+                <li><a href="#editionen" class="toc-link hover:text-gray-700 transition block py-0.5">Verfügbare Editionen</a></li>
+                <li><a href="#ihre-edition" class="toc-link hover:text-gray-700 transition block py-0.5">Ihre Edition</a></li>
+            </ul>
+        </nav>
         <div class="max-w-2xl w-full">
 
             <!-- Titel -->
@@ -35,7 +44,7 @@
 
             <!-- Was ist EH historia? -->
             <section class="bg-white rounded-2xl shadow-sm border border-gray-200 p-8 mb-6">
-                <h2 class="text-lg font-semibold text-gray-900 mb-4">Was ist EH historia?</h2>
+                <h2 id="was-ist-eh-historia" class="text-lg font-semibold text-gray-900 mb-4">Was ist EH historia?</h2>
                 <p class="text-gray-600 text-sm leading-relaxed mb-4">
                     EH historia erschließt historische Handlungen aus digitalen Editionen:
                     Briefkorrespondenz, Begegnungen, Übernachtungen, Reisen und mehr —
@@ -58,7 +67,7 @@
 
             <!-- Verfügbare Editionen -->
             <section class="bg-white rounded-2xl shadow-sm border border-gray-200 p-8 mb-6">
-                <h2 class="text-lg font-semibold text-gray-900 mb-4">Verfügbare Editionen</h2>
+                <h2 id="editionen" class="text-lg font-semibold text-gray-900 mb-4">Verfügbare Editionen</h2>
                 <div class="flex items-center gap-3">
                     <span class="inline-flex items-center px-3 py-1.5 rounded-lg text-sm font-medium bg-gray-100 text-gray-700">
                         <svg class="w-4 h-4 mr-2 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
@@ -70,7 +79,7 @@
 
             <!-- Ihre Edition auf EH historia -->
             <section class="bg-white rounded-2xl shadow-sm border border-gray-200 p-8 mb-6">
-                <h2 class="text-lg font-semibold text-gray-900 mb-4">Ihre Edition auf EH historia</h2>
+                <h2 id="ihre-edition" class="text-lg font-semibold text-gray-900 mb-4">Ihre Edition auf EH historia</h2>
                 <p class="text-gray-600 text-sm leading-relaxed mb-4">
                     EH historia ist offen für weitere digitale Editionen. Wenn Ihre Edition
                     historische Handlungen mit Personen, Orten und Zeitangaben enthält,
@@ -149,5 +158,23 @@
     <footer class="py-6 text-center text-sm text-gray-400">
     </footer>
 
+    <script>
+    (function() {
+        const links = document.querySelectorAll('.toc-link');
+        const ids = Array.from(links).map(a => a.getAttribute('href').slice(1));
+        function update() {
+            let current = ids[0];
+            for (const id of ids) {
+                const el = document.getElementById(id);
+                if (el && el.getBoundingClientRect().top <= 120) current = id;
+            }
+            links.forEach(a => {
+                a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+            });
+        }
+        window.addEventListener('scroll', update, { passive: true });
+        update();
+    })();
+    </script>
 </body>
 </html>
