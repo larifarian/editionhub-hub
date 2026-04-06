@@ -3,6 +3,7 @@
   "rewrites": [
     { "source": "/hase/schema/0.1", "destination": "/hase-schema.json" },
     { "source": "/hase/context/0.1", "destination": "/hase-context.jsonld" },
-    { "source": "/hase/ontology", "destination": "/eh-ontology.ttl" }
+    { "source": "/hase/ontology", "destination": "/eh-ontology.ttl" },
+    { "source": "/hase/example/0.1", "destination": "/hase-example.json" }
   ]
 }
