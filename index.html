@@ -14,14 +14,30 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
         body { font-family: 'Inter', sans-serif; }
+        html[lang="de"] [lang="en"] { display: none !important; }
+        html[lang="en"] [lang="de"] { display: none !important; }
+        .lang-switch { cursor: pointer; }
+        .lang-switch.active { color: #1d4ed8; font-weight: 600; }
     </style>
+    <script>
+        (function() {
+            var l = localStorage.getItem('eh-lang') || 'de';
+            document.documentElement.lang = l;
+        })();
+    </script>
 </head>
 <body class="bg-gray-50 min-h-screen flex flex-col">
 
     <!-- Header -->
-    <header class="py-8 text-center">
+    <header class="py-8 text-center relative">
+        <div class="absolute top-4 right-4 flex items-center gap-1 text-xs text-gray-400">
+            <button onclick="setLang('de')" class="lang-switch px-1.5 py-0.5 rounded hover:text-gray-600" data-lang="de">DE</button>
+            <span class="text-gray-300">|</span>
+            <button onclick="setLang('en')" class="lang-switch px-1.5 py-0.5 rounded hover:text-gray-600" data-lang="en">EN</button>
+        </div>
         <h1 class="text-4xl font-bold text-gray-900 tracking-tight">Edition<span class="text-blue-600">Hub</span></h1>
-        <p class="mt-3 text-lg text-gray-500 max-w-xl mx-auto">Offene Forschungsplattformen für Digitale Editionen</p>
+        <p lang="de" class="mt-3 text-lg text-gray-500 max-w-xl mx-auto">Offene Forschungsplattformen für Digitale Editionen</p>
+        <p lang="en" class="mt-3 text-lg text-gray-500 max-w-xl mx-auto">Open Research Platforms for Digital Scholarly Editions</p>
     </header>
 
     <!-- Main -->
@@ -32,13 +48,20 @@
             <div class="bg-white rounded-2xl shadow-sm border border-gray-200 p-8">
                 <div class="mb-4">
                     <h2 class="text-2xl font-bold text-gray-900 tracking-tight">E<span class="text-blue-600">H</span><span class="text-gray-400 font-light italic ml-1" style="font-size: 0.85em;">historia</span></h2>
-                    <p class="text-sm text-gray-500 mt-1">Historische Handlungen und Quellen</p>
+                    <p lang="de" class="text-sm text-gray-500 mt-1">Historische Handlungen und Quellen</p>
+                    <p lang="en" class="text-sm text-gray-500 mt-1">Historical Activities and Sources</p>
                 </div>
-                <p class="text-gray-600 text-sm leading-relaxed mb-4">
+                <p lang="de" class="text-gray-600 text-sm leading-relaxed mb-4">
                     Erkunde Briefkorrespondenz, Begegnungen, Übernachtungen und weitere
                     Handlungen aus digitalen Editionen — visualisiert auf Zeitstrahl und
                     Karte, vernetzt über Personen, Objekte und Themen,
                     erschließbar per Filter, Register und KI-Assistent.
+                </p>
+                <p lang="en" class="text-gray-600 text-sm leading-relaxed mb-4">
+                    Explore letter correspondence, encounters, overnight stays and more
+                    from digital scholarly editions — visualized on timeline and map,
+                    linked through persons, objects and topics,
+                    searchable via filters, indexes and AI assistant.
                 </p>
 
                 <!-- Heute vor ... Jahren (Diary API) -->
@@ -47,7 +70,8 @@
                         <p class="text-xs font-medium text-amber-700 uppercase tracking-wide" id="diaryLabel">Tagebuch</p>
                         <span class="text-xs text-amber-600 font-mono" id="diaryDate"></span>
                     </div>
-                    <p class="text-sm text-gray-700 leading-relaxed whitespace-pre-line italic" id="diaryEntry"><span id="diaryPersonName">Jemand</span> erinnert sich<span class="diary-dots"></span></p>
+                    <p lang="de" class="text-sm text-gray-700 leading-relaxed whitespace-pre-line italic" id="diaryEntry"><span id="diaryPersonName">Jemand</span> erinnert sich<span class="diary-dots"></span></p>
+                    <p lang="en" class="text-sm text-gray-700 leading-relaxed whitespace-pre-line italic"><span id="diaryPersonNameEn">Someone</span> remembers<span class="diary-dots"></span></p>
                     <p class="text-xs text-gray-500 mt-2" id="diaryMeta"></p>
                 </div>
                 <style>
@@ -66,7 +90,8 @@
 
                 <!-- Verfügbare Editionen -->
                 <div class="mb-4">
-                    <p class="text-xs font-medium text-gray-400 uppercase tracking-wide mb-2">Verfügbare Editionen</p>
+                    <p lang="de" class="text-xs font-medium text-gray-400 uppercase tracking-wide mb-2">Verfügbare Editionen</p>
+                    <p lang="en" class="text-xs font-medium text-gray-400 uppercase tracking-wide mb-2">Available Editions</p>
                     <div class="flex items-center gap-2">
                         <span class="inline-flex items-center px-3 py-1 rounded-lg text-xs font-medium bg-gray-100 text-gray-700">
                             <svg class="w-3.5 h-3.5 mr-1.5 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
@@ -77,11 +102,11 @@
 
                 <div class="pt-4 border-t border-gray-100 flex items-center gap-4">
                     <a href="https://historia.editionhub.org" class="inline-flex items-center gap-2 px-4 py-2 bg-gray-900 text-white text-sm font-medium rounded-lg hover:bg-gray-800 transition no-underline">
-                        Zur Plattform
+                        <span lang="de">Zur Plattform</span><span lang="en">Open Platform</span>
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
                     </a>
                     <a href="/historia" class="text-sm font-medium text-blue-600 hover:text-blue-800 transition flex items-center gap-1 no-underline">
-                        Mehr erfahren
+                        <span lang="de">Mehr erfahren</span><span lang="en">Learn more</span>
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
                     </a>
                 </div>
@@ -95,6 +120,16 @@
     </footer>
 
     <script>
+        function setLang(lang) {
+            document.documentElement.lang = lang;
+            localStorage.setItem('eh-lang', lang);
+            document.querySelectorAll('.lang-switch').forEach(function(btn) {
+                btn.classList.toggle('active', btn.dataset.lang === lang);
+            });
+        }
+        // Init toggle state
+        setLang(document.documentElement.lang);
+
         (async function loadDiary() {
             const box = document.getElementById('diaryBox');
             const entryEl = document.getElementById('diaryEntry');
@@ -107,8 +142,9 @@
                 const year = parseInt(date.substring(0, 4), 10);
                 const yearsAgo = today.getFullYear() - year;
                 const dateObj = new Date(date);
-                const dateLabel = dateObj.toLocaleDateString('de-DE', { day: 'numeric', month: 'long', year: 'numeric' });
-                document.getElementById('diaryLabel').textContent = `Heute vor ${yearsAgo} Jahren`;
+                const isEn = document.documentElement.lang === 'en';
+                const dateLabel = dateObj.toLocaleDateString(isEn ? 'en-GB' : 'de-DE', { day: 'numeric', month: 'long', year: 'numeric' });
+                document.getElementById('diaryLabel').textContent = isEn ? `${yearsAgo} years ago today` : `Heute vor ${yearsAgo} Jahren`;
                 document.getElementById('diaryDate').textContent = dateLabel;
 
                 const personId = 'http://id.editionhub.org/entity/person/4';
@@ -118,7 +154,11 @@
                     .then(r => r.ok ? r.json() : null)
                     .then(persons => {
                         const name = persons?.[0]?.label;
-                        if (name) document.getElementById('diaryPersonName').textContent = name;
+                        if (name) {
+                            document.getElementById('diaryPersonName').textContent = name;
+                            var enName = document.getElementById('diaryPersonNameEn');
+                            if (enName) enName.textContent = name;
+                        }
                     })
                     .catch(() => {});
 
@@ -133,8 +173,10 @@
 
                 entryEl.classList.remove('italic');
                 entryEl.textContent = data.entry;
-                document.getElementById('diaryMeta').textContent =
-                    `${data.person?.label || ''} · ${data.handlungen?.length || 0} Handlung(en)`;
+                const actCount = data.handlungen?.length || 0;
+                document.getElementById('diaryMeta').textContent = isEn
+                    ? `${data.person?.label || ''} · ${actCount} activit${actCount === 1 ? 'y' : 'ies'}`
+                    : `${data.person?.label || ''} · ${actCount} Handlung(en)`;
             } catch (e) {
                 box.classList.add('hidden');
             }

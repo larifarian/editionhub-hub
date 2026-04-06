@@ -14,25 +14,47 @@
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
         body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
         .toc-link.active { color: #2563eb; font-weight: 600; border-left: 2px solid #2563eb; margin-left: -13px; padding-left: 11px; }
+        html[lang="de"] [lang="en"] { display: none !important; }
+        html[lang="en"] [lang="de"] { display: none !important; }
+        .lang-switch { cursor: pointer; }
+        .lang-switch.active { color: #1d4ed8; font-weight: 600; }
     </style>
+    <script>
+        (function() {
+            var l = localStorage.getItem('eh-lang') || 'de';
+            document.documentElement.lang = l;
+        })();
+    </script>
 </head>
 <body class="bg-gray-50 min-h-screen flex flex-col">
 
     <!-- Header -->
-    <header class="py-8 text-center">
+    <header class="py-8 text-center relative">
+        <div class="absolute top-4 right-4 flex items-center gap-1 text-xs text-gray-400">
+            <button onclick="setLang('de')" class="lang-switch px-1.5 py-0.5 rounded hover:text-gray-600" data-lang="de">DE</button>
+            <span class="text-gray-300">|</span>
+            <button onclick="setLang('en')" class="lang-switch px-1.5 py-0.5 rounded hover:text-gray-600" data-lang="en">EN</button>
+        </div>
         <a href="/" class="text-4xl font-bold text-gray-900 tracking-tight no-underline hover:opacity-80 transition">Edition<span class="text-blue-600">Hub</span></a>
-        <p class="mt-3 text-lg text-gray-500 max-w-xl mx-auto">Offene Forschungsplattformen für Digitale Editionen</p>
+        <p lang="de" class="mt-3 text-lg text-gray-500 max-w-xl mx-auto">Offene Forschungsplattformen für Digitale Editionen</p>
+        <p lang="en" class="mt-3 text-lg text-gray-500 max-w-xl mx-auto">Open Research Platforms for Digital Scholarly Editions</p>
     </header>
 
     <!-- Main -->
     <main class="flex-1 flex items-start justify-center px-4 pb-16">
         <!-- Sidebar Navigation (Desktop) -->
         <nav id="toc" class="hidden xl:block sticky top-8 w-48 shrink-0 mr-8 self-start">
-            <ul class="text-xs text-gray-400 space-y-1.5 border-l border-gray-200 pl-3">
+            <ul lang="de" class="text-xs text-gray-400 space-y-1.5 border-l border-gray-200 pl-3">
                 <li><a href="#was-ist-eh-historia" class="toc-link hover:text-gray-700 transition block py-0.5">Was ist EH historia?</a></li>
                 <li><a href="#editionen" class="toc-link hover:text-gray-700 transition block py-0.5">Verfügbare Editionen</a></li>
                 <li><a href="#ihre-edition" class="toc-link hover:text-gray-700 transition block py-0.5">Ihre Daten</a></li>
                 <li><a href="#hase-format" class="toc-link hover:text-gray-700 transition block py-0.5">HASE-Format</a></li>
+            </ul>
+            <ul lang="en" class="text-xs text-gray-400 space-y-1.5 border-l border-gray-200 pl-3">
+                <li><a href="#was-ist-eh-historia" class="toc-link hover:text-gray-700 transition block py-0.5">What is EH historia?</a></li>
+                <li><a href="#editionen" class="toc-link hover:text-gray-700 transition block py-0.5">Available Editions</a></li>
+                <li><a href="#ihre-edition" class="toc-link hover:text-gray-700 transition block py-0.5">Your Data</a></li>
+                <li><a href="#hase-format" class="toc-link hover:text-gray-700 transition block py-0.5">HASE Format</a></li>
             </ul>
         </nav>
         <div class="max-w-2xl w-full">
@@ -46,55 +68,83 @@
                     </a>
                 </div>
                 <h1 class="text-3xl font-bold text-gray-900 tracking-tight">E<span class="text-blue-600">H</span><span class="text-gray-400 font-light italic ml-1" style="font-size: 0.85em;">historia</span></h1>
-                <p class="mt-2 text-gray-500">Erkunde Briefkorrespondenz, Begegnungen, Übernachtungen und weitere Handlungen — visualisiert auf Zeitstrahl und Karte, vernetzt über Personen und Orte.</p>
+                <p lang="de" class="mt-2 text-gray-500">Erkunde Briefkorrespondenz, Begegnungen, Übernachtungen und weitere Handlungen — visualisiert auf Zeitstrahl und Karte, vernetzt über Personen und Orte.</p>
+                <p lang="en" class="mt-2 text-gray-500">Explore letter correspondence, encounters, overnight stays and more — visualized on timeline and map, linked through persons and places.</p>
             </div>
 
             <!-- Was ist EH historia? -->
             <section class="bg-white rounded-2xl shadow-sm border border-gray-200 p-8 mb-6">
-                <h2 id="was-ist-eh-historia" class="text-lg font-semibold text-gray-900 mb-4">Was ist EH historia?</h2>
-                <p class="text-gray-600 text-sm leading-relaxed mb-4">
+                <h2 id="was-ist-eh-historia" lang="de" class="text-lg font-semibold text-gray-900 mb-4">Was ist EH historia?</h2>
+                <h2 id="was-ist-eh-historia-en" lang="en" class="text-lg font-semibold text-gray-900 mb-4">What is EH historia?</h2>
+                <p lang="de" class="text-gray-600 text-sm leading-relaxed mb-4">
                     EH historia erschließt historische Handlungen aus digitalen Editionen:
                     Briefkorrespondenz, Begegnungen, Übernachtungen, Reisen und mehr —
                     visualisiert auf Zeitstrahl und interaktiver Karte, vernetzt über
                     Personen, Objekte und Themen, erschließbar per Filter, Register
                     und KI-Assistent.
                 </p>
-                <p class="text-gray-600 text-sm leading-relaxed mb-4">
+                <p lang="en" class="text-gray-600 text-sm leading-relaxed mb-4">
+                    EH historia makes historical activities from digital scholarly editions accessible:
+                    letter correspondence, encounters, overnight stays, journeys and more —
+                    visualized on timeline and interactive map, linked through
+                    persons, objects and topics, searchable via filters, indexes
+                    and AI assistant.
+                </p>
+                <p lang="de" class="text-gray-600 text-sm leading-relaxed mb-4">
                     Die Plattform basiert auf CIDOC-CRM und Linked Data. Alle Daten sind
                     über eine REST API und einen SPARQL-Endpunkt maschinenlesbar zugänglich.
                 </p>
+                <p lang="en" class="text-gray-600 text-sm leading-relaxed mb-4">
+                    The platform is based on CIDOC-CRM and Linked Data. All data is
+                    machine-readable via REST API and SPARQL endpoint.
+                </p>
 
-                <div class="flex flex-wrap gap-2">
+                <div lang="de" class="flex flex-wrap gap-2">
                     <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-50 text-blue-700">CIDOC-CRM</span>
                     <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-50 text-blue-700">Linked Data</span>
                     <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-50 text-blue-700">REST API</span>
                     <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-50 text-blue-700">KI-Assistent</span>
                 </div>
+                <div lang="en" class="flex flex-wrap gap-2">
+                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-50 text-blue-700">CIDOC-CRM</span>
+                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-50 text-blue-700">Linked Data</span>
+                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-50 text-blue-700">REST API</span>
+                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-50 text-blue-700">AI Assistant</span>
+                </div>
             </section>
 
             <!-- Verfügbare Editionen -->
             <section class="bg-white rounded-2xl shadow-sm border border-gray-200 p-8 mb-6">
-                <h2 id="editionen" class="text-lg font-semibold text-gray-900 mb-4">Verfügbare Editionen</h2>
+                <h2 id="editionen" lang="de" class="text-lg font-semibold text-gray-900 mb-4">Verfügbare Editionen</h2>
+                <h2 lang="en" class="text-lg font-semibold text-gray-900 mb-4">Available Editions</h2>
                 <div class="flex items-center gap-3">
                     <span class="inline-flex items-center px-3 py-1.5 rounded-lg text-sm font-medium bg-gray-100 text-gray-700">
                         <svg class="w-4 h-4 mr-2 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
                         Propyläen — Goethes Biographica
                     </span>
                 </div>
-                <p class="text-gray-400 text-xs mt-3">Weitere Editionen in Vorbereitung</p>
+                <p lang="de" class="text-gray-400 text-xs mt-3">Weitere Editionen in Vorbereitung</p>
+                <p lang="en" class="text-gray-400 text-xs mt-3">More editions in preparation</p>
             </section>
 
             <!-- Ihre Daten auf EH historia -->
             <section class="bg-white rounded-2xl shadow-sm border border-gray-200 p-8 mb-6">
-                <h2 id="ihre-edition" class="text-lg font-semibold text-gray-900 mb-4">Ihre Daten auf EH historia</h2>
-                <p class="text-gray-600 text-sm leading-relaxed mb-4">
+                <h2 id="ihre-edition" lang="de" class="text-lg font-semibold text-gray-900 mb-4">Ihre Daten auf EH historia</h2>
+                <h2 lang="en" class="text-lg font-semibold text-gray-900 mb-4">Your Data on EH historia</h2>
+                <p lang="de" class="text-gray-600 text-sm leading-relaxed mb-4">
                     EH historia ist offen für weitere digitale Editionen. Wenn Ihre Edition
                     historische Handlungen mit Personen, Orten und Zeitangaben enthält,
                     kann sie auf der Plattform erschlossen werden.
                 </p>
+                <p lang="en" class="text-gray-600 text-sm leading-relaxed mb-4">
+                    EH historia is open to further digital scholarly editions. If your edition
+                    contains historical activities with persons, places and dates,
+                    it can be made accessible on the platform.
+                </p>
 
-                <h3 class="text-sm font-semibold text-gray-700 mb-3">Was wir brauchen</h3>
-                <ul class="space-y-2 mb-4">
+                <h3 lang="de" class="text-sm font-semibold text-gray-700 mb-3">Was wir brauchen</h3>
+                <h3 lang="en" class="text-sm font-semibold text-gray-700 mb-3">What we need</h3>
+                <ul lang="de" class="space-y-2 mb-4">
                     <li class="flex items-start gap-2 text-sm text-gray-600">
                         <svg class="w-4 h-4 mt-0.5 text-blue-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4"/></svg>
                         Historische Handlungen mit Akteuren und/oder Orten
@@ -108,9 +158,24 @@
                         Normierte Entitäten (GND, Wikidata o.ä.) — hilfreich, aber nicht zwingend
                     </li>
                 </ul>
+                <ul lang="en" class="space-y-2 mb-4">
+                    <li class="flex items-start gap-2 text-sm text-gray-600">
+                        <svg class="w-4 h-4 mt-0.5 text-blue-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4"/></svg>
+                        Historical activities with actors and/or places
+                    </li>
+                    <li class="flex items-start gap-2 text-sm text-gray-600">
+                        <svg class="w-4 h-4 mt-0.5 text-blue-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4"/></svg>
+                        Structured data in <a href="#hase-format" class="text-blue-600 hover:underline">HASE format</a> (JSON) — or TEI/XML or comparable source formats that we convert to HASE together
+                    </li>
+                    <li class="flex items-start gap-2 text-sm text-gray-600">
+                        <svg class="w-4 h-4 mt-0.5 text-blue-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4"/></svg>
+                        Authority data (GND, Wikidata etc.) — helpful but not required
+                    </li>
+                </ul>
 
-                <h3 class="text-sm font-semibold text-gray-700 mb-3">Wie es funktioniert</h3>
-                <div class="space-y-3 mb-6">
+                <h3 lang="de" class="text-sm font-semibold text-gray-700 mb-3">Wie es funktioniert</h3>
+                <h3 lang="en" class="text-sm font-semibold text-gray-700 mb-3">How it works</h3>
+                <div lang="de" class="space-y-3 mb-6">
                     <div class="flex items-start gap-3">
                         <span class="w-6 h-6 rounded-full bg-blue-100 text-blue-700 text-xs font-bold flex items-center justify-center shrink-0">1</span>
                         <p class="text-sm text-gray-600">Wir prüfen gemeinsam, ob und wie Ihre Daten zum HASE-Modell passen.</p>
@@ -128,21 +193,42 @@
                         <p class="text-sm text-gray-600">Ihre Edition erscheint als eigener Datenbestand auf EH historia — filterbar und vernetzt mit allen anderen Editionen.</p>
                     </div>
                 </div>
+                <div lang="en" class="space-y-3 mb-6">
+                    <div class="flex items-start gap-3">
+                        <span class="w-6 h-6 rounded-full bg-blue-100 text-blue-700 text-xs font-bold flex items-center justify-center shrink-0">1</span>
+                        <p class="text-sm text-gray-600">We jointly assess whether and how your data fits the HASE model.</p>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <span class="w-6 h-6 rounded-full bg-blue-100 text-blue-700 text-xs font-bold flex items-center justify-center shrink-0">2</span>
+                        <p class="text-sm text-gray-600">You provide a HASE file — either exported directly from your project or converted from your source format together with us.</p>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <span class="w-6 h-6 rounded-full bg-blue-100 text-blue-700 text-xs font-bold flex items-center justify-center shrink-0">3</span>
+                        <p class="text-sm text-gray-600">EH historia regularly harvests your HASE file, converts it to CIDOC-CRM and links it with existing entities.</p>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <span class="w-6 h-6 rounded-full bg-blue-100 text-blue-700 text-xs font-bold flex items-center justify-center shrink-0">4</span>
+                        <p class="text-sm text-gray-600">Your edition appears as its own dataset on EH historia — filterable and linked with all other editions.</p>
+                    </div>
+                </div>
 
                 <a href="mailto:kontakt@editionhub.org" class="inline-flex items-center gap-2 px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded-lg hover:bg-blue-700 transition no-underline">
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-                    Kontakt aufnehmen
+                    <span lang="de">Kontakt aufnehmen</span><span lang="en">Get in touch</span>
                 </a>
             </section>
 
             <!-- HASE-Format -->
             <section class="bg-white rounded-2xl shadow-sm border border-gray-200 p-8 mb-6">
                 <h2 id="hase-format" class="text-lg font-semibold text-gray-900 mb-4">HASE-Format</h2>
-                <p class="text-gray-600 text-sm leading-relaxed mb-4">
+                <p lang="de" class="text-gray-600 text-sm leading-relaxed mb-4">
                     <strong class="text-gray-900">HASE</strong> (Historical Activity and Source Exchange) ist ein schlankes JSON-Format für historische Handlungen und Quellen — mit wenigen Feldern pro Eintrag und GND/Wikidata als Brücke zu Personen und Orten. Es senkt die Einstiegshürde für Editionsprojekte erheblich und ist der empfohlene Weg, Daten an EH historia zu übergeben.
                 </p>
+                <p lang="en" class="text-gray-600 text-sm leading-relaxed mb-4">
+                    <strong class="text-gray-900">HASE</strong> (Historical Activity and Source Exchange) is a lightweight JSON format for historical activities and sources — with few fields per entry and GND/Wikidata as bridges to persons and places. It significantly lowers the barrier for edition projects and is the recommended way to submit data to EH historia.
+                </p>
                 <a href="/hase" class="inline-flex items-center gap-1 text-sm font-medium text-blue-600 hover:text-blue-800 no-underline">
-                    HASE-Spezifikation ansehen
+                    <span lang="de">HASE-Spezifikation ansehen</span><span lang="en">View HASE specification</span>
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
                 </a>
             </section>
@@ -150,14 +236,17 @@
             <!-- Zur Plattform -->
             <div class="text-center mb-8">
                 <a href="https://historia.editionhub.org" class="inline-flex items-center gap-2 px-6 py-3 bg-gray-900 text-white text-sm font-medium rounded-xl hover:bg-gray-800 transition no-underline">
-                    Zur Plattform
+                    <span lang="de">Zur Plattform</span><span lang="en">Open Platform</span>
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
                 </a>
             </div>
 
             <!-- Footer-Info -->
-            <div class="text-center text-xs text-gray-400">
+            <div lang="de" class="text-center text-xs text-gray-400">
                 Entwickelt im Rahmen des <a href="https://goethe-biographica.de/" class="underline hover:text-gray-600">Propyläen-Projekts</a> am <a href="https://www.freies-deutsches-hochstift.de" class="underline hover:text-gray-600">Freien Deutschen Hochstift</a>
+            </div>
+            <div lang="en" class="text-center text-xs text-gray-400">
+                Developed as part of the <a href="https://goethe-biographica.de/" class="underline hover:text-gray-600">Propyläen Project</a> at the <a href="https://www.freies-deutsches-hochstift.de" class="underline hover:text-gray-600">Freies Deutsches Hochstift</a>
             </div>
 
         </div>
@@ -168,6 +257,15 @@
     </footer>
 
     <script>
+    function setLang(lang) {
+        document.documentElement.lang = lang;
+        localStorage.setItem('eh-lang', lang);
+        document.querySelectorAll('.lang-switch').forEach(function(btn) {
+            btn.classList.toggle('active', btn.dataset.lang === lang);
+        });
+    }
+    setLang(document.documentElement.lang);
+
     (function() {
         const links = document.querySelectorAll('.toc-link');
         const ids = Array.from(links).map(a => a.getAttribute('href').slice(1));
