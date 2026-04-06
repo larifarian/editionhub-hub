@@ -61,6 +61,64 @@
                 </div>
             </section>
 
+            <!-- Daten einreichen -->
+            <section class="bg-white rounded-2xl shadow-sm border border-gray-200 p-8 mb-6">
+                <h2 class="text-xl font-bold text-gray-900 mb-4">Daten einreichen</h2>
+
+                <div class="space-y-4">
+                    <div class="flex gap-4 items-start">
+                        <div class="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center shrink-0 mt-0.5">
+                            <span class="text-sm font-bold text-blue-600">1</span>
+                        </div>
+                        <div>
+                            <h3 class="text-sm font-semibold text-gray-800">HASE-Datei erstellen</h3>
+                            <p class="text-xs text-gray-500 mt-1">Kopieren Sie das Minimalbeispiel und passen Sie es an. Nutzen Sie GND-IDs für Personen und Orte, wo möglich.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-4 items-start">
+                        <div class="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center shrink-0 mt-0.5">
+                            <span class="text-sm font-bold text-blue-600">2</span>
+                        </div>
+                        <div>
+                            <h3 class="text-sm font-semibold text-gray-800">Datei an einer stabilen URL hosten</h3>
+                            <p class="text-xs text-gray-500 mt-1">Z.B. auf dem eigenen Server, GitHub, oder Zenodo. Die Datei bleibt bei Ihnen — EditionHub holt sie ab.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-4 items-start">
+                        <div class="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center shrink-0 mt-0.5">
+                            <span class="text-sm font-bold text-blue-600">3</span>
+                        </div>
+                        <div>
+                            <h3 class="text-sm font-semibold text-gray-800">URL registrieren</h3>
+                            <p class="text-xs text-gray-500 mt-1">EditionHub harvested Ihre HASE-Datei regelmäßig. Änderungen werden automatisch übernommen.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Implementierungen -->
+            <section class="bg-white rounded-2xl shadow-sm border border-gray-200 p-8 mb-6">
+                <h2 class="text-xl font-bold text-gray-900 mb-4">Implementierungen</h2>
+                <div class="space-y-3">
+                    <a href="/hase-tei" class="flex items-center justify-between p-4 border border-gray-200 rounded-lg hover:border-blue-300 hover:bg-blue-50 transition no-underline group">
+                        <div>
+                            <h3 class="text-sm font-semibold text-gray-800 group-hover:text-blue-700">HASE-TEI</h3>
+                            <p class="text-xs text-gray-500 mt-0.5">Mapping von HASE auf TEI XML — für Projekte, die bereits TEI nutzen</p>
+                        </div>
+                        <svg class="w-5 h-5 text-gray-400 group-hover:text-blue-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+                    </a>
+                    <a href="/hase-cidoc-crm" class="flex items-center justify-between p-4 border border-gray-200 rounded-lg hover:border-blue-300 hover:bg-blue-50 transition no-underline group">
+                        <div>
+                            <h3 class="text-sm font-semibold text-gray-800 group-hover:text-blue-700">HASE &rarr; CIDOC-CRM</h3>
+                            <p class="text-xs text-gray-500 mt-0.5">Wie HASE intern auf CIDOC-CRM abgebildet wird</p>
+                        </div>
+                        <svg class="w-5 h-5 text-gray-400 group-hover:text-blue-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+                    </a>
+                </div>
+            </section>
+
             <!-- Minimalbeispiel -->
             <section class="bg-white rounded-2xl shadow-sm border border-gray-200 p-8 mb-6">
                 <h2 class="text-xl font-bold text-gray-900 mb-4">Minimalbeispiel</h2>
@@ -362,64 +420,6 @@
     }
   ]
 }</pre>
-                </div>
-            </section>
-
-            <!-- Daten einreichen -->
-            <section class="bg-white rounded-2xl shadow-sm border border-gray-200 p-8 mb-6">
-                <h2 class="text-xl font-bold text-gray-900 mb-4">Daten einreichen</h2>
-
-                <div class="space-y-4">
-                    <div class="flex gap-4 items-start">
-                        <div class="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center shrink-0 mt-0.5">
-                            <span class="text-sm font-bold text-blue-600">1</span>
-                        </div>
-                        <div>
-                            <h3 class="text-sm font-semibold text-gray-800">HASE-Datei erstellen</h3>
-                            <p class="text-xs text-gray-500 mt-1">Kopieren Sie das Minimalbeispiel und passen Sie es an. Nutzen Sie GND-IDs für Personen und Orte, wo möglich.</p>
-                        </div>
-                    </div>
-
-                    <div class="flex gap-4 items-start">
-                        <div class="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center shrink-0 mt-0.5">
-                            <span class="text-sm font-bold text-blue-600">2</span>
-                        </div>
-                        <div>
-                            <h3 class="text-sm font-semibold text-gray-800">Datei an einer stabilen URL hosten</h3>
-                            <p class="text-xs text-gray-500 mt-1">Z.B. auf dem eigenen Server, GitHub, oder Zenodo. Die Datei bleibt bei Ihnen — EditionHub holt sie ab.</p>
-                        </div>
-                    </div>
-
-                    <div class="flex gap-4 items-start">
-                        <div class="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center shrink-0 mt-0.5">
-                            <span class="text-sm font-bold text-blue-600">3</span>
-                        </div>
-                        <div>
-                            <h3 class="text-sm font-semibold text-gray-800">URL registrieren</h3>
-                            <p class="text-xs text-gray-500 mt-1">EditionHub harvested Ihre HASE-Datei regelmäßig. Änderungen werden automatisch übernommen.</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Implementierungen -->
-            <section class="bg-white rounded-2xl shadow-sm border border-gray-200 p-8 mb-6">
-                <h2 class="text-xl font-bold text-gray-900 mb-4">Implementierungen</h2>
-                <div class="space-y-3">
-                    <a href="/hase-tei" class="flex items-center justify-between p-4 border border-gray-200 rounded-lg hover:border-blue-300 hover:bg-blue-50 transition no-underline group">
-                        <div>
-                            <h3 class="text-sm font-semibold text-gray-800 group-hover:text-blue-700">HASE-TEI</h3>
-                            <p class="text-xs text-gray-500 mt-0.5">Mapping von HASE auf TEI XML — für Projekte, die bereits TEI nutzen</p>
-                        </div>
-                        <svg class="w-5 h-5 text-gray-400 group-hover:text-blue-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
-                    </a>
-                    <a href="/hase-cidoc-crm" class="flex items-center justify-between p-4 border border-gray-200 rounded-lg hover:border-blue-300 hover:bg-blue-50 transition no-underline group">
-                        <div>
-                            <h3 class="text-sm font-semibold text-gray-800 group-hover:text-blue-700">HASE → CIDOC-CRM</h3>
-                            <p class="text-xs text-gray-500 mt-0.5">Wie HASE intern auf CIDOC-CRM abgebildet wird</p>
-                        </div>
-                        <svg class="w-5 h-5 text-gray-400 group-hover:text-blue-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
-                    </a>
                 </div>
             </section>
 
