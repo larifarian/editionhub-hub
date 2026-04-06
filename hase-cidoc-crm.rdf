@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?graph http://goethe-biographica.de/graph/2026-03-04?>
+<rdf:RDF xmlns:crm="http://www.cidoc-crm.org/cidoc-crm/"
+         xmlns:eh="http://id.editionhub.org/ontology#"
+         xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+         xmlns:skos="http://www.w3.org/2004/02/skos/core#">
+   <rdf:Description rdf:about="http://goethe-biographica.de/graph/2026-03-04">
+      <rdfs:label>Propyläen</rdfs:label>
+      <skos:notation>PROP</skos:notation>
+   </rdf:Description>
+   <!-- Einzelhandlung -->
+   <crm:E7_Activity rdf:about="http://id.editionhub.org/entity/briefsendung/gb/GB10280">
+      <crm:P2_has_type rdf:resource="http://id.editionhub.org/ontology#BRIEFSENDUNG"/>
+      <crm:P134i_was_continued_by rdf:resource="http://id.editionhub.org/entity/briefempfang/gb/GB10280"/>
+      <crm:P175i_starts_after_or_with_the_start_of rdf:resource="http://id.editionhub.org/entity/tag/1774-08-16"/>
+      <crm:P184_ends_before_or_with_the_end_of rdf:resource="http://id.editionhub.org/entity/tag/1774-08-16"/>
+      <crm:P14_carried_out_by>
+         <crm:E21_Person rdf:about="http://id.klassik-stiftung.de/entity/person/2475"/>
+      </crm:P14_carried_out_by>
+      <crm:P7_took_place_at>
+         <crm:E53_Place rdf:about="http://id.klassik-stiftung.de/entity/place/77853"/>
+      </crm:P7_took_place_at>
+      <crm:P16_used_specific_object>
+         <crm:E22_Human-Made_Object rdf:about="http://id.editionhub.org/entity/brief/gsa/GB10280"/>
+      </crm:P16_used_specific_object>
+   </crm:E7_Activity>
+   <crm:E7_Activity rdf:about="http://id.editionhub.org/entity/briefempfang/gb/GB10280">
+      <crm:P2_has_type rdf:resource="http://id.editionhub.org/ontology#BRIEFEMPFANG"/>
+      <crm:P134_continued rdf:resource="http://id.editionhub.org/entity/briefsendung/gb/GB10280"/>
+      <crm:P176i_starts_after_the_start_of rdf:resource="http://id.editionhub.org/entity/tag/1774-08-16"/>
+      <crm:P14_carried_out_by>
+         <crm:E21_Person rdf:about="http://id.klassik-stiftung.de/entity/person/53538"/>
+      </crm:P14_carried_out_by>
+      <crm:P7_took_place_at>
+         <crm:E53_Place rdf:about="http://id.klassik-stiftung.de/entity/place/77966"/>
+      </crm:P7_took_place_at>
+      <crm:P16_used_specific_object>
+         <crm:E22_Human-Made_Object rdf:about="http://id.editionhub.org/entity/brief/gsa/GB10280"/>
+      </crm:P16_used_specific_object>
+   </crm:E7_Activity>
+   <!-- Zusammenhang -->
+   <crm:E5_Event rdf:about="http://id.editionhub.org/entity/korrespondenz/gb/GB10280">
+      <crm:P2_has_type rdf:resource="http://id.editionhub.org/ontology#KORRESPONDENZ"/>
+      <crm:P9_consists_of rdf:resource="http://id.editionhub.org/entity/briefsendung/gb/GB10280"/>
+      <crm:P9_consists_of rdf:resource="http://id.editionhub.org/entity/briefempfang/gb/GB10280"/>
+   </crm:E5_Event>
+   <!-- Objekt (als Zeugnis und/oder als Teil einer Handlung) -->
+   <crm:E22_Human-Made_Object rdf:about="http://id.editionhub.org/entity/brief/gsa/GB10280">
+      <crm:P2_has_type rdf:resource="http://id.editionhub.org/ontology#BRIEF"/>
+      <crm:P54_has_current_permanent_location>
+         <crm:E74_Group rdf:about="http://id.editionhub.org/entity/archiv/gsa"/>
+      </crm:P54_has_current_permanent_location>
+      <crm:P48_has_preferred_identifier>GSA 29/484,I 5-6</crm:P48_has_preferred_identifier>
+      <crm:P67i_is_referred_to_by rdf:resource="https://ores.klassik-stiftung.de/ords/f?p=401:2:::::P2_ID:8655"/>
+      <crm:P138i_has_representation rdf:resource="https://ores.klassik-stiftung.de/ords/rest_api/iiif/digi_gsa/8655/manifest"/>
+      <crm:P130_shows_features_of>
+         <crm:E28_Conceptual_Object rdf:about="http://id.editionhub.org/entity/sachbegriff/1"/>
+      </crm:P130_shows_features_of>
+      <crm:P130_shows_features_of>
+         <crm:F1_Work rdf:about="http://id.editionhub.org/entity/work/1"/>
+      </crm:P130_shows_features_of>
+      <crm:P130_shows_features_of>
+         <crm:E53_Place rdf:about="http://id.klassik-stiftung.de/entity/place/77853"/>
+      </crm:P130_shows_features_of>
+   </crm:E22_Human-Made_Object>
+   <!-- Edition -->
+   <crm:E90_Symbolic_Object
+      rdf:about="http://id.editionhub.org/entity/tei/gb/GB10280"
+      rdfs:label="GB04_BR001_0">
+      <crm:P2_has_type rdf:resource="http://id.editionhub.org/ontology#TEI"/>
+      <crm:P94i_was_created_by rdf:resource="http://id.editionhub.org/entity/edition/gb"/>
+      <crm:P138i_has_representation rdf:resource="http://goethe-biographica.de/id/GB02_BR136_0"/>
+   </crm:E90_Symbolic_Object>
+   <!-- Objekt Edition Handlung -->
+   <crm:E13_Attribute_Assignment>
+      <crm:P140_assigned_attribute_to
+         rdf:resource="http://id.editionhub.org/entity/brief/gsa/GB10280"/>
+      <crm:P177_assigned_property_of_type rdf:resource="crm:P62_depicts"/>
+      <crm:P141_assigned
+         rdf:resource="http://id.editionhub.org/entity/briefsendung/gb/GB10280"/>
+      <crm:P141_assigned
+         rdf:resource="http://id.editionhub.org/entity/briefempfang/gb/GB10280"/>
+      <crm:P16_used_specific_object
+         rdf:resource="http://id.editionhub.org/entity/tei/gb/GB10280"/>
+   </crm:E13_Attribute_Assignment>
+   <crm:E7_Activity rdf:about="http://id.editionhub.org/entity/uebernachtung/gt/test">
+      <crm:P2_has_type rdf:resource="http://id.editionhub.org/ontology#UEBERNACHTUNG"/>
+      <crm:P176i_starts_after_the_start_of rdf:resource="http://id.editionhub.org/entity/tag/1775-08-16"/>
+      <crm:P14_carried_out_by>
+         <crm:E21_Person rdf:about="http://id.klassik-stiftung.de/entity/person/53538"/>
+      </crm:P14_carried_out_by>
+      <crm:P7_took_place_at>
+         <crm:E53_Place rdf:about="http://id.klassik-stiftung.de/entity/place/77966"/>
+      </crm:P7_took_place_at>
+   </crm:E7_Activity>
+</rdf:RDF>
