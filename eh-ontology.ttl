@@ -1,0 +1,169 @@
+@prefix owl:  <http://www.w3.org/2002/07/owl#> .
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix crm:  <http://www.cidoc-crm.org/cidoc-crm/> .
+@prefix eh:   <http://id.editionhub.org/ontology#> .
+
+# =============================================================================
+# EditionHub Ontology — eh:
+# CIDOC-CRM extension for HASE (Historical Activity and Source Exchange)
+# =============================================================================
+
+<http://id.editionhub.org/ontology>
+    a owl:Ontology ;
+    rdfs:label "EditionHub Ontology"@en ;
+    rdfs:label "EditionHub-Ontologie"@de ;
+    rdfs:comment "OWL-Erweiterung von CIDOC-CRM für das HASE-Austauschformat (Historical Activity and Source Exchange). Definiert Properties und Klassen für die Dokumentation historischer Handlungen und Quellen aus digitalen Editionen."@de ;
+    rdfs:comment "OWL extension of CIDOC-CRM for the HASE interchange format (Historical Activity and Source Exchange). Defines properties and classes for documenting historical activities and sources from digital scholarly editions."@en ;
+    owl:versionInfo "0.1" ;
+    dcterms:created "2026-04-06"^^xsd:date ;
+    dcterms:creator "EditionHub / Freies Deutsches Hochstift" ;
+    dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+    owl:imports <http://www.cidoc-crm.org/cidoc-crm/> .
+
+
+# =============================================================================
+# Classes
+# =============================================================================
+
+eh:Tag
+    a owl:Class ;
+    rdfs:subClassOf crm:E52_Time-Span ;
+    rdfs:label "Tag"@de ;
+    rdfs:label "Day"@en ;
+    rdfs:comment "Ein einzelner Kalendertag als Zeitentität. URI-Muster: entity/tag/{YYYY-MM-DD}."@de ;
+    rdfs:comment "A single calendar day as temporal entity. URI pattern: entity/tag/{YYYY-MM-DD}."@en .
+
+
+# =============================================================================
+# Object Properties (relations between resources)
+# =============================================================================
+
+eh:possibleComponent
+    a owl:ObjectProperty ;
+    rdfs:label "possible component"@en ;
+    rdfs:label "mögliche Komponente"@de ;
+    rdfs:comment "Definiert, welche Handlungstypen als Bestandteile eines zusammengesetzten Typs auftreten können. Z.B. KORRESPONDENZ → possibleComponent → BRIEFSENDUNG."@de ;
+    rdfs:comment "Defines which activity types can occur as components of a composite type. E.g. CORRESPONDENCE → possibleComponent → LETTER_SENDING."@en ;
+    rdfs:domain crm:E55_Type ;
+    rdfs:range crm:E55_Type .
+
+eh:linkableWith
+    a owl:ObjectProperty, owl:SymmetricProperty ;
+    rdfs:label "linkable with"@en ;
+    rdfs:label "verknüpfbar mit"@de ;
+    rdfs:comment "Symmetrische Relation: Handlungstypen, deren Instanzen projektübergreifend verknüpft werden können. Z.B. BRIEFSENDUNG ↔ BRIEFEMPFANG."@de ;
+    rdfs:comment "Symmetric relation: activity types whose instances can be cross-linked across projects. E.g. LETTER_SENDING ↔ LETTER_RECEIVING."@en ;
+    rdfs:domain crm:E55_Type ;
+    rdfs:range crm:E55_Type .
+
+eh:forType
+    a owl:ObjectProperty ;
+    rdfs:label "for type"@en ;
+    rdfs:label "für Typ"@de ;
+    rdfs:comment "Verbindet eine SHACL-NodeShape mit dem Handlungstyp, für den sie gilt (zur UI-Formulargenerierung)."@de ;
+    rdfs:comment "Connects a SHACL NodeShape to the activity type it applies to (for UI form generation)."@en ;
+    rdfs:range crm:E55_Type .
+
+eh:contextType
+    a owl:ObjectProperty ;
+    rdfs:label "context type"@en ;
+    rdfs:label "Zusammenhangstyp"@de ;
+    rdfs:comment "Verbindet einen Handlungstyp mit dem Zusammenhangstyp, dem er zugeordnet werden kann. Z.B. LETTER_SENDING → contextType → CORRESPONDENCE."@de ;
+    rdfs:comment "Connects an activity type to the context type it can belong to. E.g. LETTER_SENDING → contextType → CORRESPONDENCE."@en ;
+    rdfs:domain crm:E55_Type ;
+    rdfs:range crm:E55_Type .
+
+eh:activityType
+    a owl:ObjectProperty ;
+    owl:inverseOf eh:contextType ;
+    rdfs:label "activity type"@en ;
+    rdfs:label "Handlungstyp"@de ;
+    rdfs:comment "Inverse von eh:contextType. Verbindet einen Zusammenhangstyp mit seinen Handlungstypen. Z.B. CORRESPONDENCE → activityType → LETTER_SENDING."@de ;
+    rdfs:comment "Inverse of eh:contextType. Connects a context type to its activity types. E.g. CORRESPONDENCE → activityType → LETTER_SENDING."@en ;
+    rdfs:domain crm:E55_Type ;
+    rdfs:range crm:E55_Type .
+
+
+# =============================================================================
+# Datatype Properties — Source (E31_Document)
+# =============================================================================
+
+eh:archive
+    a owl:DatatypeProperty ;
+    rdfs:label "archive"@en ;
+    rdfs:label "Archiv"@de ;
+    rdfs:comment "Name der aufbewahrenden Institution."@de ;
+    rdfs:comment "Name of the holding institution."@en ;
+    rdfs:domain crm:E31_Document ;
+    rdfs:range xsd:string .
+
+eh:shelfmark
+    a owl:DatatypeProperty ;
+    rdfs:label "shelfmark"@en ;
+    rdfs:label "Signatur"@de ;
+    rdfs:comment "Signatur/Standort im Archiv."@de ;
+    rdfs:comment "Shelfmark / call number in the archive."@en ;
+    rdfs:domain crm:E31_Document ;
+    rdfs:range xsd:string .
+
+eh:editionUrl
+    a owl:DatatypeProperty ;
+    rdfs:label "edition URL"@en ;
+    rdfs:label "Editions-URL"@de ;
+    rdfs:comment "Permalink zur Quelle innerhalb der digitalen Edition."@de ;
+    rdfs:comment "Permalink to the source within the digital edition."@en ;
+    rdfs:domain crm:E31_Document ;
+    rdfs:range xsd:anyURI .
+
+eh:catalogUrl
+    a owl:DatatypeProperty ;
+    rdfs:label "catalog URL"@en ;
+    rdfs:label "Katalog-URL"@de ;
+    rdfs:comment "URL des Katalogeintrags (z.B. Kalliope, OPAC)."@de ;
+    rdfs:comment "URL of the catalog entry (e.g. Kalliope, OPAC)."@en ;
+    rdfs:domain crm:E31_Document ;
+    rdfs:range xsd:anyURI .
+
+eh:iiifManifest
+    a owl:DatatypeProperty ;
+    rdfs:label "IIIF manifest"@en ;
+    rdfs:label "IIIF-Manifest"@de ;
+    rdfs:comment "URL zum IIIF-Manifest des Digitalisats."@de ;
+    rdfs:comment "URL of the IIIF manifest of the digitized source."@en ;
+    rdfs:domain crm:E31_Document ;
+    rdfs:range xsd:anyURI .
+
+
+# =============================================================================
+# Datatype Properties — Infrastructure
+# =============================================================================
+
+eh:site
+    a owl:DatatypeProperty ;
+    rdfs:label "site"@en ;
+    rdfs:label "Site"@de ;
+    rdfs:comment "Zuordnung einer Entität oder eines Graphen zu einer EditionHub-Instanz (z.B. 'historia', 'eped'). Kann mehrfach vorkommen."@de ;
+    rdfs:comment "Assigns an entity or graph to an EditionHub instance (e.g. 'historia', 'eped'). May occur multiple times."@en ;
+    rdfs:range xsd:string .
+
+eh:status
+    a owl:DatatypeProperty ;
+    rdfs:label "status"@en ;
+    rdfs:label "Status"@de ;
+    rdfs:comment "Status eines HASE-Typs: 'standard' (Kernkatalog) oder 'proposed' (projektspezifisch, noch nicht aufgenommen)."@de ;
+    rdfs:comment "Status of a HASE type: 'standard' (core catalog) or 'proposed' (project-specific, not yet accepted)."@en ;
+    rdfs:domain crm:E55_Type ;
+    rdfs:range xsd:string .
+
+eh:approx
+    a owl:DatatypeProperty ;
+    rdfs:label "approximate"@en ;
+    rdfs:label "ungefähr"@de ;
+    rdfs:comment "Markiert eine ungefähre/unsichere Datierung (true = circa-Datum)."@de ;
+    rdfs:comment "Marks an approximate/uncertain date (true = circa date)."@en ;
+    rdfs:domain crm:E52_Time-Span ;
+    rdfs:range xsd:boolean .
