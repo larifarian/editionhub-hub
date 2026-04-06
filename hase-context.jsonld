@@ -1,0 +1,158 @@
+{
+  "@context": {
+    "crm": "http://www.cidoc-crm.org/cidoc-crm/",
+    "eh": "http://id.editionhub.org/ontology#",
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "hase": "https://editionhub.org/hase/vocab#",
+
+    "id": "@id",
+    "type": "@type",
+
+    "prefLabel": { "@id": "skos:prefLabel", "@language": "de" },
+    "prefLabel_en": { "@id": "skos:prefLabel", "@language": "en" },
+    "notation": "skos:notation",
+    "broader": { "@id": "skos:broader", "@type": "@id" },
+    "narrower": { "@id": "skos:narrower", "@type": "@id", "@container": "@set" },
+    "inScheme": { "@id": "skos:inScheme", "@type": "@id" },
+    "status": "eh:status",
+    "context": { "@id": "eh:contextType", "@type": "@id", "@container": "@set" },
+    "activityType": { "@id": "eh:activityType", "@type": "@id", "@container": "@set" }
+  },
+
+  "@graph": [
+    {
+      "@id": "https://editionhub.org/hase/vocab",
+      "@type": "skos:ConceptScheme",
+      "rdfs:label": "HASE — Historical Activity and Source Exchange",
+      "rdfs:comment": "Kernkatalog der Handlungs-, Quellen- und Zusammenhangstypen für HASE v0.1."
+    },
+
+    {
+      "@id": "hase:ActivityType",
+      "@type": "skos:Collection",
+      "rdfs:label": "Handlungstypen / Activity Types"
+    },
+    {
+      "@id": "hase:SourceType",
+      "@type": "skos:Collection",
+      "rdfs:label": "Quellentypen / Source Types"
+    },
+    {
+      "@id": "hase:ContextType",
+      "@type": "skos:Collection",
+      "rdfs:label": "Zusammenhangstypen / Context Types"
+    },
+
+    {
+      "@id": "hase:LETTER_SENDING",
+      "@type": ["skos:Concept", "crm:E55_Type"],
+      "notation": "LETTER_SENDING",
+      "prefLabel": "Briefversand",
+      "prefLabel_en": "Letter sending",
+      "inScheme": "https://editionhub.org/hase/vocab",
+      "status": "standard",
+      "context": ["hase:CORRESPONDENCE"]
+    },
+    {
+      "@id": "hase:LETTER_RECEIVING",
+      "@type": ["skos:Concept", "crm:E55_Type"],
+      "notation": "LETTER_RECEIVING",
+      "prefLabel": "Briefempfang",
+      "prefLabel_en": "Letter receiving",
+      "inScheme": "https://editionhub.org/hase/vocab",
+      "status": "standard",
+      "context": ["hase:CORRESPONDENCE"]
+    },
+    {
+      "@id": "hase:ENCOUNTER_PARTICIPATION",
+      "@type": ["skos:Concept", "crm:E55_Type"],
+      "notation": "ENCOUNTER_PARTICIPATION",
+      "prefLabel": "Begegnungsteilnahme",
+      "prefLabel_en": "Encounter participation",
+      "inScheme": "https://editionhub.org/hase/vocab",
+      "status": "standard",
+      "context": ["hase:ENCOUNTER"]
+    },
+    {
+      "@id": "hase:TRAVEL_STOP",
+      "@type": ["skos:Concept", "crm:E55_Type"],
+      "notation": "TRAVEL_STOP",
+      "prefLabel": "Reisestation",
+      "prefLabel_en": "Travel stop",
+      "inScheme": "https://editionhub.org/hase/vocab",
+      "status": "standard",
+      "context": ["hase:JOURNEY"]
+    },
+    {
+      "@id": "hase:OVERNIGHT_STAY",
+      "@type": ["skos:Concept", "crm:E55_Type"],
+      "notation": "OVERNIGHT_STAY",
+      "prefLabel": "Übernachtung",
+      "prefLabel_en": "Overnight stay",
+      "inScheme": "https://editionhub.org/hase/vocab",
+      "status": "standard",
+      "context": ["hase:JOURNEY"]
+    },
+    {
+      "@id": "hase:READING",
+      "@type": ["skos:Concept", "crm:E55_Type"],
+      "notation": "READING",
+      "prefLabel": "Lektüre",
+      "prefLabel_en": "Reading",
+      "inScheme": "https://editionhub.org/hase/vocab",
+      "status": "standard"
+    },
+
+    {
+      "@id": "hase:LETTER",
+      "@type": ["skos:Concept", "crm:E55_Type"],
+      "notation": "LETTER",
+      "prefLabel": "Brief",
+      "prefLabel_en": "Letter",
+      "inScheme": "https://editionhub.org/hase/vocab",
+      "status": "standard"
+    },
+    {
+      "@id": "hase:DIARY_ENTRY",
+      "@type": ["skos:Concept", "crm:E55_Type"],
+      "notation": "DIARY_ENTRY",
+      "prefLabel": "Tagebucheintrag",
+      "prefLabel_en": "Diary entry",
+      "inScheme": "https://editionhub.org/hase/vocab",
+      "status": "standard"
+    },
+
+    {
+      "@id": "hase:CORRESPONDENCE",
+      "@type": ["skos:Concept", "crm:E55_Type"],
+      "notation": "CORRESPONDENCE",
+      "prefLabel": "Korrespondenz",
+      "prefLabel_en": "Correspondence",
+      "inScheme": "https://editionhub.org/hase/vocab",
+      "status": "standard",
+      "activityType": ["hase:LETTER_SENDING", "hase:LETTER_RECEIVING"]
+    },
+    {
+      "@id": "hase:ENCOUNTER",
+      "@type": ["skos:Concept", "crm:E55_Type"],
+      "notation": "ENCOUNTER",
+      "prefLabel": "Begegnung",
+      "prefLabel_en": "Encounter",
+      "inScheme": "https://editionhub.org/hase/vocab",
+      "status": "standard",
+      "activityType": ["hase:ENCOUNTER_PARTICIPATION"]
+    },
+    {
+      "@id": "hase:JOURNEY",
+      "@type": ["skos:Concept", "crm:E55_Type"],
+      "notation": "JOURNEY",
+      "prefLabel": "Reise",
+      "prefLabel_en": "Journey",
+      "inScheme": "https://editionhub.org/hase/vocab",
+      "status": "standard",
+      "activityType": ["hase:TRAVEL_STOP", "hase:OVERNIGHT_STAY"]
+    }
+  ]
+}

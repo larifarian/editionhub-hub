@@ -1,6 +1,7 @@
 {
   "cleanUrls": true,
   "rewrites": [
-    { "source": "/hase/schema/0.1", "destination": "/hase-schema.json" }
+    { "source": "/hase/schema/0.1", "destination": "/hase-schema.json" },
+    { "source": "/hase/context/0.1", "destination": "/hase-context.jsonld" }
   ]
 }

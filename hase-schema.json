@@ -12,6 +12,11 @@
       "format": "uri",
       "description": "Optional JSON Schema URI for validation (e.g. https://editionhub.org/hase/schema/0.1). — Optionale JSON-Schema-URI zur Validierung."
     },
+    "@context": {
+      "type": "string",
+      "format": "uri",
+      "description": "Optional JSON-LD context URI for semantic interoperability (e.g. https://editionhub.org/hase/context/0.1). — Optionale JSON-LD-Context-URI für semantische Interoperabilität."
+    },
     "hase": {
       "type": "string",
       "const": "0.1",
