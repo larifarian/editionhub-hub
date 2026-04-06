@@ -1,0 +1,437 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://editionhub.org/hase/schema/0.1",
+  "title": "HASE — Historical Activity and Source Exchange",
+  "description": "Exchange format for historical activities and sources. — Austauschformat für historische Handlungen und Quellen.",
+  "type": "object",
+  "required": ["hase", "project", "activities"],
+  "additionalProperties": false,
+  "properties": {
+    "hase": {
+      "type": "string",
+      "const": "0.1",
+      "description": "HASE version number. — HASE-Versionsnummer."
+    },
+    "project": {
+      "$ref": "#/$defs/project"
+    },
+    "activityTypes": {
+      "type": "object",
+      "description": "Registry of activity types used in this file. Standard HASE types can be listed for completeness; new types proposed by the project must be declared here. — Verzeichnis der verwendeten Handlungstypen. Standard-HASE-Typen können zur Vollständigkeit aufgeführt werden; neue vom Projekt vorgeschlagene Typen müssen hier deklariert werden.",
+      "additionalProperties": { "$ref": "#/$defs/activityTypeDefinition" }
+    },
+    "sourceTypes": {
+      "type": "object",
+      "description": "Registry of source types used in this file. — Verzeichnis der verwendeten Quellentypen.",
+      "additionalProperties": { "$ref": "#/$defs/sourceTypeDefinition" }
+    },
+    "activities": {
+      "type": "array",
+      "description": "List of all activities. — Liste aller Handlungen.",
+      "items": { "$ref": "#/$defs/activity" }
+    },
+    "sources": {
+      "type": "array",
+      "description": "List of all sources (surviving physical records that attest to activities). — Liste aller Quellen (überlieferte physische Zeugnisse, die Handlungen bezeugen).",
+      "items": { "$ref": "#/$defs/source" }
+    }
+  },
+  "$defs": {
+    "i18nString": {
+      "type": "object",
+      "description": "Bilingual string (English/German). — Zweisprachiger Text (Englisch/Deutsch).",
+      "required": ["en", "de"],
+      "additionalProperties": false,
+      "properties": {
+        "en": {
+          "type": "string",
+          "description": "English text. — Englischer Text."
+        },
+        "de": {
+          "type": "string",
+          "description": "German text. — Deutscher Text."
+        }
+      }
+    },
+    "project": {
+      "type": "object",
+      "description": "Metadata about the delivering edition project. — Metadaten zum liefernden Editionsprojekt.",
+      "required": ["id", "title"],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z0-9][a-z0-9-]{1,30}[a-z0-9]$",
+          "description": "Unique project ID (3–32 chars, a-z 0-9 -). Assigned centrally by EditionHub. — Eindeutiges Projektkürzel (3–32 Zeichen, a-z 0-9 -). Wird zentral vom EditionHub vergeben."
+        },
+        "title": {
+          "type": "string",
+          "description": "Project title. — Titel des Projekts."
+        },
+        "description": {
+          "type": "string",
+          "description": "Short description of the project. — Kurze Beschreibung des Projekts."
+        },
+        "url": {
+          "type": "string",
+          "format": "uri",
+          "description": "URL of the project website. — URL zur Projektwebseite."
+        },
+        "license": {
+          "type": "string",
+          "description": "License of the delivered data (e.g. CC-BY-4.0). — Lizenz der gelieferten Daten (z.B. CC-BY-4.0)."
+        },
+        "contact": {
+          "type": "string",
+          "description": "Contact email for questions. — Kontakt-E-Mail für Rückfragen."
+        },
+        "editions": {
+          "type": "array",
+          "description": "Optional: subdivision into editions (only for projects with multiple editions). — Optional: Untergliederung in Editionen (nur bei Projekten mit mehreren Editionen).",
+          "items": { "$ref": "#/$defs/edition" }
+        }
+      }
+    },
+    "edition": {
+      "type": "object",
+      "description": "An edition within a project. — Eine Edition innerhalb eines Projekts.",
+      "required": ["id", "title"],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z0-9][a-z0-9-]{0,30}[a-z0-9]$",
+          "description": "Edition ID within the project. — Kürzel der Edition innerhalb des Projekts."
+        },
+        "title": {
+          "type": "string",
+          "description": "Edition title. — Titel der Edition."
+        },
+        "description": {
+          "type": "string",
+          "description": "Short description of the edition. — Kurze Beschreibung der Edition."
+        },
+        "url": {
+          "type": "string",
+          "format": "uri",
+          "description": "URL of the edition website. — URL zur Editionswebseite."
+        }
+      }
+    },
+    "actor": {
+      "type": "object",
+      "description": "A participating person or group. — Eine beteiligte Person oder Gruppe.",
+      "required": ["label", "type"],
+      "additionalProperties": false,
+      "properties": {
+        "label": {
+          "type": "string",
+          "description": "Display name (e.g. 'Goethe, Johann Wolfgang von'). — Anzeigename (z.B. 'Goethe, Johann Wolfgang von')."
+        },
+        "type": {
+          "type": "string",
+          "enum": ["person", "group"],
+          "description": "Type of actor. — Art des Akteurs."
+        },
+        "gnd": {
+          "type": "string",
+          "description": "GND identifier (without prefix). — GND-Nummer (ohne Präfix)."
+        }
+      }
+    },
+    "place": {
+      "type": "object",
+      "description": "A place. — Ein Ort.",
+      "required": ["label"],
+      "additionalProperties": false,
+      "properties": {
+        "label": {
+          "type": "string",
+          "description": "Place name (e.g. 'Frankfurt am Main'). — Ortsname (z.B. 'Frankfurt am Main')."
+        },
+        "gnd": {
+          "type": "string",
+          "description": "GND identifier (without prefix). — GND-Nummer (ohne Präfix)."
+        }
+      }
+    },
+    "archive": {
+      "type": "object",
+      "description": "Holding institution. — Aufbewahrende Institution.",
+      "required": ["label"],
+      "additionalProperties": false,
+      "properties": {
+        "label": {
+          "type": "string",
+          "description": "Name of the archive or library. — Name des Archivs/der Bibliothek."
+        },
+        "gnd": {
+          "type": "string",
+          "description": "GND identifier (without prefix). — GND-Nummer (ohne Präfix)."
+        }
+      }
+    },
+    "reference": {
+      "type": "object",
+      "description": "A content reference (P67 refers to) of the information content of an object. — Ein inhaltlicher Bezug (P67 refers to) des Informationsgehalts eines Objekts.",
+      "required": ["label", "type"],
+      "additionalProperties": false,
+      "properties": {
+        "label": {
+          "type": "string",
+          "description": "Label (e.g. 'Die Leiden des jungen Werthers', 'Goethe', 'Frankfurt'). — Bezeichnung (z.B. 'Die Leiden des jungen Werthers', 'Goethe', 'Frankfurt')."
+        },
+        "type": {
+          "type": "string",
+          "enum": ["person", "group", "place", "work", "concept"],
+          "description": "Type of reference: person/group (E39 Actor), place (E53 Place), work (E73 Information Object), concept (E28 Conceptual Object). — Art des Bezugs: person/group (E39 Actor), place (E53 Place), work (E73 Information Object), concept (E28 Conceptual Object)."
+        },
+        "gnd": {
+          "type": "string",
+          "description": "GND identifier (without prefix). — GND-Nummer (ohne Präfix)."
+        }
+      }
+    },
+    "activity": {
+      "type": "object",
+      "description": "A single historical activity. — Eine historische Einzelhandlung.",
+      "required": ["id", "type"],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique ID of the activity within the project. — Eindeutige ID der Handlung innerhalb des Projekts."
+        },
+        "type": {
+          "type": "string",
+          "description": "Activity type (e.g. LETTER_SENDING, ENCOUNTER_PARTICIPATION, TRAVEL_STOP). — Handlungstyp (z.B. LETTER_SENDING, ENCOUNTER_PARTICIPATION, TRAVEL_STOP)."
+        },
+        "date": {
+          "oneOf": [
+            {
+              "type": "string",
+              "format": "date",
+              "description": "Exact date (shorthand for { value, qualifier: 'exact' }). — Exaktes Datum (Kurzform für { value, qualifier: 'exact' })."
+            },
+            {
+              "type": "object",
+              "description": "Point in time with qualifier. — Zeitpunkt mit Qualifikator.",
+              "required": ["value"],
+              "additionalProperties": false,
+              "properties": {
+                "value": {
+                  "type": "string",
+                  "format": "date",
+                  "description": "Date (ISO 8601: YYYY-MM-DD). — Datum (ISO 8601: YYYY-MM-DD)."
+                },
+                "qualifier": {
+                  "type": "string",
+                  "enum": ["exact", "earliest", "latest"],
+                  "description": "exact = on this date, earliest = on or after, latest = on or before. Defaults to exact if omitted. — exact = an diesem Datum, earliest = an oder nach, latest = an oder vor. Standard ist exact."
+                }
+              }
+            },
+            {
+              "type": "object",
+              "description": "Time span (from–to). — Zeitspanne (von–bis).",
+              "required": ["from", "to"],
+              "additionalProperties": false,
+              "properties": {
+                "from": {
+                  "type": "string",
+                  "format": "date",
+                  "description": "Start date (ISO 8601: YYYY-MM-DD). — Anfangsdatum (ISO 8601: YYYY-MM-DD)."
+                },
+                "to": {
+                  "type": "string",
+                  "format": "date",
+                  "description": "End date (ISO 8601: YYYY-MM-DD). — Enddatum (ISO 8601: YYYY-MM-DD)."
+                }
+              }
+            }
+          ],
+          "description": "Date of the activity. String for exact date, object with value+qualifier for point in time, object with from+to for time span. — Datum der Handlung. String für exaktes Datum, Objekt mit value+qualifier für Zeitpunkt, Objekt mit from+to für Zeitspanne."
+        },
+        "actor": {
+          "$ref": "#/$defs/actor",
+          "description": "Participating person or group (exactly one per activity). — Beteiligte Person oder Gruppe (genau eine pro Handlung)."
+        },
+        "place": {
+          "$ref": "#/$defs/place",
+          "description": "Place of the activity (exactly one per activity). — Ort der Handlung (genau einer pro Handlung)."
+        },
+        "thing": {
+          "type": "object",
+          "description": "The historical object (E70 Thing) of this activity. Either a reference to a source (sourceRef) or an inline description. — Das historische Objekt (E70 Thing) dieser Handlung. Entweder ein Verweis auf eine Quelle (sourceRef) oder eine Inline-Beschreibung.",
+          "additionalProperties": false,
+          "properties": {
+            "sourceRef": {
+              "type": "string",
+              "description": "ID of a source from the sources array. — ID einer Quelle aus dem sources-Array."
+            },
+            "type": {
+              "type": "string",
+              "description": "Type of object (e.g. 'letter'), if not preserved as a source. — Typ des Objekts (z.B. 'Brief'), falls nicht als Quelle überliefert."
+            },
+            "note": {
+              "type": "string",
+              "description": "Free-text description. — Freitext-Beschreibung."
+            },
+            "references": {
+              "type": "array",
+              "items": { "$ref": "#/$defs/reference" },
+              "description": "Content references (P67 refers to): persons, places, works, concepts etc. that the information content of the object refers to. — Inhaltliche Bezüge (P67 refers to): Personen, Orte, Werke, Sachbegriffe etc., auf die der Informationsgehalt des Objekts verweist."
+            }
+          }
+        },
+        "context": {
+          "type": "object",
+          "description": "Context this activity belongs to. Activities sharing the same context.id are grouped together (e.g. a correspondence, an encounter, a journey). — Zusammenhang, zu dem diese Handlung gehört. Handlungen mit gleicher context.id werden zusammengefasst (z.B. Korrespondenz, Begegnung, Reise).",
+          "required": ["id", "type"],
+          "additionalProperties": false,
+          "properties": {
+            "id": {
+              "type": "string",
+              "description": "Unique ID of the context. — Eindeutige ID des Zusammenhangs."
+            },
+            "type": {
+              "type": "string",
+              "description": "Context type (e.g. CORRESPONDENCE, ENCOUNTER, JOURNEY). — Zusammenhangstyp (z.B. CORRESPONDENCE, ENCOUNTER, JOURNEY)."
+            }
+          }
+        },
+        "attestedBySource": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "IDs of sources that attest to this activity. — IDs der Quellen, die diese Handlung bezeugen."
+        },
+        "continued": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "IDs of activities that this activity continues (P134 continued). — IDs der Handlungen, die diese Handlung fortsetzt (P134 continued)."
+        },
+        "wasContinuedBy": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "IDs of activities that continue this activity (P134i was continued by). — IDs der Handlungen, die diese Handlung fortsetzen (P134i was continued by)."
+        }
+      }
+    },
+    "source": {
+      "type": "object",
+      "description": "A surviving source (e.g. letter, diary entry) that attests to one or more activities. — Eine überlieferte Quelle (z.B. Brief, Tagebucheintrag), die eine oder mehrere Handlungen bezeugt.",
+      "required": ["id", "type"],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique ID of the source within the project. — Eindeutige ID der Quelle innerhalb des Projekts."
+        },
+        "type": {
+          "type": "string",
+          "description": "Type of source (e.g. LETTER, DIARY_ENTRY, INVOICE, NEWSPAPER_REPORT). — Quellentyp (z.B. LETTER, DIARY_ENTRY, INVOICE, NEWSPAPER_REPORT)."
+        },
+        "archive": {
+          "$ref": "#/$defs/archive",
+          "description": "Holding institution. — Aufbewahrende Institution."
+        },
+        "shelfmark": {
+          "type": "string",
+          "description": "Shelfmark / call number in the archive. — Signatur/Standort im Archiv."
+        },
+        "iiif": {
+          "type": "string",
+          "format": "uri",
+          "description": "URL of the IIIF manifest of the digitized source. — URL zum IIIF-Manifest des Digitalisats."
+        },
+        "references": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/reference" },
+          "description": "Content references (P67 refers to): persons, places, works, concepts etc. that the source refers to. — Inhaltliche Bezüge (P67 refers to): Personen, Orte, Werke, Sachbegriffe etc., auf die die Quelle verweist."
+        },
+        "attestsActivity": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "IDs of activities that this source attests to. — IDs der Handlungen, die diese Quelle bezeugt."
+        },
+        "edition": {
+          "type": "string",
+          "description": "Edition ID (only if project.editions is defined). — Editions-ID (nur wenn project.editions definiert ist)."
+        },
+        "editionUrl": {
+          "type": "string",
+          "format": "uri",
+          "description": "Permalink to this source within the digital edition. — Permalink zu dieser Quelle innerhalb der digitalen Edition."
+        },
+        "catalogUrl": {
+          "type": "string",
+          "format": "uri",
+          "description": "URL of the catalog entry for this source (e.g. Kalliope, OPAC). — URL des Katalogeintrags dieser Quelle (z.B. Kalliope, OPAC)."
+        }
+      }
+    },
+    "contextType": {
+      "type": "object",
+      "description": "A context type that an activity may belong to. — Ein Zusammenhangstyp, zu dem eine Handlung gehören kann.",
+      "required": ["type", "label"],
+      "additionalProperties": false,
+      "properties": {
+        "type": {
+          "type": "string",
+          "description": "Context type key (e.g. CORRESPONDENCE, ENCOUNTER, JOURNEY). — Schlüssel des Zusammenhangstyps (z.B. CORRESPONDENCE, ENCOUNTER, JOURNEY)."
+        },
+        "label": {
+          "$ref": "#/$defs/i18nString",
+          "description": "Human-readable label for this context type. — Menschenlesbares Label für diesen Zusammenhangstyp."
+        }
+      }
+    },
+    "activityTypeDefinition": {
+      "type": "object",
+      "description": "Definition of an activity type. — Definition eines Handlungstyps.",
+      "required": ["label"],
+      "additionalProperties": false,
+      "properties": {
+        "label": {
+          "$ref": "#/$defs/i18nString",
+          "description": "Human-readable label for this type. — Menschenlesbares Label für diesen Typ."
+        },
+        "description": {
+          "$ref": "#/$defs/i18nString",
+          "description": "Short description of what this type represents. — Kurze Beschreibung, was dieser Typ darstellt."
+        },
+        "status": {
+          "type": "string",
+          "enum": ["standard", "proposed"],
+          "description": "standard = part of the HASE standard. proposed = new type suggested by this project. Defaults to standard if omitted. — standard = Teil des HASE-Standards. proposed = neuer, vom Projekt vorgeschlagener Typ. Standard wenn nicht angegeben."
+        },
+        "context": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/contextType" },
+          "description": "List of context types this activity may belong to. If omitted, the activity cannot have a context. — Liste der Zusammenhangstypen, zu denen diese Handlung gehören kann. Wenn nicht angegeben, kann die Handlung keinen Zusammenhang haben."
+        }
+      }
+    },
+    "sourceTypeDefinition": {
+      "type": "object",
+      "description": "Definition of a source type. — Definition eines Quellentyps.",
+      "required": ["label"],
+      "additionalProperties": false,
+      "properties": {
+        "label": {
+          "$ref": "#/$defs/i18nString",
+          "description": "Human-readable label for this type. — Menschenlesbares Label für diesen Typ."
+        },
+        "description": {
+          "$ref": "#/$defs/i18nString",
+          "description": "Short description of what this type represents. — Kurze Beschreibung, was dieser Typ darstellt."
+        },
+        "status": {
+          "type": "string",
+          "enum": ["standard", "proposed"],
+          "description": "standard = part of the HASE standard. proposed = new type suggested by this project. Defaults to standard if omitted. — standard = Teil des HASE-Standards. proposed = neuer, vom Projekt vorgeschlagener Typ. Standard wenn nicht angegeben."
+        }
+      }
+    }
+  }
+}
