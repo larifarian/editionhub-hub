@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="HASE-TEI — Mapping von HASE (Historical Activity and Source Exchange) auf TEI XML.">
+    <meta property="og:title" content="HASE-TEI — EditionHub">
+    <meta property="og:description" content="Wie HASE-Daten in TEI XML abgebildet werden können">
+    <meta property="og:type" content="website">
+    <title>HASE-TEI — EditionHub</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen flex flex-col">
+
+    <!-- Header -->
+    <header class="py-8 text-center">
+        <a href="/" class="text-4xl font-bold text-gray-900 tracking-tight no-underline hover:opacity-80 transition">Edition<span class="text-blue-600">Hub</span></a>
+        <p class="mt-3 text-lg text-gray-500 max-w-xl mx-auto">Offene Forschungsplattform für Digitale Editionen</p>
+    </header>
+
+    <!-- Main -->
+    <main class="flex-1 flex items-start justify-center px-4 pb-16">
+        <div class="max-w-3xl w-full">
+
+            <!-- Titel -->
+            <div class="mb-8">
+                <div class="flex items-center gap-3 mb-2">
+                    <a href="/hase" class="text-sm text-blue-600 hover:text-blue-800 no-underline flex items-center gap-1">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
+                        HASE
+                    </a>
+                </div>
+                <h1 class="text-3xl font-bold text-gray-900 tracking-tight">HASE-TEI</h1>
+                <p class="mt-2 text-gray-500">Mapping von HASE auf TEI XML — für Projekte, die TEI als Ausgangsformat verwenden</p>
+            </div>
+
+            <!-- Einleitung -->
+            <section class="bg-white rounded-2xl shadow-sm border border-gray-200 p-8 mb-6">
+                <h2 class="text-xl font-bold text-gray-900 mb-4">Warum TEI?</h2>
+                <p class="text-sm text-gray-700 leading-relaxed mb-4">
+                    Viele Editionsprojekte arbeiten bereits mit TEI XML. Statt ihre Daten nach HASE-JSON zu konvertieren,
+                    können sie eine TEI-Datei liefern, die dem HASE-Datenmodell folgt. EditionHub akzeptiert beide Formate.
+                </p>
+                <div class="bg-gray-50 border border-gray-200 rounded-lg p-4">
+                    <table class="w-full text-sm">
+                        <thead><tr class="text-left text-xs text-gray-500 border-b border-gray-200"><th class="pb-1 pr-4">HASE-JSON</th><th class="pb-1">HASE-TEI</th></tr></thead>
+                        <tbody class="text-gray-700">
+                            <tr class="border-b border-gray-100"><td class="py-1.5 pr-4 text-xs">Einfachster Einstieg</td><td class="py-1.5 text-xs">Für Projekte, die schon TEI nutzen</td></tr>
+                            <tr class="border-b border-gray-100"><td class="py-1.5 pr-4 text-xs">Wenige Felder, flache Struktur</td><td class="py-1.5 text-xs">Reichere Ausdrucksmöglichkeiten (z.B. <code class="font-mono text-xs">@cert</code>)</td></tr>
+                            <tr><td class="py-1.5 pr-4 text-xs">JSON-Schema-Validierung</td><td class="py-1.5 text-xs">RelaxNG/Schematron-Validierung</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Minimalbeispiel -->
+            <section class="bg-white rounded-2xl shadow-sm border border-gray-200 p-8 mb-6">
+                <h2 class="text-xl font-bold text-gray-900 mb-4">Minimalbeispiel</h2>
+                <p class="text-sm text-gray-700 leading-relaxed mb-4">
+                    Die einfachste gültige HASE-TEI-Datei — ein Projekt mit einer einzigen Briefsendung:
+                </p>
+                <div class="bg-gray-900 rounded-lg p-4 overflow-x-auto">
+                    <pre class="text-xs text-green-400 font-mono leading-relaxed"><span class="text-gray-500">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<span class="text-blue-400">&lt;TEI</span> xmlns="http://www.tei-c.org/ns/1.0"<span class="text-blue-400">&gt;</span>
+  <span class="text-blue-400">&lt;teiHeader&gt;</span>
+    <span class="text-blue-400">&lt;fileDesc&gt;</span>
+      <span class="text-blue-400">&lt;titleStmt&gt;</span>
+        <span class="text-blue-400">&lt;title&gt;</span>Mein Forschungsprojekt<span class="text-blue-400">&lt;/title&gt;</span>
+      <span class="text-blue-400">&lt;/titleStmt&gt;</span>
+      <span class="text-blue-400">&lt;publicationStmt&gt;&lt;p/&gt;&lt;/publicationStmt&gt;</span>
+      <span class="text-blue-400">&lt;sourceDesc&gt;&lt;p/&gt;&lt;/sourceDesc&gt;</span>
+    <span class="text-blue-400">&lt;/fileDesc&gt;</span>
+  <span class="text-blue-400">&lt;/teiHeader&gt;</span>
+  <span class="text-blue-400">&lt;text&gt;&lt;body&gt;</span>
+    <span class="text-blue-400">&lt;listEvent&gt;</span>
+      <span class="text-blue-400">&lt;event</span> xml:id="brief-001" type="LETTER_SENDING" when="1786-09-03"<span class="text-blue-400">&gt;</span>
+        <span class="text-blue-400">&lt;desc&gt;</span>
+          <span class="text-blue-400">&lt;persName</span> role="actor" ref="gnd:118540238"<span class="text-blue-400">&gt;</span>Goethe, Johann Wolfgang von<span class="text-blue-400">&lt;/persName&gt;</span>
+          <span class="text-blue-400">&lt;placeName</span> ref="gnd:4029702-0"<span class="text-blue-400">&gt;</span>Karlsbad<span class="text-blue-400">&lt;/placeName&gt;</span>
+        <span class="text-blue-400">&lt;/desc&gt;</span>
+      <span class="text-blue-400">&lt;/event&gt;</span>
+    <span class="text-blue-400">&lt;/listEvent&gt;</span>
+  <span class="text-blue-400">&lt;/body&gt;&lt;/text&gt;</span>
+<span class="text-blue-400">&lt;/TEI&gt;</span></pre>
+                </div>
+            </section>
+
+            <!-- Feld-Mapping -->
+            <section class="bg-white rounded-2xl shadow-sm border border-gray-200 p-8 mb-6">
+                <h2 class="text-xl font-bold text-gray-900 mb-4">Feld-Mapping</h2>
+                <p class="text-sm text-gray-700 leading-relaxed mb-4">
+                    Wie jedes HASE-Feld auf TEI-Elemente abgebildet wird:
+                </p>
+
+                <!-- project -->
+                <h3 class="text-sm font-semibold text-gray-800 mb-2 mt-5">project</h3>
+                <div class="overflow-x-auto mb-5">
+                    <table class="w-full text-sm">
+                        <thead><tr class="text-left text-xs text-gray-500 border-b border-gray-200"><th class="pb-1 pr-4">HASE</th><th class="pb-1">TEI</th></tr></thead>
+                        <tbody class="text-gray-700">
+                            <tr class="border-b border-gray-100"><td class="py-1.5 pr-4 font-mono text-xs">project.title</td><td class="py-1.5 text-xs"><code class="font-mono">&lt;titleStmt&gt;&lt;title&gt;</code></td></tr>
+                            <tr class="border-b border-gray-100"><td class="py-1.5 pr-4 font-mono text-xs">project.id</td><td class="py-1.5 text-xs"><code class="font-mono">&lt;idno type="hase"&gt;</code> in <code class="font-mono">&lt;publicationStmt&gt;</code></td></tr>
+                            <tr class="border-b border-gray-100"><td class="py-1.5 pr-4 font-mono text-xs">project.license</td><td class="py-1.5 text-xs"><code class="font-mono">&lt;licence target="..."&gt;</code></td></tr>
+                            <tr class="border-b border-gray-100"><td class="py-1.5 pr-4 font-mono text-xs">project.url</td><td class="py-1.5 text-xs"><code class="font-mono">&lt;ref type="url" target="..."&gt;</code> in <code class="font-mono">&lt;publicationStmt&gt;</code></td></tr>
+                            <tr><td class="py-1.5 pr-4 font-mono text-xs">project.contact</td><td class="py-1.5 text-xs"><code class="font-mono">&lt;email&gt;</code> in <code class="font-mono">&lt;publicationStmt&gt;</code></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- activityTypes / sourceTypes -->
+                <h3 class="text-sm font-semibold text-gray-800 mb-2">activityTypes / sourceTypes</h3>
+                <div class="overflow-x-auto mb-3">
+                    <table class="w-full text-sm">
+                        <thead><tr class="text-left text-xs text-gray-500 border-b border-gray-200"><th class="pb-1 pr-4">HASE</th><th class="pb-1">TEI</th></tr></thead>
+                        <tbody class="text-gray-700">
+                            <tr class="border-b border-gray-100"><td class="py-1.5 pr-4 font-mono text-xs">activityTypes</td><td class="py-1.5 text-xs"><code class="font-mono">&lt;taxonomy xml:id="hase-activity"&gt;</code> in <code class="font-mono">&lt;classDecl&gt;</code></td></tr>
+                            <tr class="border-b border-gray-100"><td class="py-1.5 pr-4 font-mono text-xs">sourceTypes</td><td class="py-1.5 text-xs"><code class="font-mono">&lt;taxonomy xml:id="hase-source"&gt;</code></td></tr>
+                            <tr class="border-b border-gray-100"><td class="py-1.5 pr-4 font-mono text-xs">Typ-ID (z.B. LETTER_SENDING)</td><td class="py-1.5 text-xs"><code class="font-mono">&lt;category xml:id="LETTER_SENDING"&gt;</code></td></tr>
+                            <tr class="border-b border-gray-100"><td class="py-1.5 pr-4 font-mono text-xs">label.en / label.de</td><td class="py-1.5 text-xs"><code class="font-mono">&lt;catDesc xml:lang="en"&gt;</code> / <code class="font-mono">&lt;catDesc xml:lang="de"&gt;</code></td></tr>
+                            <tr><td class="py-1.5 pr-4 font-mono text-xs">status: "proposed"</td><td class="py-1.5 text-xs"><code class="font-mono">&lt;category ana="proposed"&gt;</code></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="bg-gray-900 rounded p-3 overflow-x-auto mb-5">
+                    <pre class="text-xs text-green-400 font-mono leading-relaxed"><span class="text-blue-400">&lt;encodingDesc&gt;</span>
+  <span class="text-blue-400">&lt;classDecl&gt;</span>
+    <span class="text-blue-400">&lt;taxonomy</span> xml:id="hase-activity"<span class="text-blue-400">&gt;</span>
+      <span class="text-blue-400">&lt;category</span> xml:id="LETTER_SENDING"<span class="text-blue-400">&gt;</span>
+        <span class="text-blue-400">&lt;catDesc</span> xml:lang="en"<span class="text-blue-400">&gt;</span>Letter sending<span class="text-blue-400">&lt;/catDesc&gt;</span>
+        <span class="text-blue-400">&lt;catDesc</span> xml:lang="de"<span class="text-blue-400">&gt;</span>Briefversand<span class="text-blue-400">&lt;/catDesc&gt;</span>
+      <span class="text-blue-400">&lt;/category&gt;</span>
+      <span class="text-blue-400">&lt;category</span> xml:id="THEATER_VISIT" ana="proposed"<span class="text-blue-400">&gt;</span>
+        <span class="text-blue-400">&lt;catDesc</span> xml:lang="en"<span class="text-blue-400">&gt;</span>Theater visit<span class="text-blue-400">&lt;/catDesc&gt;</span>
+        <span class="text-blue-400">&lt;catDesc</span> xml:lang="de"<span class="text-blue-400">&gt;</span>Theaterbesuch<span class="text-blue-400">&lt;/catDesc&gt;</span>
+      <span class="text-blue-400">&lt;/category&gt;</span>
+    <span class="text-blue-400">&lt;/taxonomy&gt;</span>
+  <span class="text-blue-400">&lt;/classDecl&gt;</span>
+<span class="text-blue-400">&lt;/encodingDesc&gt;</span></pre>
+                </div>
+
+                <!-- activities -->
+                <h3 class="text-sm font-semibold text-gray-800 mb-2">activities</h3>
+                <div class="overflow-x-auto mb-3">
+                    <table class="w-full text-sm">
+                        <thead><tr class="text-left text-xs text-gray-500 border-b border-gray-200"><th class="pb-1 pr-4">HASE</th><th class="pb-1">TEI</th></tr></thead>
+                        <tbody class="text-gray-700">
+                            <tr class="border-b border-gray-100"><td class="py-1.5 pr-4 font-mono text-xs">activity.id</td><td class="py-1.5 text-xs"><code class="font-mono">@xml:id</code> auf <code class="font-mono">&lt;event&gt;</code></td></tr>
+                            <tr class="border-b border-gray-100"><td class="py-1.5 pr-4 font-mono text-xs">activity.type</td><td class="py-1.5 text-xs"><code class="font-mono">@type</code></td></tr>
+                            <tr class="border-b border-gray-100"><td class="py-1.5 pr-4 font-mono text-xs">actor</td><td class="py-1.5 text-xs"><code class="font-mono">&lt;persName role="actor" ref="gnd:..."&gt;</code> in <code class="font-mono">&lt;desc&gt;</code></td></tr>
+                            <tr class="border-b border-gray-100"><td class="py-1.5 pr-4 font-mono text-xs">place</td><td class="py-1.5 text-xs"><code class="font-mono">&lt;placeName ref="gnd:..."&gt;</code> in <code class="font-mono">&lt;desc&gt;</code></td></tr>
+                            <tr class="border-b border-gray-100"><td class="py-1.5 pr-4 font-mono text-xs">thing.sourceRef</td><td class="py-1.5 text-xs"><code class="font-mono">&lt;ptr type="source" target="#..."&gt;</code></td></tr>
+                            <tr class="border-b border-gray-100"><td class="py-1.5 pr-4 font-mono text-xs">context</td><td class="py-1.5 text-xs"><code class="font-mono">@corresp="#context-id"</code></td></tr>
+                            <tr class="border-b border-gray-100"><td class="py-1.5 pr-4 font-mono text-xs">continued</td><td class="py-1.5 text-xs"><code class="font-mono">@prev="#..."</code></td></tr>
+                            <tr class="border-b border-gray-100"><td class="py-1.5 pr-4 font-mono text-xs">wasContinuedBy</td><td class="py-1.5 text-xs"><code class="font-mono">@next="#..."</code></td></tr>
+                            <tr><td class="py-1.5 pr-4 font-mono text-xs">attestedBySource</td><td class="py-1.5 text-xs"><code class="font-mono">&lt;ptr type="source" target="#..."&gt;</code></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Datumsformate -->
+                <h3 class="text-sm font-semibold text-gray-800 mb-2 mt-5">Datumsformate</h3>
+                <div class="overflow-x-auto mb-3">
+                    <table class="w-full text-sm">
+                        <thead><tr class="text-left text-xs text-gray-500 border-b border-gray-200"><th class="pb-1 pr-4">HASE</th><th class="pb-1">TEI</th></tr></thead>
+                        <tbody class="text-gray-700">
+                            <tr class="border-b border-gray-100"><td class="py-1.5 pr-4 font-mono text-xs">"1774-08-16"</td><td class="py-1.5 text-xs"><code class="font-mono">@when="1774-08-16"</code></td></tr>
+                            <tr class="border-b border-gray-100"><td class="py-1.5 pr-4 font-mono text-xs">qualifier: "earliest"</td><td class="py-1.5 text-xs"><code class="font-mono">@notBefore="..."</code></td></tr>
+                            <tr class="border-b border-gray-100"><td class="py-1.5 pr-4 font-mono text-xs">qualifier: "latest"</td><td class="py-1.5 text-xs"><code class="font-mono">@notAfter="..."</code></td></tr>
+                            <tr class="border-b border-gray-100"><td class="py-1.5 pr-4 font-mono text-xs">{ from, to }</td><td class="py-1.5 text-xs"><code class="font-mono">@from="..." @to="..."</code></td></tr>
+                            <tr><td class="py-1.5 pr-4 text-xs text-gray-400">— (nicht in HASE)</td><td class="py-1.5 text-xs"><code class="font-mono">@cert="low"</code> für ungefähre Datierungen</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="bg-gray-900 rounded p-3 overflow-x-auto mb-5">
+                    <pre class="text-xs text-green-400 font-mono leading-relaxed"><span class="text-gray-500">&lt;!-- Exaktes Datum --&gt;</span>
+<span class="text-blue-400">&lt;event</span> when="1774-08-16" ...<span class="text-blue-400">&gt;</span>
+
+<span class="text-gray-500">&lt;!-- Spätestens --&gt;</span>
+<span class="text-blue-400">&lt;event</span> notAfter="1774-08-20" ...<span class="text-blue-400">&gt;</span>
+
+<span class="text-gray-500">&lt;!-- Zeitspanne --&gt;</span>
+<span class="text-blue-400">&lt;event</span> from="1786-09-11" to="1786-09-12" ...<span class="text-blue-400">&gt;</span>
+
+<span class="text-gray-500">&lt;!-- Ungefähr (TEI-Bonus, kein HASE-Äquivalent) --&gt;</span>
+<span class="text-blue-400">&lt;event</span> when="1774-08-16" cert="low" ...<span class="text-blue-400">&gt;</span></pre>
+                </div>
+
+                <!-- sources -->
+                <h3 class="text-sm font-semibold text-gray-800 mb-2">sources</h3>
+                <div class="overflow-x-auto mb-3">
+                    <table class="w-full text-sm">
+                        <thead><tr class="text-left text-xs text-gray-500 border-b border-gray-200"><th class="pb-1 pr-4">HASE</th><th class="pb-1">TEI</th></tr></thead>
+                        <tbody class="text-gray-700">
+                            <tr class="border-b border-gray-100"><td class="py-1.5 pr-4 font-mono text-xs">source.id</td><td class="py-1.5 text-xs"><code class="font-mono">@xml:id</code> auf <code class="font-mono">&lt;msDesc&gt;</code></td></tr>
+                            <tr class="border-b border-gray-100"><td class="py-1.5 pr-4 font-mono text-xs">source.type</td><td class="py-1.5 text-xs"><code class="font-mono">@type</code></td></tr>
+                            <tr class="border-b border-gray-100"><td class="py-1.5 pr-4 font-mono text-xs">archive.label</td><td class="py-1.5 text-xs"><code class="font-mono">&lt;institution ref="gnd:..."&gt;</code></td></tr>
+                            <tr class="border-b border-gray-100"><td class="py-1.5 pr-4 font-mono text-xs">shelfmark</td><td class="py-1.5 text-xs"><code class="font-mono">&lt;idno&gt;</code> in <code class="font-mono">&lt;msIdentifier&gt;</code></td></tr>
+                            <tr class="border-b border-gray-100"><td class="py-1.5 pr-4 font-mono text-xs">iiif</td><td class="py-1.5 text-xs"><code class="font-mono">&lt;ref type="iiif" target="..."&gt;</code> in <code class="font-mono">&lt;surrogates&gt;</code></td></tr>
+                            <tr class="border-b border-gray-100"><td class="py-1.5 pr-4 font-mono text-xs">references</td><td class="py-1.5 text-xs"><code class="font-mono">&lt;persName&gt;</code>, <code class="font-mono">&lt;placeName&gt;</code>, <code class="font-mono">&lt;title&gt;</code> in <code class="font-mono">&lt;msContents&gt;</code></td></tr>
+                            <tr class="border-b border-gray-100"><td class="py-1.5 pr-4 font-mono text-xs">editionUrl</td><td class="py-1.5 text-xs"><code class="font-mono">&lt;bibl type="edition"&gt;&lt;ref target="..."&gt;</code></td></tr>
+                            <tr><td class="py-1.5 pr-4 font-mono text-xs">catalogUrl</td><td class="py-1.5 text-xs"><code class="font-mono">&lt;bibl type="catalog"&gt;&lt;ref target="..."&gt;</code></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- context -->
+                <h3 class="text-sm font-semibold text-gray-800 mb-2 mt-5">context (Zusammenhänge)</h3>
+                <p class="text-xs text-gray-600 mb-3">
+                    Zusammenhänge (Korrespondenz, Begegnung, Reise) werden als eigene <code class="font-mono">&lt;event&gt;</code>-Elemente
+                    in einem separaten <code class="font-mono">&lt;listEvent type="context"&gt;</code> modelliert. Handlungen verweisen per <code class="font-mono">@corresp</code> darauf.
+                </p>
+                <div class="bg-gray-900 rounded p-3 overflow-x-auto mb-5">
+                    <pre class="text-xs text-green-400 font-mono leading-relaxed"><span class="text-gray-500">&lt;!-- Handlung verweist auf Kontext --&gt;</span>
+<span class="text-blue-400">&lt;event</span> xml:id="gb-10280-send" type="LETTER_SENDING"
+       when="1774-08-16" corresp="#gb-10280-korr"
+       next="#gb-10280-receive"<span class="text-blue-400">&gt;</span>
+  ...
+<span class="text-blue-400">&lt;/event&gt;</span>
+
+<span class="text-gray-500">&lt;!-- Kontext-Gruppierung --&gt;</span>
+<span class="text-blue-400">&lt;listEvent</span> type="context"<span class="text-blue-400">&gt;</span>
+  <span class="text-blue-400">&lt;event</span> xml:id="gb-10280-korr" type="CORRESPONDENCE"<span class="text-blue-400">&gt;</span>
+    <span class="text-blue-400">&lt;label&gt;</span>Korrespondenz Goethe–Kestner<span class="text-blue-400">&lt;/label&gt;</span>
+  <span class="text-blue-400">&lt;/event&gt;</span>
+<span class="text-blue-400">&lt;/listEvent&gt;</span></pre>
+                </div>
+            </section>
+
+            <!-- Vollständiges Beispiel -->
+            <section class="bg-white rounded-2xl shadow-sm border border-gray-200 p-8 mb-6">
+                <h2 class="text-xl font-bold text-gray-900 mb-4">Vollständiges Beispiel</h2>
+                <p class="text-sm text-gray-700 leading-relaxed mb-4">
+                    Eine HASE-TEI-Datei mit Korrespondenz, Quelle, Verkettung und Zusammenhang:
+                </p>
+                <div class="bg-gray-900 rounded-lg p-4 overflow-x-auto">
+                    <pre class="text-xs text-green-400 font-mono leading-relaxed"><span class="text-gray-500">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<span class="text-blue-400">&lt;TEI</span> xmlns="http://www.tei-c.org/ns/1.0"<span class="text-blue-400">&gt;</span>
+  <span class="text-blue-400">&lt;teiHeader&gt;</span>
+    <span class="text-blue-400">&lt;fileDesc&gt;</span>
+      <span class="text-blue-400">&lt;titleStmt&gt;</span>
+        <span class="text-blue-400">&lt;title&gt;</span>Goethe Biographica<span class="text-blue-400">&lt;/title&gt;</span>
+      <span class="text-blue-400">&lt;/titleStmt&gt;</span>
+      <span class="text-blue-400">&lt;publicationStmt&gt;</span>
+        <span class="text-blue-400">&lt;idno</span> type="hase"<span class="text-blue-400">&gt;</span>goethe-biographica<span class="text-blue-400">&lt;/idno&gt;</span>
+        <span class="text-blue-400">&lt;ref</span> type="url" target="https://goethe-biographica.de"<span class="text-blue-400">/&gt;</span>
+        <span class="text-blue-400">&lt;email&gt;</span>fdh@goethehaus-frankfurt.de<span class="text-blue-400">&lt;/email&gt;</span>
+        <span class="text-blue-400">&lt;availability&gt;</span>
+          <span class="text-blue-400">&lt;licence</span> target="https://creativecommons.org/licenses/by/4.0/"<span class="text-blue-400">&gt;</span>CC-BY-4.0<span class="text-blue-400">&lt;/licence&gt;</span>
+        <span class="text-blue-400">&lt;/availability&gt;</span>
+      <span class="text-blue-400">&lt;/publicationStmt&gt;</span>
+      <span class="text-blue-400">&lt;sourceDesc&gt;&lt;p&gt;</span>HASE-TEI Export<span class="text-blue-400">&lt;/p&gt;&lt;/sourceDesc&gt;</span>
+    <span class="text-blue-400">&lt;/fileDesc&gt;</span>
+    <span class="text-blue-400">&lt;encodingDesc&gt;</span>
+      <span class="text-blue-400">&lt;classDecl&gt;</span>
+        <span class="text-blue-400">&lt;taxonomy</span> xml:id="hase-activity"<span class="text-blue-400">&gt;</span>
+          <span class="text-blue-400">&lt;category</span> xml:id="LETTER_SENDING"<span class="text-blue-400">&gt;</span>
+            <span class="text-blue-400">&lt;catDesc</span> xml:lang="en"<span class="text-blue-400">&gt;</span>Letter sending<span class="text-blue-400">&lt;/catDesc&gt;</span>
+            <span class="text-blue-400">&lt;catDesc</span> xml:lang="de"<span class="text-blue-400">&gt;</span>Briefversand<span class="text-blue-400">&lt;/catDesc&gt;</span>
+          <span class="text-blue-400">&lt;/category&gt;</span>
+          <span class="text-blue-400">&lt;category</span> xml:id="LETTER_RECEIVING"<span class="text-blue-400">&gt;</span>
+            <span class="text-blue-400">&lt;catDesc</span> xml:lang="en"<span class="text-blue-400">&gt;</span>Letter receiving<span class="text-blue-400">&lt;/catDesc&gt;</span>
+            <span class="text-blue-400">&lt;catDesc</span> xml:lang="de"<span class="text-blue-400">&gt;</span>Briefempfang<span class="text-blue-400">&lt;/catDesc&gt;</span>
+          <span class="text-blue-400">&lt;/category&gt;</span>
+        <span class="text-blue-400">&lt;/taxonomy&gt;</span>
+        <span class="text-blue-400">&lt;taxonomy</span> xml:id="hase-source"<span class="text-blue-400">&gt;</span>
+          <span class="text-blue-400">&lt;category</span> xml:id="LETTER"<span class="text-blue-400">&gt;</span>
+            <span class="text-blue-400">&lt;catDesc</span> xml:lang="en"<span class="text-blue-400">&gt;</span>Letter<span class="text-blue-400">&lt;/catDesc&gt;</span>
+            <span class="text-blue-400">&lt;catDesc</span> xml:lang="de"<span class="text-blue-400">&gt;</span>Brief<span class="text-blue-400">&lt;/catDesc&gt;</span>
+          <span class="text-blue-400">&lt;/category&gt;</span>
+        <span class="text-blue-400">&lt;/taxonomy&gt;</span>
+      <span class="text-blue-400">&lt;/classDecl&gt;</span>
+    <span class="text-blue-400">&lt;/encodingDesc&gt;</span>
+  <span class="text-blue-400">&lt;/teiHeader&gt;</span>
+
+  <span class="text-blue-400">&lt;text&gt;&lt;body&gt;</span>
+
+    <span class="text-gray-500">&lt;!-- Handlungen --&gt;</span>
+    <span class="text-blue-400">&lt;listEvent&gt;</span>
+      <span class="text-blue-400">&lt;event</span> xml:id="gb-10280-send" type="LETTER_SENDING"
+             when="1774-08-16" corresp="#gb-10280-korr"
+             next="#gb-10280-receive"<span class="text-blue-400">&gt;</span>
+        <span class="text-blue-400">&lt;desc&gt;</span>
+          <span class="text-blue-400">&lt;persName</span> role="actor" ref="gnd:118540238"<span class="text-blue-400">&gt;</span>Goethe, Johann Wolfgang von<span class="text-blue-400">&lt;/persName&gt;</span>
+          <span class="text-blue-400">&lt;placeName</span> ref="gnd:4018118-2"<span class="text-blue-400">&gt;</span>Frankfurt am Main<span class="text-blue-400">&lt;/placeName&gt;</span>
+        <span class="text-blue-400">&lt;/desc&gt;</span>
+        <span class="text-blue-400">&lt;ptr</span> type="source" target="#z-gsa-28-5"<span class="text-blue-400">/&gt;</span>
+      <span class="text-blue-400">&lt;/event&gt;</span>
+
+      <span class="text-blue-400">&lt;event</span> xml:id="gb-10280-receive" type="LETTER_RECEIVING"
+             notAfter="1774-08-20" corresp="#gb-10280-korr"
+             prev="#gb-10280-send"<span class="text-blue-400">&gt;</span>
+        <span class="text-blue-400">&lt;desc&gt;</span>
+          <span class="text-blue-400">&lt;persName</span> role="actor" ref="gnd:118722026"<span class="text-blue-400">&gt;</span>Kestner, Johann Christian<span class="text-blue-400">&lt;/persName&gt;</span>
+          <span class="text-blue-400">&lt;placeName</span> ref="gnd:4023349-2"<span class="text-blue-400">&gt;</span>Hannover<span class="text-blue-400">&lt;/placeName&gt;</span>
+        <span class="text-blue-400">&lt;/desc&gt;</span>
+        <span class="text-blue-400">&lt;ptr</span> type="source" target="#z-gsa-28-5"<span class="text-blue-400">/&gt;</span>
+      <span class="text-blue-400">&lt;/event&gt;</span>
+    <span class="text-blue-400">&lt;/listEvent&gt;</span>
+
+    <span class="text-gray-500">&lt;!-- Zusammenhänge --&gt;</span>
+    <span class="text-blue-400">&lt;listEvent</span> type="context"<span class="text-blue-400">&gt;</span>
+      <span class="text-blue-400">&lt;event</span> xml:id="gb-10280-korr" type="CORRESPONDENCE"<span class="text-blue-400">&gt;</span>
+        <span class="text-blue-400">&lt;label&gt;</span>Korrespondenz Goethe–Kestner<span class="text-blue-400">&lt;/label&gt;</span>
+      <span class="text-blue-400">&lt;/event&gt;</span>
+    <span class="text-blue-400">&lt;/listEvent&gt;</span>
+
+    <span class="text-gray-500">&lt;!-- Quellen --&gt;</span>
+    <span class="text-blue-400">&lt;listBibl&gt;</span>
+      <span class="text-blue-400">&lt;msDesc</span> xml:id="z-gsa-28-5" type="LETTER"<span class="text-blue-400">&gt;</span>
+        <span class="text-blue-400">&lt;msIdentifier&gt;</span>
+          <span class="text-blue-400">&lt;institution</span> ref="gnd:5080444-3"<span class="text-blue-400">&gt;</span>Goethe- und Schiller-Archiv<span class="text-blue-400">&lt;/institution&gt;</span>
+          <span class="text-blue-400">&lt;idno&gt;</span>GSA 28/5, Bl. 1-2<span class="text-blue-400">&lt;/idno&gt;</span>
+        <span class="text-blue-400">&lt;/msIdentifier&gt;</span>
+        <span class="text-blue-400">&lt;msContents&gt;</span>
+          <span class="text-blue-400">&lt;p&gt;</span>
+            <span class="text-blue-400">&lt;persName</span> ref="gnd:118722026"<span class="text-blue-400">&gt;</span>Kestner, Johann Christian<span class="text-blue-400">&lt;/persName&gt;</span>,
+            <span class="text-blue-400">&lt;title</span> ref="gnd:4099312-4"<span class="text-blue-400">&gt;</span>Die Leiden des jungen Werthers<span class="text-blue-400">&lt;/title&gt;</span>
+          <span class="text-blue-400">&lt;/p&gt;</span>
+        <span class="text-blue-400">&lt;/msContents&gt;</span>
+        <span class="text-blue-400">&lt;additional&gt;</span>
+          <span class="text-blue-400">&lt;surrogates&gt;</span>
+            <span class="text-blue-400">&lt;ref</span> type="iiif" target="https://iiif.example.org/manifest/gsa-28-5"<span class="text-blue-400">/&gt;</span>
+          <span class="text-blue-400">&lt;/surrogates&gt;</span>
+          <span class="text-blue-400">&lt;listBibl&gt;</span>
+            <span class="text-blue-400">&lt;bibl</span> type="edition"<span class="text-blue-400">&gt;</span>
+              <span class="text-blue-400">&lt;ref</span> target="https://goethe-biographica.de/briefe/gb-10280"<span class="text-blue-400">/&gt;</span>
+            <span class="text-blue-400">&lt;/bibl&gt;</span>
+            <span class="text-blue-400">&lt;bibl</span> type="catalog"<span class="text-blue-400">&gt;</span>
+              <span class="text-blue-400">&lt;ref</span> target="https://kalliope-verbund.info/DE-611-HS-1234567"<span class="text-blue-400">/&gt;</span>
+            <span class="text-blue-400">&lt;/bibl&gt;</span>
+          <span class="text-blue-400">&lt;/listBibl&gt;</span>
+        <span class="text-blue-400">&lt;/additional&gt;</span>
+      <span class="text-blue-400">&lt;/msDesc&gt;</span>
+    <span class="text-blue-400">&lt;/listBibl&gt;</span>
+
+  <span class="text-blue-400">&lt;/body&gt;&lt;/text&gt;</span>
+<span class="text-blue-400">&lt;/TEI&gt;</span></pre>
+                </div>
+            </section>
+
+            <!-- TEI-Bonus -->
+            <section class="bg-white rounded-2xl shadow-sm border border-gray-200 p-8 mb-6">
+                <h2 class="text-xl font-bold text-gray-900 mb-4">TEI-Bonus</h2>
+                <p class="text-sm text-gray-700 leading-relaxed mb-4">
+                    TEI bietet Ausdrucksmöglichkeiten, die über HASE-JSON hinausgehen. EditionHub wertet diese aus, wenn sie vorhanden sind:
+                </p>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-sm">
+                        <thead><tr class="text-left text-xs text-gray-500 border-b border-gray-200"><th class="pb-1 pr-4">Feature</th><th class="pb-1 pr-4">TEI</th><th class="pb-1">Beschreibung</th></tr></thead>
+                        <tbody class="text-gray-700">
+                            <tr class="border-b border-gray-100"><td class="py-1.5 pr-4 text-xs font-semibold">Ungefähre Datierung</td><td class="py-1.5 pr-4 font-mono text-xs">@cert="low"</td><td class="py-1.5 text-xs">Kennzeichnet unsichere Daten ("um 1774")</td></tr>
+                            <tr class="border-b border-gray-100"><td class="py-1.5 pr-4 text-xs font-semibold">Erschlossene Daten</td><td class="py-1.5 pr-4 font-mono text-xs">@resp="#editor"</td><td class="py-1.5 text-xs">Wer hat das Datum erschlossen?</td></tr>
+                            <tr class="border-b border-gray-100"><td class="py-1.5 pr-4 text-xs font-semibold">Quellenverweis</td><td class="py-1.5 pr-4 font-mono text-xs">@evidence="..."</td><td class="py-1.5 text-xs">Evidenz für eine Aussage</td></tr>
+                            <tr><td class="py-1.5 pr-4 text-xs font-semibold">Freitext-Beschreibung</td><td class="py-1.5 pr-4 font-mono text-xs">&lt;desc&gt; + &lt;note&gt;</td><td class="py-1.5 text-xs">Ausführlichere Beschreibung der Handlung</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Hinweis -->
+            <section class="bg-blue-50 border border-blue-200 rounded-2xl p-6 mb-6">
+                <p class="text-sm text-blue-800 leading-relaxed">
+                    <strong>Hinweis:</strong> HASE-TEI und HASE-JSON sind gleichwertige Lieferwege.
+                    EditionHub konvertiert beide intern in dasselbe CIDOC-CRM-Modell.
+                    Wählen Sie das Format, das zu Ihrem Projekt passt.
+                </p>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-6 text-center text-sm text-gray-400">
+    </footer>
+
+</body>
+</html>

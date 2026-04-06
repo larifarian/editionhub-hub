@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="HASE → CIDOC-CRM — Wie HASE-Daten auf das CIDOC-CRM-Ontologiemodell abgebildet werden.">
+    <meta property="og:title" content="HASE → CIDOC-CRM — EditionHub">
+    <meta property="og:description" content="Mapping von HASE auf CIDOC-CRM — das internationale Referenzmodell für Kulturgut-Dokumentation">
+    <meta property="og:type" content="website">
+    <title>HASE → CIDOC-CRM — EditionHub</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen flex flex-col">
+
+    <!-- Header -->
+    <header class="py-8 text-center">
+        <a href="/" class="text-4xl font-bold text-gray-900 tracking-tight no-underline hover:opacity-80 transition">Edition<span class="text-blue-600">Hub</span></a>
+        <p class="mt-3 text-lg text-gray-500 max-w-xl mx-auto">Offene Forschungsplattform für Digitale Editionen</p>
+    </header>
+
+    <!-- Main -->
+    <main class="flex-1 flex items-start justify-center px-4 pb-16">
+        <div class="max-w-3xl w-full">
+
+            <!-- Titel -->
+            <div class="mb-8">
+                <div class="flex items-center gap-3 mb-2">
+                    <a href="/hase" class="text-sm text-blue-600 hover:text-blue-800 no-underline flex items-center gap-1">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
+                        HASE
+                    </a>
+                </div>
+                <h1 class="text-3xl font-bold text-gray-900 tracking-tight">HASE &rarr; CIDOC-CRM</h1>
+                <p class="mt-2 text-gray-500">Wie HASE intern auf CIDOC-CRM abgebildet wird — das internationale Referenzmodell für Kulturgut-Dokumentation</p>
+            </div>
+
+            <!-- Einleitung -->
+            <section class="bg-white rounded-2xl shadow-sm border border-gray-200 p-8 mb-6">
+                <h2 class="text-xl font-bold text-gray-900 mb-4">Warum CIDOC-CRM?</h2>
+                <p class="text-sm text-gray-700 leading-relaxed mb-4">
+                    <a href="https://www.cidoc-crm.org/" class="text-blue-600 hover:underline">CIDOC-CRM</a> (ISO 21127) ist die internationale Ontologie für Kulturgut-Dokumentation.
+                    EditionHub speichert alle Daten intern als CIDOC-CRM-konformes RDF. HASE ist die einfache Lieferschicht darüber —
+                    Projekte müssen weder RDF noch CIDOC-CRM verstehen.
+                </p>
+                <p class="text-sm text-gray-700 leading-relaxed">
+                    Diese Seite dokumentiert das Mapping für alle, die es genau wissen wollen:
+                    RDF4J-Entwickler, Linked-Data-Experten, oder Projekte, die ihre Daten direkt als RDF liefern möchten.
+                </p>
+            </section>
+
+            <!-- Überblick -->
+            <section class="bg-white rounded-2xl shadow-sm border border-gray-200 p-8 mb-6">
+                <h2 class="text-xl font-bold text-gray-900 mb-4">Mapping-Überblick</h2>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-sm">
+                        <thead><tr class="text-left text-xs text-gray-500 border-b border-gray-200"><th class="pb-1 pr-4">HASE</th><th class="pb-1 pr-4">CIDOC-CRM Klasse</th><th class="pb-1">Property</th></tr></thead>
+                        <tbody class="text-gray-700">
+                            <tr class="border-b border-gray-100"><td class="py-1.5 pr-4 text-xs font-semibold">activity</td><td class="py-1.5 pr-4 font-mono text-xs">crm:E7_Activity</td><td class="py-1.5 text-xs">—</td></tr>
+                            <tr class="border-b border-gray-100"><td class="py-1.5 pr-4 text-xs font-semibold">activity.type</td><td class="py-1.5 pr-4 font-mono text-xs">crm:E55_Type</td><td class="py-1.5 font-mono text-xs">crm:P2_has_type</td></tr>
+                            <tr class="border-b border-gray-100"><td class="py-1.5 pr-4 text-xs font-semibold">activity.actor</td><td class="py-1.5 pr-4 font-mono text-xs">crm:E21_Person / E74_Group</td><td class="py-1.5 font-mono text-xs">crm:P14_carried_out_by</td></tr>
+                            <tr class="border-b border-gray-100"><td class="py-1.5 pr-4 text-xs font-semibold">activity.place</td><td class="py-1.5 pr-4 font-mono text-xs">crm:E53_Place</td><td class="py-1.5 font-mono text-xs">crm:P7_took_place_at</td></tr>
+                            <tr class="border-b border-gray-100"><td class="py-1.5 pr-4 text-xs font-semibold">activity.date</td><td class="py-1.5 pr-4 font-mono text-xs">eh:Tag</td><td class="py-1.5 font-mono text-xs">crm:P175i / P184</td></tr>
+                            <tr class="border-b border-gray-100"><td class="py-1.5 pr-4 text-xs font-semibold">activity.thing</td><td class="py-1.5 pr-4 font-mono text-xs">crm:E22_Human-Made_Object</td><td class="py-1.5 font-mono text-xs">crm:P16_used_specific_object</td></tr>
+                            <tr class="border-b border-gray-100"><td class="py-1.5 pr-4 text-xs font-semibold">activity.continued</td><td class="py-1.5 pr-4 font-mono text-xs">—</td><td class="py-1.5 font-mono text-xs">crm:P134_continued</td></tr>
+                            <tr class="border-b border-gray-100"><td class="py-1.5 pr-4 text-xs font-semibold">activity.wasContinuedBy</td><td class="py-1.5 pr-4 font-mono text-xs">—</td><td class="py-1.5 font-mono text-xs">crm:P134i_was_continued_by</td></tr>
+                            <tr class="border-b border-gray-100"><td class="py-1.5 pr-4 text-xs font-semibold">activity.context</td><td class="py-1.5 pr-4 font-mono text-xs">crm:E5_Event</td><td class="py-1.5 font-mono text-xs">crm:P9_consists_of</td></tr>
+                            <tr class="border-b border-gray-100"><td class="py-1.5 pr-4 text-xs font-semibold">source</td><td class="py-1.5 pr-4 font-mono text-xs">crm:E31_Document</td><td class="py-1.5 text-xs">—</td></tr>
+                            <tr class="border-b border-gray-100"><td class="py-1.5 pr-4 text-xs font-semibold">source.attestsActivity</td><td class="py-1.5 pr-4 font-mono text-xs">—</td><td class="py-1.5 font-mono text-xs">crm:P70_documents</td></tr>
+                            <tr class="border-b border-gray-100"><td class="py-1.5 pr-4 text-xs font-semibold">source.references</td><td class="py-1.5 pr-4 font-mono text-xs">—</td><td class="py-1.5 font-mono text-xs">crm:P67_refers_to</td></tr>
+                            <tr class="border-b border-gray-100"><td class="py-1.5 pr-4 text-xs font-semibold">thing.references</td><td class="py-1.5 pr-4 font-mono text-xs">—</td><td class="py-1.5 font-mono text-xs">crm:P67_refers_to</td></tr>
+                            <tr><td class="py-1.5 pr-4 text-xs font-semibold">GND-ID</td><td class="py-1.5 pr-4 font-mono text-xs">—</td><td class="py-1.5 font-mono text-xs">owl:sameAs</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Namespaces -->
+            <section class="bg-white rounded-2xl shadow-sm border border-gray-200 p-8 mb-6">
+                <h2 class="text-xl font-bold text-gray-900 mb-4">Namespaces</h2>
+                <div class="bg-gray-900 rounded-lg p-4 overflow-x-auto">
+                    <pre class="text-xs text-green-400 font-mono leading-relaxed">@prefix crm:  &lt;http://www.cidoc-crm.org/cidoc-crm/&gt; .
+@prefix eh:   &lt;http://id.editionhub.org/ontology#&gt; .
+@prefix rdf:  &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt; .
+@prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt; .
+@prefix owl:  &lt;http://www.w3.org/2002/07/owl#&gt; .
+@prefix skos: &lt;http://www.w3.org/2004/02/skos/core#&gt; .
+@prefix gnd:  &lt;https://d-nb.info/gnd/&gt; .</pre>
+                </div>
+                <p class="text-xs text-gray-500 mt-3">
+                    Entitäten-URIs folgen dem Muster <code class="font-mono">http://id.editionhub.org/entity/{typ}/{projekt}/{id}</code>.
+                </p>
+            </section>
+
+            <!-- Activity -->
+            <section class="bg-white rounded-2xl shadow-sm border border-gray-200 p-8 mb-6">
+                <h2 class="text-xl font-bold text-gray-900 mb-4">Activity &rarr; E7_Activity</h2>
+                <p class="text-sm text-gray-700 leading-relaxed mb-4">
+                    Jede HASE-Activity wird zu einer <code class="font-mono text-xs">crm:E7_Activity</code>.
+                    Der Typ wird über <code class="font-mono text-xs">crm:P2_has_type</code> zugewiesen.
+                </p>
+
+                <div class="bg-gray-900 rounded-lg p-4 overflow-x-auto mb-4">
+                    <pre class="text-xs text-green-400 font-mono leading-relaxed"><span class="text-gray-500"># HASE-JSON:</span>
+<span class="text-gray-500"># { "id": "gb-10280-send", "type": "LETTER_SENDING",</span>
+<span class="text-gray-500">#   "date": "1774-08-16",</span>
+<span class="text-gray-500">#   "actor": { "type": "person", "label": "Goethe", "gnd": "118540238" },</span>
+<span class="text-gray-500">#   "place": { "label": "Frankfurt am Main", "gnd": "4018118-2" } }</span>
+
+<span class="text-gray-500"># Wird zu RDF:</span>
+&lt;http://id.editionhub.org/entity/letter-sending/goethe-biographica/gb-10280-send&gt;
+    a                          crm:E7_Activity ;
+    crm:P2_has_type            eh:LETTER_SENDING ;
+    crm:P175i_starts_after_or_with_the_start_of
+                               &lt;http://id.editionhub.org/entity/tag/1774-08-16&gt; ;
+    crm:P184_ends_before_or_with_the_end_of
+                               &lt;http://id.editionhub.org/entity/tag/1774-08-16&gt; ;
+    crm:P14_carried_out_by     &lt;https://d-nb.info/gnd/118540238&gt; ;
+    crm:P7_took_place_at       &lt;https://d-nb.info/gnd/4018118-2&gt; .</pre>
+                </div>
+
+                <div class="bg-blue-50 border border-blue-200 rounded-lg p-4">
+                    <p class="text-xs text-blue-800 leading-relaxed">
+                        <strong>URI-Strategie:</strong> Personen und Orte mit GND-ID verwenden direkt die GND-URI (<code class="font-mono">https://d-nb.info/gnd/...</code>).
+                        Ohne Normdaten wird eine projektlokale URI erzeugt und per <code class="font-mono">owl:sameAs</code> mit dem EditionHub-Index verknüpft.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Datum -->
+            <section class="bg-white rounded-2xl shadow-sm border border-gray-200 p-8 mb-6">
+                <h2 class="text-xl font-bold text-gray-900 mb-4">Datum &rarr; Tag-URI</h2>
+                <p class="text-sm text-gray-700 leading-relaxed mb-4">
+                    Datierungen werden über Tag-URIs modelliert. Die CRM-Properties <code class="font-mono text-xs">P175i</code> (starts after or with) und
+                    <code class="font-mono text-xs">P184</code> (ends before or with) ermöglichen exakte und unscharfe Zeitangaben:
+                </p>
+                <div class="overflow-x-auto mb-4">
+                    <table class="w-full text-sm">
+                        <thead><tr class="text-left text-xs text-gray-500 border-b border-gray-200"><th class="pb-1 pr-4">HASE</th><th class="pb-1 pr-4">P175i (von)</th><th class="pb-1">P184 (bis)</th></tr></thead>
+                        <tbody class="text-gray-700">
+                            <tr class="border-b border-gray-100"><td class="py-1.5 pr-4 font-mono text-xs">"1774-08-16"</td><td class="py-1.5 pr-4 font-mono text-xs">tag/1774-08-16</td><td class="py-1.5 font-mono text-xs">tag/1774-08-16</td></tr>
+                            <tr class="border-b border-gray-100"><td class="py-1.5 pr-4 font-mono text-xs">qualifier: "earliest"</td><td class="py-1.5 pr-4 font-mono text-xs">tag/{value}</td><td class="py-1.5 text-xs text-gray-400">— (offen)</td></tr>
+                            <tr class="border-b border-gray-100"><td class="py-1.5 pr-4 font-mono text-xs">qualifier: "latest"</td><td class="py-1.5 pr-4 text-xs text-gray-400">— (offen)</td><td class="py-1.5 font-mono text-xs">tag/{value}</td></tr>
+                            <tr><td class="py-1.5 pr-4 font-mono text-xs">{ from, to }</td><td class="py-1.5 pr-4 font-mono text-xs">tag/{from}</td><td class="py-1.5 font-mono text-xs">tag/{to}</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="bg-gray-900 rounded-lg p-4 overflow-x-auto">
+                    <pre class="text-xs text-green-400 font-mono leading-relaxed"><span class="text-gray-500"># Exaktes Datum: "1774-08-16"</span>
+&lt;...activity-uri&gt;
+    crm:P175i_starts_after_or_with_the_start_of  &lt;.../tag/1774-08-16&gt; ;
+    crm:P184_ends_before_or_with_the_end_of      &lt;.../tag/1774-08-16&gt; .
+
+<span class="text-gray-500"># Spätestens: { value: "1774-08-20", qualifier: "latest" }</span>
+&lt;...activity-uri&gt;
+    crm:P184_ends_before_or_with_the_end_of      &lt;.../tag/1774-08-20&gt; .
+
+<span class="text-gray-500"># Zeitspanne: { from: "1786-09-11", to: "1786-09-12" }</span>
+&lt;...activity-uri&gt;
+    crm:P175i_starts_after_or_with_the_start_of  &lt;.../tag/1786-09-11&gt; ;
+    crm:P184_ends_before_or_with_the_end_of      &lt;.../tag/1786-09-12&gt; .</pre>
+                </div>
+            </section>
+
+            <!-- Thing / Object -->
+            <section class="bg-white rounded-2xl shadow-sm border border-gray-200 p-8 mb-6">
+                <h2 class="text-xl font-bold text-gray-900 mb-4">Thing &rarr; E22_Human-Made_Object</h2>
+                <p class="text-sm text-gray-700 leading-relaxed mb-4">
+                    Das historische Objekt einer Handlung (z.B. der Brief bei einer Briefsendung) wird als
+                    <code class="font-mono text-xs">crm:E22_Human-Made_Object</code> modelliert und über
+                    <code class="font-mono text-xs">crm:P16_used_specific_object</code> mit der Activity verknüpft.
+                </p>
+                <div class="bg-gray-900 rounded-lg p-4 overflow-x-auto mb-4">
+                    <pre class="text-xs text-green-400 font-mono leading-relaxed"><span class="text-gray-500"># thing: { sourceRef: "z-gsa-28-5" }</span>
+&lt;...activity-uri&gt;
+    crm:P16_used_specific_object  &lt;.../brief/goethe-biographica/z-gsa-28-5&gt; .
+
+&lt;.../brief/goethe-biographica/z-gsa-28-5&gt;
+    a                  crm:E22_Human-Made_Object ;
+    crm:P2_has_type    eh:LETTER .
+
+<span class="text-gray-500"># thing.references → P67_refers_to (inhaltliche Bezüge)</span>
+&lt;.../brief/goethe-biographica/z-gsa-28-5&gt;
+    crm:P67_refers_to  &lt;https://d-nb.info/gnd/118722026&gt; ;  <span class="text-gray-500"># Kestner</span>
+    crm:P67_refers_to  &lt;https://d-nb.info/gnd/4099312-4&gt; .  <span class="text-gray-500"># Werther</span></pre>
+                </div>
+            </section>
+
+            <!-- Source -->
+            <section class="bg-white rounded-2xl shadow-sm border border-gray-200 p-8 mb-6">
+                <h2 class="text-xl font-bold text-gray-900 mb-4">Source &rarr; E31_Document</h2>
+                <p class="text-sm text-gray-700 leading-relaxed mb-4">
+                    Quellen werden als <code class="font-mono text-xs">crm:E31_Document</code> modelliert.
+                    Die Verbindung zur Activity läuft über <code class="font-mono text-xs">crm:P70_documents</code>.
+                </p>
+                <div class="bg-gray-900 rounded-lg p-4 overflow-x-auto mb-4">
+                    <pre class="text-xs text-green-400 font-mono leading-relaxed"><span class="text-gray-500"># source: { id: "z-gsa-28-5", type: "LETTER",</span>
+<span class="text-gray-500">#   archive: { label: "GSA", gnd: "5080444-3" },</span>
+<span class="text-gray-500">#   shelfmark: "GSA 28/5",</span>
+<span class="text-gray-500">#   attestsActivity: ["gb-10280-send", "gb-10280-receive"] }</span>
+
+&lt;.../zeugnis/goethe-biographica/z-gsa-28-5&gt;
+    a                  crm:E31_Document ;
+    crm:P2_has_type    eh:LETTER ;
+    crm:P70_documents  &lt;.../letter-sending/goethe-biographica/gb-10280-send&gt; ;
+    crm:P70_documents  &lt;.../letter-receiving/goethe-biographica/gb-10280-receive&gt; ;
+    crm:P67_refers_to  &lt;https://d-nb.info/gnd/118722026&gt; ;
+    crm:P67_refers_to  &lt;https://d-nb.info/gnd/4099312-4&gt; ;
+    eh:archive         "Goethe- und Schiller-Archiv" ;
+    eh:shelfmark       "GSA 28/5" ;
+    eh:editionUrl      "https://goethe-biographica.de/briefe/gb-10280" ;
+    eh:catalogUrl      "https://kalliope-verbund.info/DE-611-HS-1234567" .</pre>
+                </div>
+            </section>
+
+            <!-- Context -->
+            <section class="bg-white rounded-2xl shadow-sm border border-gray-200 p-8 mb-6">
+                <h2 class="text-xl font-bold text-gray-900 mb-4">Context &rarr; E5_Event</h2>
+                <p class="text-sm text-gray-700 leading-relaxed mb-4">
+                    Zusammenhänge (Korrespondenz, Begegnung, Reise) werden als
+                    <code class="font-mono text-xs">crm:E5_Event</code> modelliert. Die zugehörigen Activities
+                    werden per <code class="font-mono text-xs">crm:P9_consists_of</code> eingehängt.
+                </p>
+                <div class="bg-gray-900 rounded-lg p-4 overflow-x-auto">
+                    <pre class="text-xs text-green-400 font-mono leading-relaxed"><span class="text-gray-500"># context: { id: "gb-10280-korr", type: "CORRESPONDENCE" }</span>
+
+&lt;.../korrespondenz/goethe-biographica/gb-10280-korr&gt;
+    a                   crm:E5_Event ;
+    crm:P2_has_type     eh:CORRESPONDENCE ;
+    crm:P9_consists_of  &lt;.../letter-sending/.../gb-10280-send&gt; ;
+    crm:P9_consists_of  &lt;.../letter-receiving/.../gb-10280-receive&gt; .</pre>
+                </div>
+            </section>
+
+            <!-- Continuation -->
+            <section class="bg-white rounded-2xl shadow-sm border border-gray-200 p-8 mb-6">
+                <h2 class="text-xl font-bold text-gray-900 mb-4">Verkettung &rarr; P134</h2>
+                <p class="text-sm text-gray-700 leading-relaxed mb-4">
+                    Handlungsketten (z.B. Briefsendung → Briefempfang) werden über die CIDOC-CRM-Properties
+                    <code class="font-mono text-xs">P134_continued</code> und <code class="font-mono text-xs">P134i_was_continued_by</code> abgebildet.
+                </p>
+                <div class="bg-gray-900 rounded-lg p-4 overflow-x-auto">
+                    <pre class="text-xs text-green-400 font-mono leading-relaxed"><span class="text-gray-500"># gb-10280-send → wasContinuedBy → gb-10280-receive</span>
+
+&lt;.../letter-sending/.../gb-10280-send&gt;
+    crm:P134i_was_continued_by  &lt;.../letter-receiving/.../gb-10280-receive&gt; .
+
+&lt;.../letter-receiving/.../gb-10280-receive&gt;
+    crm:P134_continued          &lt;.../letter-sending/.../gb-10280-send&gt; .</pre>
+                </div>
+            </section>
+
+            <!-- Entity Resolution -->
+            <section class="bg-white rounded-2xl shadow-sm border border-gray-200 p-8 mb-6">
+                <h2 class="text-xl font-bold text-gray-900 mb-4">Normdaten-Auflösung</h2>
+                <p class="text-sm text-gray-700 leading-relaxed mb-4">
+                    Beim Ingest löst EditionHub GND-IDs gegen den internen Index auf.
+                    Bekannte Entitäten werden per <code class="font-mono text-xs">owl:sameAs</code> verknüpft,
+                    neue Entitäten werden zur Aufnahme vorgeschlagen.
+                </p>
+                <div class="bg-gray-900 rounded-lg p-4 overflow-x-auto mb-4">
+                    <pre class="text-xs text-green-400 font-mono leading-relaxed"><span class="text-gray-500"># Person mit GND → direkte GND-URI</span>
+&lt;.../activity-uri&gt;
+    crm:P14_carried_out_by  &lt;https://d-nb.info/gnd/118540238&gt; .
+
+<span class="text-gray-500"># Im EditionHub-Index existiert:</span>
+&lt;http://id.editionhub.org/entity/person/goethe&gt;
+    owl:sameAs  &lt;https://d-nb.info/gnd/118540238&gt; ;
+    rdfs:label  "Goethe, Johann Wolfgang von" .
+
+<span class="text-gray-500"># Person ohne GND → projektlokale URI</span>
+&lt;.../activity-uri&gt;
+    crm:P14_carried_out_by  &lt;http://id.editionhub.org/entity/person/goethe-biographica/mueller&gt; .</pre>
+                </div>
+            </section>
+
+            <!-- Graph-Struktur -->
+            <section class="bg-white rounded-2xl shadow-sm border border-gray-200 p-8 mb-6">
+                <h2 class="text-xl font-bold text-gray-900 mb-4">Named Graphs</h2>
+                <p class="text-sm text-gray-700 leading-relaxed mb-4">
+                    Jeder HASE-Import erzeugt einen Named Graph in RDF4J. Das ermöglicht versionierte Importe —
+                    ein neuer Import ersetzt den vorherigen Graph.
+                </p>
+                <div class="bg-gray-900 rounded-lg p-4 overflow-x-auto mb-4">
+                    <pre class="text-xs text-green-400 font-mono leading-relaxed"><span class="text-gray-500"># Graph-URI: http://id.editionhub.org/graph/{projekt}/{datum}</span>
+
+&lt;http://id.editionhub.org/graph/goethe-biographica/2026-04-06&gt;
+    rdfs:label     "Goethe Biographica" ;
+    skos:notation  "goethe-biographica" .</pre>
+                </div>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-sm">
+                        <thead><tr class="text-left text-xs text-gray-500 border-b border-gray-200"><th class="pb-1 pr-4">RDF4J Repository</th><th class="pb-1">Inhalt</th></tr></thead>
+                        <tbody class="text-gray-700">
+                            <tr class="border-b border-gray-100"><td class="py-1.5 pr-4 font-mono text-xs">editionhub-data</td><td class="py-1.5 text-xs">Activities, Sources, Objects — pro Projekt ein Named Graph</td></tr>
+                            <tr><td class="py-1.5 pr-4 font-mono text-xs">editionhub-index</td><td class="py-1.5 text-xs">Personen, Orte, Handlungstypen — projektübergreifend</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Vollständiges RDF-Beispiel -->
+            <section class="bg-white rounded-2xl shadow-sm border border-gray-200 p-8 mb-6">
+                <h2 class="text-xl font-bold text-gray-900 mb-4">Vollständiges RDF/XML-Beispiel</h2>
+                <p class="text-sm text-gray-700 leading-relaxed mb-4">
+                    So sieht das Goethe-Briefbeispiel als vollständiges RDF/XML aus, wie es vom Ingest erzeugt wird:
+                </p>
+                <div class="bg-gray-900 rounded-lg p-4 overflow-x-auto">
+                    <pre class="text-xs text-green-400 font-mono leading-relaxed"><span class="text-gray-500">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<span class="text-gray-500">&lt;?graph http://id.editionhub.org/graph/goethe-biographica/2026-04-06?&gt;</span>
+&lt;rdf:RDF
+  xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+  xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+  xmlns:crm="http://www.cidoc-crm.org/cidoc-crm/"
+  xmlns:eh="http://id.editionhub.org/ontology#"
+  xmlns:owl="http://www.w3.org/2002/07/owl#"
+  xmlns:skos="http://www.w3.org/2004/02/skos/core#"&gt;
+
+  <span class="text-gray-500">&lt;!-- Graph-Metadaten --&gt;</span>
+  &lt;rdf:Description rdf:about="http://id.editionhub.org/graph/goethe-biographica/2026-04-06"&gt;
+    &lt;rdfs:label&gt;Goethe Biographica&lt;/rdfs:label&gt;
+    &lt;skos:notation&gt;goethe-biographica&lt;/skos:notation&gt;
+  &lt;/rdf:Description&gt;
+
+  <span class="text-gray-500">&lt;!-- Briefsendung --&gt;</span>
+  &lt;crm:E7_Activity rdf:about=".../letter-sending/goethe-biographica/gb-10280-send"&gt;
+    &lt;crm:P2_has_type rdf:resource="http://id.editionhub.org/ontology#LETTER_SENDING"/&gt;
+    &lt;crm:P175i_starts_after_or_with_the_start_of
+        rdf:resource=".../entity/tag/1774-08-16"/&gt;
+    &lt;crm:P184_ends_before_or_with_the_end_of
+        rdf:resource=".../entity/tag/1774-08-16"/&gt;
+    &lt;crm:P14_carried_out_by rdf:resource="https://d-nb.info/gnd/118540238"/&gt;
+    &lt;crm:P7_took_place_at rdf:resource="https://d-nb.info/gnd/4018118-2"/&gt;
+    &lt;crm:P16_used_specific_object
+        rdf:resource=".../brief/goethe-biographica/gb-10280-send"/&gt;
+    &lt;crm:P134i_was_continued_by
+        rdf:resource=".../letter-receiving/goethe-biographica/gb-10280-receive"/&gt;
+  &lt;/crm:E7_Activity&gt;
+
+  <span class="text-gray-500">&lt;!-- Briefempfang --&gt;</span>
+  &lt;crm:E7_Activity rdf:about=".../letter-receiving/goethe-biographica/gb-10280-receive"&gt;
+    &lt;crm:P2_has_type rdf:resource="http://id.editionhub.org/ontology#LETTER_RECEIVING"/&gt;
+    &lt;crm:P184_ends_before_or_with_the_end_of
+        rdf:resource=".../entity/tag/1774-08-20"/&gt;
+    &lt;crm:P14_carried_out_by rdf:resource="https://d-nb.info/gnd/118722026"/&gt;
+    &lt;crm:P7_took_place_at rdf:resource="https://d-nb.info/gnd/4023349-2"/&gt;
+    &lt;crm:P16_used_specific_object
+        rdf:resource=".../brief/goethe-biographica/gb-10280-send"/&gt;
+    &lt;crm:P134_continued
+        rdf:resource=".../letter-sending/goethe-biographica/gb-10280-send"/&gt;
+  &lt;/crm:E7_Activity&gt;
+
+  <span class="text-gray-500">&lt;!-- Objekt (Brief) --&gt;</span>
+  &lt;crm:E22_Human-Made_Object rdf:about=".../brief/goethe-biographica/gb-10280-send"&gt;
+    &lt;crm:P2_has_type rdf:resource="http://id.editionhub.org/ontology#LETTER"/&gt;
+    &lt;crm:P67_refers_to rdf:resource="https://d-nb.info/gnd/118722026"/&gt;
+    &lt;crm:P67_refers_to rdf:resource="https://d-nb.info/gnd/4099312-4"/&gt;
+  &lt;/crm:E22_Human-Made_Object&gt;
+
+&lt;/rdf:RDF&gt;</pre>
+                </div>
+            </section>
+
+            <!-- eh: Erweiterungen -->
+            <section class="bg-white rounded-2xl shadow-sm border border-gray-200 p-8 mb-6">
+                <h2 class="text-xl font-bold text-gray-900 mb-4"><code class="font-mono">eh:</code> Erweiterungen</h2>
+                <p class="text-sm text-gray-700 leading-relaxed mb-4">
+                    Für Felder, die CIDOC-CRM nicht direkt abdeckt, verwendet EditionHub den eigenen Namespace
+                    <code class="font-mono text-xs">http://id.editionhub.org/ontology#</code>:
+                </p>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-sm">
+                        <thead><tr class="text-left text-xs text-gray-500 border-b border-gray-200"><th class="pb-1 pr-4">Property</th><th class="pb-1 pr-4">Domain</th><th class="pb-1">Beschreibung</th></tr></thead>
+                        <tbody class="text-gray-700">
+                            <tr class="border-b border-gray-100"><td class="py-1.5 pr-4 font-mono text-xs">eh:archive</td><td class="py-1.5 pr-4 text-xs">E31_Document</td><td class="py-1.5 text-xs">Name der aufbewahrenden Institution</td></tr>
+                            <tr class="border-b border-gray-100"><td class="py-1.5 pr-4 font-mono text-xs">eh:shelfmark</td><td class="py-1.5 pr-4 text-xs">E31_Document</td><td class="py-1.5 text-xs">Signatur im Archiv</td></tr>
+                            <tr class="border-b border-gray-100"><td class="py-1.5 pr-4 font-mono text-xs">eh:editionUrl</td><td class="py-1.5 pr-4 text-xs">E31_Document</td><td class="py-1.5 text-xs">Permalink in der digitalen Edition</td></tr>
+                            <tr class="border-b border-gray-100"><td class="py-1.5 pr-4 font-mono text-xs">eh:catalogUrl</td><td class="py-1.5 pr-4 text-xs">E31_Document</td><td class="py-1.5 text-xs">Katalog-URL (z.B. Kalliope)</td></tr>
+                            <tr class="border-b border-gray-100"><td class="py-1.5 pr-4 font-mono text-xs">eh:iiifManifest</td><td class="py-1.5 pr-4 text-xs">E31_Document</td><td class="py-1.5 text-xs">IIIF-Manifest-URL</td></tr>
+                            <tr class="border-b border-gray-100"><td class="py-1.5 pr-4 font-mono text-xs">eh:site</td><td class="py-1.5 pr-4 text-xs">Graph / Entity</td><td class="py-1.5 text-xs">Zuordnung zu einer EditionHub-Instanz</td></tr>
+                            <tr><td class="py-1.5 pr-4 font-mono text-xs">eh:possibleComponent</td><td class="py-1.5 pr-4 text-xs">E55_Type</td><td class="py-1.5 text-xs">Kompositionsbeziehung zwischen Handlungstypen</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-6 text-center text-sm text-gray-400">
+    </footer>
+
+</body>
+</html>
