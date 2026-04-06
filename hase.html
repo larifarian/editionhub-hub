@@ -12,7 +12,8 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
-        body { font-family: 'Inter', sans-serif; }
+        body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
+        .toc-link.active { color: #2563eb; font-weight: 600; border-left: 2px solid #2563eb; margin-left: -13px; padding-left: 11px; }
     </style>
 </head>
 <body class="bg-gray-50 min-h-screen flex flex-col">
@@ -25,6 +26,20 @@
 
     <!-- Main -->
     <main class="flex-1 flex items-start justify-center px-4 pb-16">
+        <!-- Sidebar Navigation (Desktop) -->
+        <nav id="toc" class="hidden xl:block sticky top-8 w-48 shrink-0 mr-8 self-start">
+            <ul class="text-xs text-gray-400 space-y-1.5 border-l border-gray-200 pl-3">
+                <li><a href="#was-ist-hase" class="toc-link hover:text-gray-700 transition block py-0.5">Was ist HASE?</a></li>
+                <li><a href="#daten-einreichen" class="toc-link hover:text-gray-700 transition block py-0.5">Daten einreichen</a></li>
+                <li><a href="#weiterfuehrend" class="toc-link hover:text-gray-700 transition block py-0.5">Weiterführend</a></li>
+                <li><a href="#minimalbeispiel" class="toc-link hover:text-gray-700 transition block py-0.5">Minimalbeispiel</a></li>
+                <li><a href="#dateistruktur" class="toc-link hover:text-gray-700 transition block py-0.5">Dateistruktur</a></li>
+                <li><a href="#kernkatalog" class="toc-link hover:text-gray-700 transition block py-0.5">Kernkatalog</a></li>
+                <li><a href="#vollstaendiges-beispiel" class="toc-link hover:text-gray-700 transition block py-0.5">Vollst. Beispiel</a></li>
+                <li><a href="#verarbeitung" class="toc-link hover:text-gray-700 transition block py-0.5">Verarbeitung</a></li>
+                <li><a href="#ressourcen" class="toc-link hover:text-gray-700 transition block py-0.5">Ressourcen</a></li>
+            </ul>
+        </nav>
         <div class="max-w-3xl w-full">
 
             <!-- Titel -->
@@ -35,7 +50,7 @@
 
             <!-- Was ist HASE? -->
             <section class="bg-white rounded-2xl shadow-sm border border-gray-200 p-8 mb-6">
-                <h2 class="text-xl font-bold text-gray-900 mb-4">Was ist HASE?</h2>
+                <h2 id="was-ist-hase" class="text-xl font-bold text-gray-900 mb-4">Was ist HASE?</h2>
                 <p class="text-sm text-gray-700 leading-relaxed mb-4">
                     HASE (<strong>Historical Activity and Source Exchange</strong>) ist ein einfaches JSON-Format, mit dem Forschungsprojekte ihre Daten
                     an EditionHub liefern können — ohne XSLT, ohne OpenRefine, ohne RDF-Kenntnisse.
@@ -63,7 +78,7 @@
 
             <!-- Daten einreichen -->
             <section class="bg-white rounded-2xl shadow-sm border border-gray-200 p-8 mb-6">
-                <h2 class="text-xl font-bold text-gray-900 mb-4">Daten einreichen</h2>
+                <h2 id="daten-einreichen" class="text-xl font-bold text-gray-900 mb-4">Daten einreichen</h2>
 
                 <div class="space-y-4">
                     <div class="flex gap-4 items-start">
@@ -100,7 +115,7 @@
 
             <!-- Weiterführend -->
             <section class="bg-white rounded-2xl shadow-sm border border-gray-200 p-8 mb-6">
-                <h2 class="text-xl font-bold text-gray-900 mb-4">Weiterf&uuml;hrend</h2>
+                <h2 id="weiterfuehrend" class="text-xl font-bold text-gray-900 mb-4">Weiterf&uuml;hrend</h2>
                 <div class="space-y-3">
                     <a href="/hase-projekte" class="flex items-center justify-between p-4 border border-gray-200 rounded-lg hover:border-blue-300 hover:bg-blue-50 transition no-underline group">
                         <div>
@@ -128,7 +143,7 @@
 
             <!-- Minimalbeispiel -->
             <section class="bg-white rounded-2xl shadow-sm border border-gray-200 p-8 mb-6">
-                <h2 class="text-xl font-bold text-gray-900 mb-4">Minimalbeispiel</h2>
+                <h2 id="minimalbeispiel" class="text-xl font-bold text-gray-900 mb-4">Minimalbeispiel</h2>
                 <p class="text-sm text-gray-700 leading-relaxed mb-4">
                     Die einfachste gültige HASE-Datei — ein Projekt mit einer einzigen Briefsendung:
                 </p>
@@ -156,7 +171,7 @@
 
             <!-- Dateistruktur -->
             <section class="bg-white rounded-2xl shadow-sm border border-gray-200 p-8 mb-6">
-                <h2 class="text-xl font-bold text-gray-900 mb-4">Dateistruktur</h2>
+                <h2 id="dateistruktur" class="text-xl font-bold text-gray-900 mb-4">Dateistruktur</h2>
                 <p class="text-sm text-gray-700 leading-relaxed mb-4">
                     Eine HASE-Datei besteht aus bis zu fünf Abschnitten:
                 </p>
@@ -311,7 +326,7 @@
 
             <!-- Kernkatalog -->
             <section id="hase-kernkatalog" class="bg-white rounded-2xl shadow-sm border border-gray-200 p-8 mb-6">
-                <h2 class="text-xl font-bold text-gray-900 mb-4">Kernkatalog</h2>
+                <h2 id="kernkatalog" class="text-xl font-bold text-gray-900 mb-4">Kernkatalog</h2>
 
                 <h3 class="text-sm font-semibold text-gray-800 mb-2">Handlungstypen (activityTypes)</h3>
                 <div class="overflow-x-auto mb-5">
@@ -361,7 +376,7 @@
 
             <!-- Vollständiges Beispiel -->
             <section class="bg-white rounded-2xl shadow-sm border border-gray-200 p-8 mb-6">
-                <h2 class="text-xl font-bold text-gray-900 mb-4">Vollständiges Beispiel</h2>
+                <h2 id="vollstaendiges-beispiel" class="text-xl font-bold text-gray-900 mb-4">Vollständiges Beispiel</h2>
                 <p class="text-sm text-gray-700 leading-relaxed mb-4">
                     Eine HASE-Datei mit Korrespondenz, Quelle, Verkettung und Zusammenhang:
                 </p>
@@ -434,7 +449,7 @@
 
             <!-- Verarbeitung -->
             <section class="bg-white rounded-2xl shadow-sm border border-gray-200 p-8 mb-6">
-                <h2 class="text-xl font-bold text-gray-900 mb-4">Verarbeitung</h2>
+                <h2 id="verarbeitung" class="text-xl font-bold text-gray-900 mb-4">Verarbeitung</h2>
                 <p class="text-sm text-gray-700 leading-relaxed mb-4">
                     EditionHub verarbeitet HASE-Dateien automatisch:
                 </p>
@@ -462,7 +477,7 @@
 
             <!-- Ressourcen -->
             <section class="bg-white rounded-2xl shadow-sm border border-gray-200 p-8 mb-6">
-                <h2 class="text-xl font-bold text-gray-900 mb-4">Ressourcen</h2>
+                <h2 id="ressourcen" class="text-xl font-bold text-gray-900 mb-4">Ressourcen</h2>
                 <ul class="text-sm text-gray-600 space-y-1 list-disc list-inside">
                     <li>HASE Version: <code class="font-mono text-xs bg-gray-100 px-1.5 py-0.5 rounded">0.1</code> (Entwurf)</li>
                     <li>JSON-Schema: <a href="/hase/schema/0.1" class="text-blue-600 hover:underline font-mono text-xs">editionhub.org/hase/schema/0.1</a></li>
@@ -478,5 +493,23 @@
     <footer class="py-6 text-center text-sm text-gray-400">
     </footer>
 
+    <script>
+    (function() {
+        const links = document.querySelectorAll('.toc-link');
+        const ids = Array.from(links).map(a => a.getAttribute('href').slice(1));
+        function update() {
+            let current = ids[0];
+            for (const id of ids) {
+                const el = document.getElementById(id);
+                if (el && el.getBoundingClientRect().top <= 120) current = id;
+            }
+            links.forEach(a => {
+                a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+            });
+        }
+        window.addEventListener('scroll', update, { passive: true });
+        update();
+    })();
+    </script>
 </body>
 </html>
