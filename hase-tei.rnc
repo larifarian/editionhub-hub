@@ -1,0 +1,204 @@
+# HASE-TEI 0.1 — RelaxNG Compact Schema
+# Historical Activity and Source Exchange — TEI Profile
+# https://editionhub.org/hase/schema-tei/0.1
+
+default namespace = "http://www.tei-c.org/ns/1.0"
+
+start = TEI
+
+# ──────────────────────────────────────────────
+# Root
+# ──────────────────────────────────────────────
+
+TEI = element TEI {
+  attribute xmlns { "http://www.tei-c.org/ns/1.0" }?,
+  teiHeader,
+  text
+}
+
+# ──────────────────────────────────────────────
+# teiHeader
+# ──────────────────────────────────────────────
+
+teiHeader = element teiHeader {
+  fileDesc,
+  encodingDesc?,
+  profileDesc
+}
+
+# fileDesc — project metadata + sources
+fileDesc = element fileDesc {
+  titleStmt,
+  publicationStmt,
+  sourceDesc
+}
+
+titleStmt = element titleStmt {
+  element title { text }
+}
+
+publicationStmt = element publicationStmt {
+  element idno { attribute type { "hase" }, text }?,
+  element ref { attribute type { "url" }, attribute target { xsd:anyURI }, empty }?,
+  element email { text }?,
+  element availability {
+    element licence { attribute target { xsd:anyURI }, text }
+  }?
+}
+
+sourceDesc = element sourceDesc {
+  (element p { text }
+   | element listBibl { msDesc+ })
+}
+
+# encodingDesc — taxonomy declarations (activityTypes / sourceTypes)
+encodingDesc = element encodingDesc {
+  element classDecl {
+    taxonomy+
+  }
+}
+
+taxonomy = element taxonomy {
+  attribute xml:id { xsd:ID },
+  attribute source { xsd:anyURI }?,
+  category*
+}
+
+category = element category {
+  attribute xml:id { xsd:ID },
+  catDesc+
+}
+
+catDesc = element catDesc {
+  attribute xml:lang { xsd:language },
+  text
+}
+
+# profileDesc — activities + contexts
+profileDesc = element profileDesc {
+  element abstract {
+    listEvent+
+  }
+}
+
+# ──────────────────────────────────────────────
+# Activities (listEvent)
+# ──────────────────────────────────────────────
+
+listEvent = element listEvent {
+  attribute type { "context" }?,
+  event+
+}
+
+event = element event {
+  attribute xml:id { xsd:ID },
+  attribute ana { text },
+  # Date attributes (choose one pattern)
+  (attribute when { xsd:date }
+   | attribute notBefore { xsd:date }
+   | attribute notAfter { xsd:date }
+   | (attribute from { xsd:date }, attribute to { xsd:date })
+   | (attribute notBefore { xsd:date }, attribute notAfter { xsd:date }))?,
+  # Linking
+  attribute corresp { text }?,
+  attribute prev { text }?,
+  attribute next { text }?,
+  # Content
+  eventDesc?,
+  ptr*
+}
+
+eventDesc = element desc {
+  (persName | placeName | objectName | rs)*
+}
+
+ptr = element ptr {
+  attribute type { "source" | "thing" },
+  attribute target { text },
+  empty
+}
+
+# ──────────────────────────────────────────────
+# Sources (msDesc in text/body or sourceDesc)
+# ──────────────────────────────────────────────
+
+text = element text {
+  element body {
+    (element listBibl { msDesc+ }
+     | element p { text })+
+  }
+}
+
+msDesc = element msDesc {
+  attribute xml:id { xsd:ID },
+  attribute type { text },
+  msIdentifier?,
+  msContents?,
+  additional?
+}
+
+msIdentifier = element msIdentifier {
+  element institution {
+    attribute ref { text }?,
+    text
+  }?,
+  element idno { text }?
+}
+
+msContents = element msContents {
+  element p {
+    (text | persName | title | placeName | rs)*
+  }
+}
+
+additional = element additional {
+  surrogates?,
+  element listBibl {
+    bibl+
+  }?
+}
+
+surrogates = element surrogates {
+  element ref {
+    attribute type { "iiif" },
+    attribute target { xsd:anyURI },
+    empty
+  }
+}
+
+bibl = element bibl {
+  attribute type { "edition" | "catalog" | text },
+  (element ref { attribute target { xsd:anyURI }, empty }
+   | text)+
+}
+
+# ──────────────────────────────────────────────
+# Shared inline elements
+# ──────────────────────────────────────────────
+
+persName = element persName {
+  attribute role { "actor" | "participant" | text }?,
+  attribute ref { text }?,
+  text
+}
+
+placeName = element placeName {
+  attribute ref { text }?,
+  text
+}
+
+objectName = element objectName {
+  attribute ref { text }?,
+  text
+}
+
+title = element title {
+  attribute ref { text }?,
+  text
+}
+
+rs = element rs {
+  attribute type { "person" | "place" | "work" | "concept" | "group" | text },
+  attribute ref { text }?,
+  text
+}
