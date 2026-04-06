@@ -1,4 +1,5 @@
 {
+  "$schema": "https://editionhub.org/hase/schema/0.1",
   "hase": "0.1",
   "project": {
     "id": "goethe-biographica",

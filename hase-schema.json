@@ -7,6 +7,11 @@
   "required": ["hase", "project", "activities"],
   "additionalProperties": false,
   "properties": {
+    "$schema": {
+      "type": "string",
+      "format": "uri",
+      "description": "Optional JSON Schema URI for validation (e.g. https://editionhub.org/hase/schema/0.1). — Optionale JSON-Schema-URI zur Validierung."
+    },
     "hase": {
       "type": "string",
       "const": "0.1",
