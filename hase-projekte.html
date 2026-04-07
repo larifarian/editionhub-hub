@@ -13,10 +13,17 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
         body { font-family: 'Inter', sans-serif; }
-        .tab-link { color: #6b7280; }
-        .tab-link:hover { color: #374151; }
-        .tab-link.active { color: #2563eb; border-bottom-color: #2563eb; font-weight: 600; }
+        html[lang="de"] [lang="en"] { display: none !important; }
+        html[lang="en"] [lang="de"] { display: none !important; }
+        .lang-switch { cursor: pointer; }
+        .lang-switch.active { color: #1d4ed8; font-weight: 600; }
     </style>
+    <script>
+        (function() {
+            var l = localStorage.getItem('eh-lang') || 'de';
+            document.documentElement.lang = l;
+        })();
+    </script>
 </head>
 <body class="bg-white min-h-screen flex flex-col">
 
@@ -25,6 +32,11 @@
         <a href="/" class="hover:text-gray-600 no-underline flex items-center gap-1.5 transition">
             <span class="font-semibold text-gray-500">Edition<span class="text-blue-500">Hub</span></span>
         </a>
+        <div class="flex items-center gap-1">
+            <button onclick="setLang('de')" class="lang-switch px-1.5 py-0.5 rounded hover:text-gray-600" data-lang="de">DE</button>
+            <span class="text-gray-300">|</span>
+            <button onclick="setLang('en')" class="lang-switch px-1.5 py-0.5 rounded hover:text-gray-600" data-lang="en">EN</button>
+        </div>
     </nav>
 
     <!-- Header (same as historia) -->
@@ -52,7 +64,7 @@
             </div>
 
             <!-- Kernfrage -->
-            <section class="bg-gray-50/50 rounded-2xl border border-gray-100 p-8 mb-6">
+            <section class="bg-gray-50 rounded-2xl border border-gray-200 shadow-sm p-8 mb-6">
                 <h2 class="text-xl font-bold text-gray-900 mb-4">Die Kernfrage</h2>
                 <div class="bg-blue-50 border border-blue-200 rounded-lg p-5 mb-4">
                     <p class="text-sm text-blue-900 font-semibold leading-relaxed text-center">
@@ -68,7 +80,7 @@
             </section>
 
             <!-- Passt gut -->
-            <section class="bg-gray-50/50 rounded-2xl border border-gray-100 p-8 mb-6">
+            <section class="bg-gray-50 rounded-2xl border border-gray-200 shadow-sm p-8 mb-6">
                 <h2 class="text-xl font-bold text-gray-900 mb-4">
                     <span class="inline-block w-3 h-3 rounded-full bg-green-500 mr-2 align-middle"></span>
                     Passt gut
@@ -154,7 +166,7 @@
             </section>
 
             <!-- Passt mit Einschränkungen -->
-            <section class="bg-gray-50/50 rounded-2xl border border-gray-100 p-8 mb-6">
+            <section class="bg-gray-50 rounded-2xl border border-gray-200 shadow-sm p-8 mb-6">
                 <h2 class="text-xl font-bold text-gray-900 mb-4">
                     <span class="inline-block w-3 h-3 rounded-full bg-yellow-400 mr-2 align-middle"></span>
                     Passt mit Einschr&auml;nkungen
@@ -198,7 +210,7 @@
             </section>
 
             <!-- Passt nicht -->
-            <section class="bg-gray-50/50 rounded-2xl border border-gray-100 p-8 mb-6">
+            <section class="bg-gray-50 rounded-2xl border border-gray-200 shadow-sm p-8 mb-6">
                 <h2 class="text-xl font-bold text-gray-900 mb-4">
                     <span class="inline-block w-3 h-3 rounded-full bg-red-400 mr-2 align-middle"></span>
                     Passt nicht
@@ -222,7 +234,7 @@
             </section>
 
             <!-- Entscheidungshilfe -->
-            <section class="bg-gray-50/50 rounded-2xl border border-gray-100 p-8 mb-6">
+            <section class="bg-gray-50 rounded-2xl border border-gray-200 shadow-sm p-8 mb-6">
                 <h2 class="text-xl font-bold text-gray-900 mb-4">Schnelltest</h2>
                 <p class="text-sm text-gray-700 leading-relaxed mb-4">
                     Drei Fragen, die helfen:
@@ -262,7 +274,7 @@
             </section>
 
             <!-- Eigene Typen -->
-            <section class="bg-gray-50/50 rounded-2xl border border-gray-100 p-8 mb-6">
+            <section class="bg-gray-50 rounded-2xl border border-gray-200 shadow-sm p-8 mb-6">
                 <h2 class="text-xl font-bold text-gray-900 mb-4">Eigene Handlungstypen vorschlagen</h2>
                 <p class="text-sm text-gray-700 leading-relaxed mb-4">
                     HASE hat sechs Standard-Handlungstypen. Wenn Ihr Projekt andere braucht, deklarieren Sie sie einfach in Ihrer HASE-Datei:
@@ -292,5 +304,15 @@
     <footer class="py-6 text-center text-sm text-gray-400">
     </footer>
 
+    <script>
+    function setLang(lang) {
+        document.documentElement.lang = lang;
+        localStorage.setItem('eh-lang', lang);
+        document.querySelectorAll('.lang-switch').forEach(function(btn) {
+            btn.classList.toggle('active', btn.dataset.lang === lang);
+        });
+    }
+    setLang(document.documentElement.lang);
+    </script>
 </body>
 </html>

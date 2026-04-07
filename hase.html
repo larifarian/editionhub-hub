@@ -14,10 +14,17 @@
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
         body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
         .toc-link.active { color: #2563eb; font-weight: 600; border-left: 2px solid #2563eb; margin-left: -13px; padding-left: 11px; }
-        .tab-link { color: #6b7280; }
-        .tab-link:hover { color: #374151; }
-        .tab-link.active { color: #2563eb; border-bottom-color: #2563eb; font-weight: 600; }
+        html[lang="de"] [lang="en"] { display: none !important; }
+        html[lang="en"] [lang="de"] { display: none !important; }
+        .lang-switch { cursor: pointer; }
+        .lang-switch.active { color: #1d4ed8; font-weight: 600; }
     </style>
+    <script>
+        (function() {
+            var l = localStorage.getItem('eh-lang') || 'de';
+            document.documentElement.lang = l;
+        })();
+    </script>
 </head>
 <body class="bg-white min-h-screen flex flex-col">
 
@@ -26,6 +33,11 @@
         <a href="/" class="hover:text-gray-600 no-underline flex items-center gap-1.5 transition">
             <span class="font-semibold text-gray-500">Edition<span class="text-blue-500">Hub</span></span>
         </a>
+        <div class="flex items-center gap-1">
+            <button onclick="setLang('de')" class="lang-switch px-1.5 py-0.5 rounded hover:text-gray-600" data-lang="de">DE</button>
+            <span class="text-gray-300">|</span>
+            <button onclick="setLang('en')" class="lang-switch px-1.5 py-0.5 rounded hover:text-gray-600" data-lang="en">EN</button>
+        </div>
     </nav>
 
     <!-- Header (same as historia) -->
@@ -65,7 +77,7 @@
             </div>
 
             <!-- Was ist HASE? -->
-            <section class="bg-gray-50/50 rounded-2xl border border-gray-100 p-8 mb-6">
+            <section class="bg-gray-50 rounded-2xl border border-gray-200 shadow-sm p-8 mb-6">
                 <h2 id="was-ist-hase" class="text-xl font-bold text-gray-900 mb-4">Was ist HASE?</h2>
                 <p class="text-sm text-gray-700 leading-relaxed mb-4">
                     HASE (<strong>Historical Activity and Source Exchange</strong>) ist ein einfaches JSON-Format, mit dem Forschungsprojekte ihre Daten
@@ -93,7 +105,7 @@
             </section>
 
             <!-- Daten einreichen -->
-            <section class="bg-gray-50/50 rounded-2xl border border-gray-100 p-8 mb-6">
+            <section class="bg-gray-50 rounded-2xl border border-gray-200 shadow-sm p-8 mb-6">
                 <h2 id="daten-einreichen" class="text-xl font-bold text-gray-900 mb-4">Daten einreichen</h2>
 
                 <div class="space-y-4">
@@ -130,7 +142,7 @@
             </section>
 
             <!-- Implementierung -->
-            <section class="bg-gray-50/50 rounded-2xl border border-gray-100 p-8 mb-6">
+            <section class="bg-gray-50 rounded-2xl border border-gray-200 shadow-sm p-8 mb-6">
                 <h2 id="implementierung" class="text-xl font-bold text-gray-900 mb-4">Implementierung</h2>
                 <div class="space-y-3">
                     <a href="/hase-projekte" class="flex items-center justify-between p-4 border border-gray-200 rounded-lg hover:border-blue-300 hover:bg-blue-50 transition no-underline group">
@@ -158,7 +170,7 @@
             </section>
 
             <!-- Minimalbeispiel -->
-            <section class="bg-gray-50/50 rounded-2xl border border-gray-100 p-8 mb-6">
+            <section class="bg-gray-50 rounded-2xl border border-gray-200 shadow-sm p-8 mb-6">
                 <h2 id="minimalbeispiel" class="text-xl font-bold text-gray-900 mb-4">Minimalbeispiel</h2>
                 <p class="text-sm text-gray-700 leading-relaxed mb-4">
                     Die einfachste gültige HASE-Datei — ein Projekt mit einer einzigen Briefsendung:
@@ -186,7 +198,7 @@
             </section>
 
             <!-- Dateistruktur -->
-            <section class="bg-gray-50/50 rounded-2xl border border-gray-100 p-8 mb-6">
+            <section class="bg-gray-50 rounded-2xl border border-gray-200 shadow-sm p-8 mb-6">
                 <h2 id="dateistruktur" class="text-xl font-bold text-gray-900 mb-4">Dateistruktur</h2>
                 <p class="text-sm text-gray-700 leading-relaxed mb-4">
                     Eine HASE-Datei besteht aus bis zu fünf Abschnitten:
@@ -341,7 +353,7 @@
             </section>
 
             <!-- Kernkatalog -->
-            <section id="hase-kernkatalog" class="bg-gray-50/50 rounded-2xl border border-gray-100 p-8 mb-6">
+            <section id="hase-kernkatalog" class="bg-gray-50 rounded-2xl border border-gray-200 shadow-sm p-8 mb-6">
                 <h2 id="kernkatalog" class="text-xl font-bold text-gray-900 mb-4">Kernkatalog</h2>
 
                 <h3 class="text-sm font-semibold text-gray-800 mb-2">Handlungstypen (activityTypes)</h3>
@@ -391,7 +403,7 @@
             </section>
 
             <!-- Vollständiges Beispiel -->
-            <section class="bg-gray-50/50 rounded-2xl border border-gray-100 p-8 mb-6">
+            <section class="bg-gray-50 rounded-2xl border border-gray-200 shadow-sm p-8 mb-6">
                 <h2 id="vollstaendiges-beispiel" class="text-xl font-bold text-gray-900 mb-4">Vollständiges Beispiel</h2>
                 <p class="text-sm text-gray-700 leading-relaxed mb-4">
                     Eine HASE-Datei mit Korrespondenz, Quelle, Verkettung und Zusammenhang:
@@ -464,7 +476,7 @@
             </section>
 
             <!-- Verarbeitung -->
-            <section class="bg-gray-50/50 rounded-2xl border border-gray-100 p-8 mb-6">
+            <section class="bg-gray-50 rounded-2xl border border-gray-200 shadow-sm p-8 mb-6">
                 <h2 id="verarbeitung" class="text-xl font-bold text-gray-900 mb-4">Verarbeitung</h2>
                 <p class="text-sm text-gray-700 leading-relaxed mb-4">
                     EditionHub verarbeitet HASE-Dateien automatisch:
@@ -492,7 +504,7 @@
             </section>
 
             <!-- Ressourcen -->
-            <section class="bg-gray-50/50 rounded-2xl border border-gray-100 p-8 mb-6">
+            <section class="bg-gray-50 rounded-2xl border border-gray-200 shadow-sm p-8 mb-6">
                 <h2 id="ressourcen" class="text-xl font-bold text-gray-900 mb-4">Ressourcen</h2>
                 <ul class="text-sm text-gray-600 space-y-1 list-disc list-inside">
                     <li>HASE Version: <code class="font-mono text-xs bg-gray-100 px-1.5 py-0.5 rounded">0.1</code> (Entwurf)</li>
@@ -514,6 +526,15 @@
     </footer>
 
     <script>
+    function setLang(lang) {
+        document.documentElement.lang = lang;
+        localStorage.setItem('eh-lang', lang);
+        document.querySelectorAll('.lang-switch').forEach(function(btn) {
+            btn.classList.toggle('active', btn.dataset.lang === lang);
+        });
+    }
+    setLang(document.documentElement.lang);
+
     (function() {
         const links = document.querySelectorAll('.toc-link');
         const ids = Array.from(links).map(a => a.getAttribute('href').slice(1));

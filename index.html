@@ -68,10 +68,6 @@
                 <div class="flex items-center gap-3 mt-4 text-xs text-gray-400 font-mono">
                     <span><span id="statActivities" class="text-gray-600 font-semibold">—</span> <span lang="de">Handlungen</span><span lang="en">Activities</span></span>
                     <span class="text-gray-200">·</span>
-                    <span><span id="statPersons" class="text-gray-600 font-semibold">—</span> <span lang="de">Personen</span><span lang="en">Persons</span></span>
-                    <span class="text-gray-200">·</span>
-                    <span><span id="statPlaces" class="text-gray-600 font-semibold">—</span> <span lang="de">Orte</span><span lang="en">Places</span></span>
-                    <span class="text-gray-200">·</span>
                     <span><span id="statSources" class="text-gray-600 font-semibold">—</span> <span lang="de">Quellen</span><span lang="en">Sources</span></span>
                 </div>
 
@@ -115,15 +111,11 @@
             const API = 'https://historia.editionhub.org/api';
             const fmt = n => n.toLocaleString('de-DE');
             try {
-                const [activities, persons, places, sources] = await Promise.all([
+                const [activities, sources] = await Promise.all([
                     fetch(API + '/activity').then(r => r.ok ? r.json() : []),
-                    fetch(API + '/index?type=person').then(r => r.ok ? r.json() : []),
-                    fetch(API + '/index?type=place').then(r => r.ok ? r.json() : []),
                     fetch(API + '/sources').then(r => r.ok ? r.json() : [])
                 ]);
                 document.getElementById('statActivities').textContent = fmt(activities.length);
-                document.getElementById('statPersons').textContent = fmt(persons.length);
-                document.getElementById('statPlaces').textContent = fmt(places.length);
                 document.getElementById('statSources').textContent = fmt(sources.length);
             } catch (e) {}
         })();

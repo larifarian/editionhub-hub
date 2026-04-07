@@ -13,10 +13,17 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
         body { font-family: 'Inter', sans-serif; }
-        .tab-link { color: #6b7280; }
-        .tab-link:hover { color: #374151; }
-        .tab-link.active { color: #2563eb; border-bottom-color: #2563eb; font-weight: 600; }
+        html[lang="de"] [lang="en"] { display: none !important; }
+        html[lang="en"] [lang="de"] { display: none !important; }
+        .lang-switch { cursor: pointer; }
+        .lang-switch.active { color: #1d4ed8; font-weight: 600; }
     </style>
+    <script>
+        (function() {
+            var l = localStorage.getItem('eh-lang') || 'de';
+            document.documentElement.lang = l;
+        })();
+    </script>
 </head>
 <body class="bg-white min-h-screen flex flex-col">
 
@@ -25,6 +32,11 @@
         <a href="/" class="hover:text-gray-600 no-underline flex items-center gap-1.5 transition">
             <span class="font-semibold text-gray-500">Edition<span class="text-blue-500">Hub</span></span>
         </a>
+        <div class="flex items-center gap-1">
+            <button onclick="setLang('de')" class="lang-switch px-1.5 py-0.5 rounded hover:text-gray-600" data-lang="de">DE</button>
+            <span class="text-gray-300">|</span>
+            <button onclick="setLang('en')" class="lang-switch px-1.5 py-0.5 rounded hover:text-gray-600" data-lang="en">EN</button>
+        </div>
     </nav>
 
     <!-- Header (same as historia) -->
@@ -52,7 +64,7 @@
             </div>
 
             <!-- Einleitung -->
-            <section class="bg-gray-50/50 rounded-2xl border border-gray-100 p-8 mb-6">
+            <section class="bg-gray-50 rounded-2xl border border-gray-200 shadow-sm p-8 mb-6">
                 <h2 class="text-xl font-bold text-gray-900 mb-4">Warum TEI?</h2>
                 <p class="text-sm text-gray-700 leading-relaxed mb-4">
                     Viele Editionsprojekte arbeiten bereits mit TEI XML. Statt ihre Daten nach HASE-JSON zu konvertieren,
@@ -71,7 +83,7 @@
             </section>
 
             <!-- Minimalbeispiel -->
-            <section class="bg-gray-50/50 rounded-2xl border border-gray-100 p-8 mb-6">
+            <section class="bg-gray-50 rounded-2xl border border-gray-200 shadow-sm p-8 mb-6">
                 <h2 class="text-xl font-bold text-gray-900 mb-4">Minimalbeispiel</h2>
                 <p class="text-sm text-gray-700 leading-relaxed mb-4">
                     Die einfachste gültige HASE-TEI-Datei — ein Projekt mit einer einzigen Briefsendung:
@@ -106,7 +118,7 @@
             </section>
 
             <!-- Feld-Mapping -->
-            <section class="bg-gray-50/50 rounded-2xl border border-gray-100 p-8 mb-6">
+            <section class="bg-gray-50 rounded-2xl border border-gray-200 shadow-sm p-8 mb-6">
                 <h2 class="text-xl font-bold text-gray-900 mb-4">Feld-Mapping</h2>
                 <p class="text-sm text-gray-700 leading-relaxed mb-4">
                     Wie jedes HASE-Feld auf TEI-Elemente abgebildet wird:
@@ -247,7 +259,7 @@
             </section>
 
             <!-- Vollständiges Beispiel -->
-            <section class="bg-gray-50/50 rounded-2xl border border-gray-100 p-8 mb-6">
+            <section class="bg-gray-50 rounded-2xl border border-gray-200 shadow-sm p-8 mb-6">
                 <h2 class="text-xl font-bold text-gray-900 mb-4">Vollständiges Beispiel</h2>
                 <p class="text-sm text-gray-700 leading-relaxed mb-4">
                     Eine HASE-TEI-Datei mit Korrespondenz, Quelle, Verkettung und Zusammenhang:
@@ -386,7 +398,7 @@
             </section>
 
             <!-- TEI-Bonus -->
-            <section class="bg-gray-50/50 rounded-2xl border border-gray-100 p-8 mb-6">
+            <section class="bg-gray-50 rounded-2xl border border-gray-200 shadow-sm p-8 mb-6">
                 <h2 class="text-xl font-bold text-gray-900 mb-4">TEI-Bonus</h2>
                 <p class="text-sm text-gray-700 leading-relaxed mb-4">
                     TEI bietet Ausdrucksmöglichkeiten, die über HASE-JSON hinausgehen. EditionHub wertet diese aus, wenn sie vorhanden sind:
@@ -420,5 +432,15 @@
     <footer class="py-6 text-center text-sm text-gray-400">
     </footer>
 
+    <script>
+    function setLang(lang) {
+        document.documentElement.lang = lang;
+        localStorage.setItem('eh-lang', lang);
+        document.querySelectorAll('.lang-switch').forEach(function(btn) {
+            btn.classList.toggle('active', btn.dataset.lang === lang);
+        });
+    }
+    setLang(document.documentElement.lang);
+    </script>
 </body>
 </html>
