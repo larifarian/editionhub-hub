@@ -11,7 +11,7 @@
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
         body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
         .toc-link.active { color: #2563eb; font-weight: 600; border-left: 2px solid #2563eb; margin-left: -13px; padding-left: 11px; }
         .tab-link { color: #6b7280; }
@@ -19,7 +19,7 @@
         .tab-link.active { color: #2563eb; border-bottom-color: #2563eb; font-weight: 600; }
     </style>
 </head>
-<body class="bg-gray-50 min-h-screen flex flex-col">
+<body class="bg-white min-h-screen flex flex-col">
 
     <!-- Top Bar -->
     <nav class="flex items-center justify-between px-6 py-3 text-xs text-gray-400">
@@ -31,7 +31,7 @@
     <!-- Header (same as historia) -->
     <header class="pt-8 pb-6 text-center">
         <a href="/historia" class="no-underline hover:opacity-80 transition">
-            <span class="text-4xl font-bold text-gray-900 tracking-tight">E<span class="text-blue-600">H</span><span class="text-gray-400 font-light italic ml-1">historia</span></span>
+            <span class="text-5xl font-bold text-gray-900 tracking-tight">E<span class="text-blue-600">H</span><span class="text-gray-400 font-light italic ml-1">historia</span></span>
         </a>
     </header>
 
@@ -65,7 +65,7 @@
             </div>
 
             <!-- Was ist HASE? -->
-            <section class="bg-white rounded-2xl shadow-sm border border-gray-200 p-8 mb-6">
+            <section class="bg-gray-50/50 rounded-2xl border border-gray-100 p-8 mb-6">
                 <h2 id="was-ist-hase" class="text-xl font-bold text-gray-900 mb-4">Was ist HASE?</h2>
                 <p class="text-sm text-gray-700 leading-relaxed mb-4">
                     HASE (<strong>Historical Activity and Source Exchange</strong>) ist ein einfaches JSON-Format, mit dem Forschungsprojekte ihre Daten
@@ -93,7 +93,7 @@
             </section>
 
             <!-- Daten einreichen -->
-            <section class="bg-white rounded-2xl shadow-sm border border-gray-200 p-8 mb-6">
+            <section class="bg-gray-50/50 rounded-2xl border border-gray-100 p-8 mb-6">
                 <h2 id="daten-einreichen" class="text-xl font-bold text-gray-900 mb-4">Daten einreichen</h2>
 
                 <div class="space-y-4">
@@ -130,7 +130,7 @@
             </section>
 
             <!-- Implementierung -->
-            <section class="bg-white rounded-2xl shadow-sm border border-gray-200 p-8 mb-6">
+            <section class="bg-gray-50/50 rounded-2xl border border-gray-100 p-8 mb-6">
                 <h2 id="implementierung" class="text-xl font-bold text-gray-900 mb-4">Implementierung</h2>
                 <div class="space-y-3">
                     <a href="/hase-projekte" class="flex items-center justify-between p-4 border border-gray-200 rounded-lg hover:border-blue-300 hover:bg-blue-50 transition no-underline group">
@@ -158,7 +158,7 @@
             </section>
 
             <!-- Minimalbeispiel -->
-            <section class="bg-white rounded-2xl shadow-sm border border-gray-200 p-8 mb-6">
+            <section class="bg-gray-50/50 rounded-2xl border border-gray-100 p-8 mb-6">
                 <h2 id="minimalbeispiel" class="text-xl font-bold text-gray-900 mb-4">Minimalbeispiel</h2>
                 <p class="text-sm text-gray-700 leading-relaxed mb-4">
                     Die einfachste gültige HASE-Datei — ein Projekt mit einer einzigen Briefsendung:
@@ -186,7 +186,7 @@
             </section>
 
             <!-- Dateistruktur -->
-            <section class="bg-white rounded-2xl shadow-sm border border-gray-200 p-8 mb-6">
+            <section class="bg-gray-50/50 rounded-2xl border border-gray-100 p-8 mb-6">
                 <h2 id="dateistruktur" class="text-xl font-bold text-gray-900 mb-4">Dateistruktur</h2>
                 <p class="text-sm text-gray-700 leading-relaxed mb-4">
                     Eine HASE-Datei besteht aus bis zu fünf Abschnitten:
@@ -341,7 +341,7 @@
             </section>
 
             <!-- Kernkatalog -->
-            <section id="hase-kernkatalog" class="bg-white rounded-2xl shadow-sm border border-gray-200 p-8 mb-6">
+            <section id="hase-kernkatalog" class="bg-gray-50/50 rounded-2xl border border-gray-100 p-8 mb-6">
                 <h2 id="kernkatalog" class="text-xl font-bold text-gray-900 mb-4">Kernkatalog</h2>
 
                 <h3 class="text-sm font-semibold text-gray-800 mb-2">Handlungstypen (activityTypes)</h3>
@@ -391,7 +391,7 @@
             </section>
 
             <!-- Vollständiges Beispiel -->
-            <section class="bg-white rounded-2xl shadow-sm border border-gray-200 p-8 mb-6">
+            <section class="bg-gray-50/50 rounded-2xl border border-gray-100 p-8 mb-6">
                 <h2 id="vollstaendiges-beispiel" class="text-xl font-bold text-gray-900 mb-4">Vollständiges Beispiel</h2>
                 <p class="text-sm text-gray-700 leading-relaxed mb-4">
                     Eine HASE-Datei mit Korrespondenz, Quelle, Verkettung und Zusammenhang:
@@ -464,7 +464,7 @@
             </section>
 
             <!-- Verarbeitung -->
-            <section class="bg-white rounded-2xl shadow-sm border border-gray-200 p-8 mb-6">
+            <section class="bg-gray-50/50 rounded-2xl border border-gray-100 p-8 mb-6">
                 <h2 id="verarbeitung" class="text-xl font-bold text-gray-900 mb-4">Verarbeitung</h2>
                 <p class="text-sm text-gray-700 leading-relaxed mb-4">
                     EditionHub verarbeitet HASE-Dateien automatisch:
@@ -492,7 +492,7 @@
             </section>
 
             <!-- Ressourcen -->
-            <section class="bg-white rounded-2xl shadow-sm border border-gray-200 p-8 mb-6">
+            <section class="bg-gray-50/50 rounded-2xl border border-gray-100 p-8 mb-6">
                 <h2 id="ressourcen" class="text-xl font-bold text-gray-900 mb-4">Ressourcen</h2>
                 <ul class="text-sm text-gray-600 space-y-1 list-disc list-inside">
                     <li>HASE Version: <code class="font-mono text-xs bg-gray-100 px-1.5 py-0.5 rounded">0.1</code> (Entwurf)</li>

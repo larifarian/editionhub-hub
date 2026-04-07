@@ -11,14 +11,14 @@
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
         body { font-family: 'Inter', sans-serif; }
         .tab-link { color: #6b7280; }
         .tab-link:hover { color: #374151; }
         .tab-link.active { color: #2563eb; border-bottom-color: #2563eb; font-weight: 600; }
     </style>
 </head>
-<body class="bg-gray-50 min-h-screen flex flex-col">
+<body class="bg-white min-h-screen flex flex-col">
 
     <!-- Top Bar -->
     <nav class="flex items-center justify-between px-6 py-3 text-xs text-gray-400">
@@ -30,7 +30,7 @@
     <!-- Header (same as historia) -->
     <header class="pt-8 pb-6 text-center">
         <a href="/historia" class="no-underline hover:opacity-80 transition">
-            <span class="text-4xl font-bold text-gray-900 tracking-tight">E<span class="text-blue-600">H</span><span class="text-gray-400 font-light italic ml-1">historia</span></span>
+            <span class="text-5xl font-bold text-gray-900 tracking-tight">E<span class="text-blue-600">H</span><span class="text-gray-400 font-light italic ml-1">historia</span></span>
         </a>
     </header>
 
@@ -52,7 +52,7 @@
             </div>
 
             <!-- Einleitung -->
-            <section class="bg-white rounded-2xl shadow-sm border border-gray-200 p-8 mb-6">
+            <section class="bg-gray-50/50 rounded-2xl border border-gray-100 p-8 mb-6">
                 <h2 class="text-xl font-bold text-gray-900 mb-4">Warum CIDOC-CRM?</h2>
                 <p class="text-sm text-gray-700 leading-relaxed mb-4">
                     <a href="https://www.cidoc-crm.org/" class="text-blue-600 hover:underline">CIDOC-CRM</a> (ISO 21127) ist die internationale Ontologie für Kulturgut-Dokumentation.
@@ -66,7 +66,7 @@
             </section>
 
             <!-- Überblick -->
-            <section class="bg-white rounded-2xl shadow-sm border border-gray-200 p-8 mb-6">
+            <section class="bg-gray-50/50 rounded-2xl border border-gray-100 p-8 mb-6">
                 <h2 class="text-xl font-bold text-gray-900 mb-4">Mapping-Überblick</h2>
                 <div class="overflow-x-auto">
                     <table class="w-full text-sm">
@@ -92,7 +92,7 @@
             </section>
 
             <!-- Namespaces -->
-            <section class="bg-white rounded-2xl shadow-sm border border-gray-200 p-8 mb-6">
+            <section class="bg-gray-50/50 rounded-2xl border border-gray-100 p-8 mb-6">
                 <h2 class="text-xl font-bold text-gray-900 mb-4">Namespaces</h2>
                 <div class="bg-gray-900 rounded-lg p-4 overflow-x-auto">
                     <pre class="text-xs text-green-400 font-mono leading-relaxed">@prefix crm:  &lt;http://www.cidoc-crm.org/cidoc-crm/&gt; .
@@ -109,7 +109,7 @@
             </section>
 
             <!-- Activity -->
-            <section class="bg-white rounded-2xl shadow-sm border border-gray-200 p-8 mb-6">
+            <section class="bg-gray-50/50 rounded-2xl border border-gray-100 p-8 mb-6">
                 <h2 class="text-xl font-bold text-gray-900 mb-4">Activity &rarr; E7_Activity</h2>
                 <p class="text-sm text-gray-700 leading-relaxed mb-4">
                     Jede HASE-Activity wird zu einer <code class="font-mono text-xs">crm:E7_Activity</code>.
@@ -144,7 +144,7 @@
             </section>
 
             <!-- Datum -->
-            <section class="bg-white rounded-2xl shadow-sm border border-gray-200 p-8 mb-6">
+            <section class="bg-gray-50/50 rounded-2xl border border-gray-100 p-8 mb-6">
                 <h2 class="text-xl font-bold text-gray-900 mb-4">Datum &rarr; Tag-URI</h2>
                 <p class="text-sm text-gray-700 leading-relaxed mb-4">
                     Datierungen werden über Tag-URIs modelliert. Die CRM-Properties <code class="font-mono text-xs">P175i</code> (starts after or with) und
@@ -179,7 +179,7 @@
             </section>
 
             <!-- Thing / Object -->
-            <section class="bg-white rounded-2xl shadow-sm border border-gray-200 p-8 mb-6">
+            <section class="bg-gray-50/50 rounded-2xl border border-gray-100 p-8 mb-6">
                 <h2 class="text-xl font-bold text-gray-900 mb-4">Thing &rarr; E22_Human-Made_Object</h2>
                 <p class="text-sm text-gray-700 leading-relaxed mb-4">
                     Das historische Objekt einer Handlung (z.B. der Brief bei einer Briefsendung) wird als
@@ -203,7 +203,7 @@
             </section>
 
             <!-- Source -->
-            <section class="bg-white rounded-2xl shadow-sm border border-gray-200 p-8 mb-6">
+            <section class="bg-gray-50/50 rounded-2xl border border-gray-100 p-8 mb-6">
                 <h2 class="text-xl font-bold text-gray-900 mb-4">Source &rarr; E31_Document</h2>
                 <p class="text-sm text-gray-700 leading-relaxed mb-4">
                     Quellen werden als <code class="font-mono text-xs">crm:E31_Document</code> modelliert.
@@ -230,7 +230,7 @@
             </section>
 
             <!-- Context -->
-            <section class="bg-white rounded-2xl shadow-sm border border-gray-200 p-8 mb-6">
+            <section class="bg-gray-50/50 rounded-2xl border border-gray-100 p-8 mb-6">
                 <h2 class="text-xl font-bold text-gray-900 mb-4">Context &rarr; E5_Event</h2>
                 <p class="text-sm text-gray-700 leading-relaxed mb-4">
                     Zusammenhänge (Korrespondenz, Begegnung, Reise) werden als
@@ -249,7 +249,7 @@
             </section>
 
             <!-- Continuation -->
-            <section class="bg-white rounded-2xl shadow-sm border border-gray-200 p-8 mb-6">
+            <section class="bg-gray-50/50 rounded-2xl border border-gray-100 p-8 mb-6">
                 <h2 class="text-xl font-bold text-gray-900 mb-4">Verkettung &rarr; P134</h2>
                 <p class="text-sm text-gray-700 leading-relaxed mb-4">
                     Handlungsketten (z.B. Briefsendung → Briefempfang) werden über die CIDOC-CRM-Properties
@@ -267,7 +267,7 @@
             </section>
 
             <!-- Entity Resolution -->
-            <section class="bg-white rounded-2xl shadow-sm border border-gray-200 p-8 mb-6">
+            <section class="bg-gray-50/50 rounded-2xl border border-gray-100 p-8 mb-6">
                 <h2 class="text-xl font-bold text-gray-900 mb-4">Normdaten-Auflösung</h2>
                 <p class="text-sm text-gray-700 leading-relaxed mb-4">
                     Beim Ingest löst EditionHub GND-IDs gegen den internen Index auf.
@@ -291,7 +291,7 @@
             </section>
 
             <!-- Graph-Struktur -->
-            <section class="bg-white rounded-2xl shadow-sm border border-gray-200 p-8 mb-6">
+            <section class="bg-gray-50/50 rounded-2xl border border-gray-100 p-8 mb-6">
                 <h2 class="text-xl font-bold text-gray-900 mb-4">Named Graphs</h2>
                 <p class="text-sm text-gray-700 leading-relaxed mb-4">
                     Jeder HASE-Import erzeugt einen Named Graph in RDF4J. Das ermöglicht versionierte Importe —
@@ -316,7 +316,7 @@
             </section>
 
             <!-- Vollständiges RDF-Beispiel -->
-            <section class="bg-white rounded-2xl shadow-sm border border-gray-200 p-8 mb-6">
+            <section class="bg-gray-50/50 rounded-2xl border border-gray-100 p-8 mb-6">
                 <h2 class="text-xl font-bold text-gray-900 mb-4">Vollständiges RDF/XML-Beispiel</h2>
                 <p class="text-sm text-gray-700 leading-relaxed mb-4">
                     So sieht das Goethe-Briefbeispiel als vollständiges RDF/XML aus, wie es vom Ingest erzeugt wird:
@@ -378,7 +378,7 @@
             </section>
 
             <!-- eh: Erweiterungen -->
-            <section class="bg-white rounded-2xl shadow-sm border border-gray-200 p-8 mb-6">
+            <section class="bg-gray-50/50 rounded-2xl border border-gray-100 p-8 mb-6">
                 <h2 class="text-xl font-bold text-gray-900 mb-4"><code class="font-mono">eh:</code> Erweiterungen</h2>
                 <p class="text-sm text-gray-700 leading-relaxed mb-4">
                     Für Felder, die CIDOC-CRM nicht direkt abdeckt, verwendet EditionHub den eigenen Namespace
