@@ -100,30 +100,6 @@
                 </div>
             </div>
 
-            <!-- Diary Teaser -->
-            <div id="diaryBox" class="mx-6 mb-6 px-5 py-4 border-l-2 border-amber-200 bg-amber-50/50">
-                <div class="flex items-center justify-between mb-1.5">
-                    <p class="text-xs font-medium text-amber-600 uppercase tracking-wider" id="diaryLabel">Tagebuch</p>
-                    <span class="text-xs text-amber-500 font-mono" id="diaryDate"></span>
-                </div>
-                <p lang="de" class="text-sm text-gray-600 leading-relaxed italic" id="diaryEntry"><span id="diaryPersonName">Jemand</span> erinnert sich<span class="diary-dots"></span></p>
-                <p lang="en" class="text-sm text-gray-600 leading-relaxed italic"><span id="diaryPersonNameEn">Someone</span> remembers<span class="diary-dots"></span></p>
-                <p class="text-xs text-gray-400 mt-1.5" id="diaryMeta"></p>
-            </div>
-            <style>
-                .diary-dots::after {
-                    content: '';
-                    animation: diaryDots 1.4s steps(4, end) infinite;
-                }
-                @keyframes diaryDots {
-                    0%   { content: ''; }
-                    25%  { content: ' .'; }
-                    50%  { content: ' ..'; }
-                    75%  { content: ' ...'; }
-                    100% { content: ''; }
-                }
-            </style>
-
             <!-- Weitere Plattformen (Platzhalter) -->
             <div class="p-6 rounded-xl border border-dashed border-gray-200 text-center">
                 <p lang="de" class="text-sm text-gray-300">Weitere Plattformen in Vorbereitung</p>
@@ -153,54 +129,6 @@
         }
         // Init toggle state
         setLang(document.documentElement.lang);
-
-        (async function loadDiary() {
-            const box = document.getElementById('diaryBox');
-            const entryEl = document.getElementById('diaryEntry');
-            try {
-                const today = new Date();
-                // TEST: fixes Datum
-                const date = '1774-08-16';
-
-                const year = parseInt(date.substring(0, 4), 10);
-                const yearsAgo = today.getFullYear() - year;
-                const dateObj = new Date(date);
-                const isEn = document.documentElement.lang === 'en';
-                const dateLabel = dateObj.toLocaleDateString(isEn ? 'en-GB' : 'de-DE', { day: 'numeric', month: 'long', year: 'numeric' });
-                document.getElementById('diaryLabel').textContent = isEn ? `${yearsAgo} years ago today` : `Heute vor ${yearsAgo} Jahren`;
-                document.getElementById('diaryDate').textContent = dateLabel;
-
-                const personId = 'http://id.editionhub.org/entity/person/4';
-
-                fetch(`https://historia.editionhub.org/api/index?type=person&id=${encodeURIComponent(personId)}`)
-                    .then(r => r.ok ? r.json() : null)
-                    .then(persons => {
-                        const name = persons?.[0]?.label;
-                        if (name) {
-                            document.getElementById('diaryPersonName').textContent = name;
-                            var enName = document.getElementById('diaryPersonNameEn');
-                            if (enName) enName.textContent = name;
-                        }
-                    })
-                    .catch(() => {});
-
-                const res = await fetch('https://historia.editionhub.org/api/diary', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ personId, date })
-                });
-                if (!res.ok) { box.classList.add('hidden'); return; }
-                const data = await res.json();
-                if (!data.entry) { box.classList.add('hidden'); return; }
-
-                entryEl.classList.remove('italic');
-                entryEl.textContent = data.entry;
-                document.getElementById('diaryMeta').textContent =
-                    `${data.person?.label || ''} · ${data.handlungen?.length || 0} Handlung(en)`;
-            } catch (e) {
-                box.classList.add('hidden');
-            }
-        })();
 
         // Stats laden
         (async function loadStats() {
