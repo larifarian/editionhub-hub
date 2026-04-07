@@ -12,7 +12,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-        body { font-family: 'Inter', sans-serif; }
+        body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
         html[lang="de"] [lang="en"] { display: none !important; }
         html[lang="en"] [lang="de"] { display: none !important; }
         .lang-switch { cursor: pointer; }
@@ -65,13 +65,13 @@
 
             <!-- Einleitung -->
             <section class="bg-gray-50 rounded-2xl border border-gray-200 shadow-sm p-8 mb-6">
-                <h2 class="text-xl font-bold text-gray-900 mb-4">Warum CIDOC-CRM?</h2>
-                <p class="text-sm text-gray-700 leading-relaxed mb-4">
+                <h2 class="text-lg font-semibold text-gray-900 mb-4">Warum CIDOC-CRM?</h2>
+                <p class="text-sm text-gray-600 leading-relaxed mb-4">
                     <a href="https://www.cidoc-crm.org/" class="text-blue-600 hover:underline">CIDOC-CRM</a> (ISO 21127) ist die internationale Ontologie für Kulturgut-Dokumentation.
                     EditionHub speichert alle Daten intern als CIDOC-CRM-konformes RDF. HASE ist die einfache Lieferschicht darüber —
                     Projekte müssen weder RDF noch CIDOC-CRM verstehen.
                 </p>
-                <p class="text-sm text-gray-700 leading-relaxed">
+                <p class="text-sm text-gray-600 leading-relaxed">
                     Diese Seite dokumentiert das Mapping für alle, die es genau wissen wollen:
                     RDF4J-Entwickler, Linked-Data-Experten, oder Projekte, die ihre Daten direkt als RDF liefern möchten.
                 </p>
@@ -79,7 +79,7 @@
 
             <!-- Überblick -->
             <section class="bg-gray-50 rounded-2xl border border-gray-200 shadow-sm p-8 mb-6">
-                <h2 class="text-xl font-bold text-gray-900 mb-4">Mapping-Überblick</h2>
+                <h2 class="text-lg font-semibold text-gray-900 mb-4">Mapping-Überblick</h2>
                 <div class="overflow-x-auto">
                     <table class="w-full text-sm">
                         <thead><tr class="text-left text-xs text-gray-500 border-b border-gray-200"><th class="pb-1 pr-4">HASE</th><th class="pb-1 pr-4">CIDOC-CRM Klasse</th><th class="pb-1">Property</th></tr></thead>
@@ -105,7 +105,7 @@
 
             <!-- Namespaces -->
             <section class="bg-gray-50 rounded-2xl border border-gray-200 shadow-sm p-8 mb-6">
-                <h2 class="text-xl font-bold text-gray-900 mb-4">Namespaces</h2>
+                <h2 class="text-lg font-semibold text-gray-900 mb-4">Namespaces</h2>
                 <div class="bg-gray-900 rounded-lg p-4 overflow-x-auto">
                     <pre class="text-xs text-green-400 font-mono leading-relaxed">@prefix crm:  &lt;http://www.cidoc-crm.org/cidoc-crm/&gt; .
 @prefix eh:   &lt;http://id.editionhub.org/ontology#&gt; .
@@ -122,8 +122,8 @@
 
             <!-- Activity -->
             <section class="bg-gray-50 rounded-2xl border border-gray-200 shadow-sm p-8 mb-6">
-                <h2 class="text-xl font-bold text-gray-900 mb-4">Activity &rarr; E7_Activity</h2>
-                <p class="text-sm text-gray-700 leading-relaxed mb-4">
+                <h2 class="text-lg font-semibold text-gray-900 mb-4">Activity &rarr; E7_Activity</h2>
+                <p class="text-sm text-gray-600 leading-relaxed mb-4">
                     Jede HASE-Activity wird zu einer <code class="font-mono text-xs">crm:E7_Activity</code>.
                     Der Typ wird über <code class="font-mono text-xs">crm:P2_has_type</code> zugewiesen.
                 </p>
@@ -157,8 +157,8 @@
 
             <!-- Datum -->
             <section class="bg-gray-50 rounded-2xl border border-gray-200 shadow-sm p-8 mb-6">
-                <h2 class="text-xl font-bold text-gray-900 mb-4">Datum &rarr; Tag-URI</h2>
-                <p class="text-sm text-gray-700 leading-relaxed mb-4">
+                <h2 class="text-lg font-semibold text-gray-900 mb-4">Datum &rarr; Tag-URI</h2>
+                <p class="text-sm text-gray-600 leading-relaxed mb-4">
                     Datierungen werden über Tag-URIs modelliert. Die CRM-Properties <code class="font-mono text-xs">P175i</code> (starts after or with) und
                     <code class="font-mono text-xs">P184</code> (ends before or with) ermöglichen exakte und unscharfe Zeitangaben:
                 </p>
@@ -192,8 +192,8 @@
 
             <!-- Thing / Object -->
             <section class="bg-gray-50 rounded-2xl border border-gray-200 shadow-sm p-8 mb-6">
-                <h2 class="text-xl font-bold text-gray-900 mb-4">Thing &rarr; E22_Human-Made_Object</h2>
-                <p class="text-sm text-gray-700 leading-relaxed mb-4">
+                <h2 class="text-lg font-semibold text-gray-900 mb-4">Thing &rarr; E22_Human-Made_Object</h2>
+                <p class="text-sm text-gray-600 leading-relaxed mb-4">
                     Das historische Objekt einer Handlung (z.B. der Brief bei einer Briefsendung) wird als
                     <code class="font-mono text-xs">crm:E22_Human-Made_Object</code> modelliert und über
                     <code class="font-mono text-xs">crm:P16_used_specific_object</code> mit der Activity verknüpft.
@@ -216,8 +216,8 @@
 
             <!-- Source -->
             <section class="bg-gray-50 rounded-2xl border border-gray-200 shadow-sm p-8 mb-6">
-                <h2 class="text-xl font-bold text-gray-900 mb-4">Source &rarr; E31_Document</h2>
-                <p class="text-sm text-gray-700 leading-relaxed mb-4">
+                <h2 class="text-lg font-semibold text-gray-900 mb-4">Source &rarr; E31_Document</h2>
+                <p class="text-sm text-gray-600 leading-relaxed mb-4">
                     Quellen werden als <code class="font-mono text-xs">crm:E31_Document</code> modelliert.
                     Die Verbindung zur Activity läuft über <code class="font-mono text-xs">crm:P70_documents</code>.
                 </p>
@@ -243,8 +243,8 @@
 
             <!-- Context -->
             <section class="bg-gray-50 rounded-2xl border border-gray-200 shadow-sm p-8 mb-6">
-                <h2 class="text-xl font-bold text-gray-900 mb-4">Context &rarr; E5_Event</h2>
-                <p class="text-sm text-gray-700 leading-relaxed mb-4">
+                <h2 class="text-lg font-semibold text-gray-900 mb-4">Context &rarr; E5_Event</h2>
+                <p class="text-sm text-gray-600 leading-relaxed mb-4">
                     Zusammenhänge (Korrespondenz, Begegnung, Reise) werden als
                     <code class="font-mono text-xs">crm:E5_Event</code> modelliert. Die zugehörigen Activities
                     werden per <code class="font-mono text-xs">crm:P9_consists_of</code> eingehängt.
@@ -262,8 +262,8 @@
 
             <!-- Continuation -->
             <section class="bg-gray-50 rounded-2xl border border-gray-200 shadow-sm p-8 mb-6">
-                <h2 class="text-xl font-bold text-gray-900 mb-4">Verkettung &rarr; P134</h2>
-                <p class="text-sm text-gray-700 leading-relaxed mb-4">
+                <h2 class="text-lg font-semibold text-gray-900 mb-4">Verkettung &rarr; P134</h2>
+                <p class="text-sm text-gray-600 leading-relaxed mb-4">
                     Handlungsketten (z.B. Briefsendung → Briefempfang) werden über die CIDOC-CRM-Properties
                     <code class="font-mono text-xs">P134_continued</code> und <code class="font-mono text-xs">P134i_was_continued_by</code> abgebildet.
                 </p>
@@ -280,8 +280,8 @@
 
             <!-- Entity Resolution -->
             <section class="bg-gray-50 rounded-2xl border border-gray-200 shadow-sm p-8 mb-6">
-                <h2 class="text-xl font-bold text-gray-900 mb-4">Normdaten-Auflösung</h2>
-                <p class="text-sm text-gray-700 leading-relaxed mb-4">
+                <h2 class="text-lg font-semibold text-gray-900 mb-4">Normdaten-Auflösung</h2>
+                <p class="text-sm text-gray-600 leading-relaxed mb-4">
                     Beim Ingest löst EditionHub GND-IDs gegen den internen Index auf.
                     Bekannte Entitäten werden per <code class="font-mono text-xs">owl:sameAs</code> verknüpft,
                     neue Entitäten werden zur Aufnahme vorgeschlagen.
@@ -304,8 +304,8 @@
 
             <!-- Graph-Struktur -->
             <section class="bg-gray-50 rounded-2xl border border-gray-200 shadow-sm p-8 mb-6">
-                <h2 class="text-xl font-bold text-gray-900 mb-4">Named Graphs</h2>
-                <p class="text-sm text-gray-700 leading-relaxed mb-4">
+                <h2 class="text-lg font-semibold text-gray-900 mb-4">Named Graphs</h2>
+                <p class="text-sm text-gray-600 leading-relaxed mb-4">
                     Jeder HASE-Import erzeugt einen Named Graph in RDF4J. Das ermöglicht versionierte Importe —
                     ein neuer Import ersetzt den vorherigen Graph.
                 </p>
@@ -329,8 +329,8 @@
 
             <!-- Vollständiges RDF-Beispiel -->
             <section class="bg-gray-50 rounded-2xl border border-gray-200 shadow-sm p-8 mb-6">
-                <h2 class="text-xl font-bold text-gray-900 mb-4">Vollständiges RDF/XML-Beispiel</h2>
-                <p class="text-sm text-gray-700 leading-relaxed mb-4">
+                <h2 class="text-lg font-semibold text-gray-900 mb-4">Vollständiges RDF/XML-Beispiel</h2>
+                <p class="text-sm text-gray-600 leading-relaxed mb-4">
                     So sieht das Goethe-Briefbeispiel als vollständiges RDF/XML aus, wie es vom Ingest erzeugt wird:
                 </p>
                 <div class="bg-gray-900 rounded-lg p-4 overflow-x-auto">
@@ -391,8 +391,8 @@
 
             <!-- eh: Erweiterungen -->
             <section class="bg-gray-50 rounded-2xl border border-gray-200 shadow-sm p-8 mb-6">
-                <h2 class="text-xl font-bold text-gray-900 mb-4"><code class="font-mono">eh:</code> Erweiterungen</h2>
-                <p class="text-sm text-gray-700 leading-relaxed mb-4">
+                <h2 class="text-lg font-semibold text-gray-900 mb-4"><code class="font-mono">eh:</code> Erweiterungen</h2>
+                <p class="text-sm text-gray-600 leading-relaxed mb-4">
                     Für Felder, die CIDOC-CRM nicht direkt abdeckt, verwendet EditionHub den eigenen Namespace
                     <code class="font-mono text-xs">http://id.editionhub.org/ontology#</code>.
                     Die vollständige OWL-Ontologie ist unter <a href="/hase/ontology" class="text-blue-600 hover:underline font-mono text-xs">editionhub.org/hase/ontology</a> abrufbar.

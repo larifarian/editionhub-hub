@@ -12,7 +12,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-        body { font-family: 'Inter', sans-serif; }
+        body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
         html[lang="de"] [lang="en"] { display: none !important; }
         html[lang="en"] [lang="de"] { display: none !important; }
         .lang-switch { cursor: pointer; }
@@ -65,14 +65,14 @@
 
             <!-- Kernfrage -->
             <section class="bg-gray-50 rounded-2xl border border-gray-200 shadow-sm p-8 mb-6">
-                <h2 class="text-xl font-bold text-gray-900 mb-4">Die Kernfrage</h2>
+                <h2 class="text-lg font-semibold text-gray-900 mb-4">Die Kernfrage</h2>
                 <div class="bg-blue-50 border border-blue-200 rounded-lg p-5 mb-4">
                     <p class="text-sm text-blue-900 font-semibold leading-relaxed text-center">
                         Enthält Ihr Projekt Daten der Form:<br>
                         <span class="text-lg mt-2 block">Jemand tat etwas &mdash; irgendwo &mdash; irgendwann?</span>
                     </p>
                 </div>
-                <p class="text-sm text-gray-700 leading-relaxed">
+                <p class="text-sm text-gray-600 leading-relaxed">
                     HASE modelliert <strong>historische Handlungen</strong> (Activities) und die <strong>Quellen</strong> (Sources), die sie bezeugen.
                     Das Grundmuster ist immer dasselbe: ein Akteur, eine Handlung, ein Ort, ein Zeitpunkt &mdash; und optional die Quelle, aus der wir das wissen.
                     Nicht jedes Feld muss gef&uuml;llt sein &mdash; aber mindestens <code class="font-mono text-xs bg-gray-100 px-1 py-0.5 rounded">id</code> und <code class="font-mono text-xs bg-gray-100 px-1 py-0.5 rounded">type</code> braucht jede Handlung.
@@ -81,11 +81,11 @@
 
             <!-- Passt gut -->
             <section class="bg-gray-50 rounded-2xl border border-gray-200 shadow-sm p-8 mb-6">
-                <h2 class="text-xl font-bold text-gray-900 mb-4">
+                <h2 class="text-lg font-semibold text-gray-900 mb-4">
                     <span class="inline-block w-3 h-3 rounded-full bg-green-500 mr-2 align-middle"></span>
                     Passt gut
                 </h2>
-                <p class="text-sm text-gray-700 leading-relaxed mb-4">
+                <p class="text-sm text-gray-600 leading-relaxed mb-4">
                     Diese Projekttypen lassen sich direkt oder mit wenigen eigenen Typen in HASE abbilden:
                 </p>
                 <div class="space-y-3">
@@ -167,11 +167,11 @@
 
             <!-- Passt mit Einschränkungen -->
             <section class="bg-gray-50 rounded-2xl border border-gray-200 shadow-sm p-8 mb-6">
-                <h2 class="text-xl font-bold text-gray-900 mb-4">
+                <h2 class="text-lg font-semibold text-gray-900 mb-4">
                     <span class="inline-block w-3 h-3 rounded-full bg-yellow-400 mr-2 align-middle"></span>
                     Passt mit Einschr&auml;nkungen
                 </h2>
-                <p class="text-sm text-gray-700 leading-relaxed mb-4">
+                <p class="text-sm text-gray-600 leading-relaxed mb-4">
                     Diese Projekttypen lassen sich modellieren, aber HASE ist nicht das naheliegendste Format:
                 </p>
                 <div class="space-y-3">
@@ -211,11 +211,11 @@
 
             <!-- Passt nicht -->
             <section class="bg-gray-50 rounded-2xl border border-gray-200 shadow-sm p-8 mb-6">
-                <h2 class="text-xl font-bold text-gray-900 mb-4">
+                <h2 class="text-lg font-semibold text-gray-900 mb-4">
                     <span class="inline-block w-3 h-3 rounded-full bg-red-400 mr-2 align-middle"></span>
                     Passt nicht
                 </h2>
-                <p class="text-sm text-gray-700 leading-relaxed mb-4">
+                <p class="text-sm text-gray-600 leading-relaxed mb-4">
                     F&uuml;r diese Projekttypen gibt es bessere Formate:
                 </p>
                 <div class="overflow-x-auto">
@@ -235,8 +235,8 @@
 
             <!-- Entscheidungshilfe -->
             <section class="bg-gray-50 rounded-2xl border border-gray-200 shadow-sm p-8 mb-6">
-                <h2 class="text-xl font-bold text-gray-900 mb-4">Schnelltest</h2>
-                <p class="text-sm text-gray-700 leading-relaxed mb-4">
+                <h2 class="text-lg font-semibold text-gray-900 mb-4">Schnelltest</h2>
+                <p class="text-sm text-gray-600 leading-relaxed mb-4">
                     Drei Fragen, die helfen:
                 </p>
                 <div class="space-y-3">
@@ -275,8 +275,8 @@
 
             <!-- Eigene Typen -->
             <section class="bg-gray-50 rounded-2xl border border-gray-200 shadow-sm p-8 mb-6">
-                <h2 class="text-xl font-bold text-gray-900 mb-4">Eigene Handlungstypen vorschlagen</h2>
-                <p class="text-sm text-gray-700 leading-relaxed mb-4">
+                <h2 class="text-lg font-semibold text-gray-900 mb-4">Eigene Handlungstypen vorschlagen</h2>
+                <p class="text-sm text-gray-600 leading-relaxed mb-4">
                     HASE hat sechs Standard-Handlungstypen. Wenn Ihr Projekt andere braucht, deklarieren Sie sie einfach in Ihrer HASE-Datei:
                 </p>
                 <div class="bg-gray-900 rounded-lg p-4 overflow-x-auto mb-4">
