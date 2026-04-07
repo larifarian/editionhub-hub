@@ -13,31 +13,42 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
         body { font-family: 'Inter', sans-serif; }
+        .tab-link { color: #6b7280; }
+        .tab-link:hover { color: #374151; }
+        .tab-link.active { color: #2563eb; border-bottom-color: #2563eb; font-weight: 600; }
     </style>
 </head>
 <body class="bg-gray-50 min-h-screen flex flex-col">
 
-    <!-- Header -->
-    <header class="py-8 text-center">
-        <a href="/" class="text-4xl font-bold text-gray-900 tracking-tight no-underline hover:opacity-80 transition">Edition<span class="text-blue-600">Hub</span></a>
-        <p class="mt-3 text-lg text-gray-500 max-w-xl mx-auto">Offene Forschungsplattformen für Digitale Editionen</p>
-    </header>
+    <!-- Top Bar -->
+    <nav class="flex items-center justify-between px-6 py-3 text-xs text-gray-400">
+        <a href="/" class="hover:text-gray-600 no-underline flex items-center gap-1.5 transition">
+            <span class="font-semibold text-gray-500">Edition<span class="text-blue-500">Hub</span></span>
+        </a>
+    </nav>
+
+    <!-- Breadcrumb + Tabs -->
+    <div class="max-w-3xl mx-auto w-full px-4 mb-6">
+        <div class="flex items-center gap-1.5 text-xs text-gray-400 mb-4">
+            <a href="/historia" class="hover:text-gray-600 no-underline transition">EH historia</a>
+            <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+            <a href="/hase" class="hover:text-gray-600 no-underline transition">HASE</a>
+            <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+            <span class="text-gray-700 font-medium">TEI</span>
+        </div>
+        <h1 class="text-3xl font-bold text-gray-900 tracking-tight">HASE-TEI</h1>
+        <p class="mt-2 text-gray-500">Mapping von HASE auf TEI XML — für Projekte, die TEI als Ausgangsformat verwenden</p>
+        <div class="mt-5 flex gap-6 border-b border-gray-200 text-sm">
+            <a href="/hase" class="tab-link pb-2.5 border-b-2 border-transparent no-underline transition">Spezifikation</a>
+            <a href="/hase-tei" class="tab-link active pb-2.5 border-b-2 no-underline transition">TEI-Mapping</a>
+            <a href="/hase-cidoc-crm" class="tab-link pb-2.5 border-b-2 border-transparent no-underline transition">CIDOC-CRM</a>
+            <a href="/hase-projekte" class="tab-link pb-2.5 border-b-2 border-transparent no-underline transition">Für Ihr Projekt</a>
+        </div>
+    </div>
 
     <!-- Main -->
     <main class="flex-1 flex items-start justify-center px-4 pb-16">
         <div class="max-w-3xl w-full">
-
-            <!-- Titel -->
-            <div class="mb-8">
-                <div class="flex items-center gap-3 mb-2">
-                    <a href="/hase" class="text-sm text-blue-600 hover:text-blue-800 no-underline flex items-center gap-1">
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
-                        HASE
-                    </a>
-                </div>
-                <h1 class="text-3xl font-bold text-gray-900 tracking-tight">HASE-TEI</h1>
-                <p class="mt-2 text-gray-500">Mapping von HASE auf TEI XML — für Projekte, die TEI als Ausgangsformat verwenden</p>
-            </div>
 
             <!-- Einleitung -->
             <section class="bg-white rounded-2xl shadow-sm border border-gray-200 p-8 mb-6">
