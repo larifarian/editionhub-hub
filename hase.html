@@ -57,7 +57,8 @@
                     <li><a href="#daten-einreichen" class="toc-link hover:text-gray-700 transition block py-0.5">Daten einreichen</a></li>
                     <li><a href="#datenmodell" class="toc-link hover:text-gray-700 transition block py-0.5">Datenmodell</a></li>
                     <li><a href="#minimalbeispiel" class="toc-link hover:text-gray-700 transition block py-0.5">Minimalbeispiel</a></li>
-                    <li><a href="#felder" class="toc-link hover:text-gray-700 transition block py-0.5">Felder</a></li>
+                    <li><a href="#felder" class="toc-link hover:text-gray-700 transition block py-0.5">Feld-Mapping</a></li>
+                    <li><a href="#feldbeschreibung" class="toc-link hover:text-gray-700 transition block py-0.5">Feldbeschreibung</a></li>
                     <li><a href="#kernkatalog" class="toc-link hover:text-gray-700 transition block py-0.5">Kernkatalog</a></li>
                     <li><a href="#vollstaendiges-beispiel" class="toc-link hover:text-gray-700 transition block py-0.5">Vollst. Beispiel</a></li>
                     <li><a href="#verarbeitung" class="toc-link hover:text-gray-700 transition block py-0.5">Verarbeitung</a></li>
@@ -225,9 +226,12 @@
                 </div>
             </section>
 
-            <!-- Felder -->
+            <!-- Mapping -->
             <section class="bg-gray-50 rounded-2xl border border-gray-200 shadow-sm p-8 mb-6">
-                <h2 id="felder" class="text-lg font-semibold text-gray-900 mb-4">Felder</h2>
+                <h2 id="felder" class="text-lg font-semibold text-gray-900 mb-4">Feld-Mapping</h2>
+                <p class="text-sm text-gray-600 leading-relaxed mb-4">
+                    Übersicht aller HASE-Felder in den drei Formaten. Detaillierte Feldbeschreibungen finden Sie unter <a href="/hase-tei" class="text-blue-600 hover:underline">HASE-TEI</a>, im <a href="/hase/schema/0.1" class="text-blue-600 hover:underline">JSON-Schema</a> und unter <a href="/hase-cidoc-crm" class="text-blue-600 hover:underline">HASE → CIDOC-CRM</a>.
+                </p>
 
                 <!-- 1. Metadaten -->
                 <h3 class="text-sm font-semibold text-gray-800 mb-2">1. Metadaten</h3>
@@ -291,9 +295,13 @@
                     </table>
                 </div>
 
-                <h3 class="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-3">Detaillierte Feldbeschreibung</h3>
+            </section>
+
+            <!-- Detaillierte Feldbeschreibung -->
+            <section class="bg-gray-50 rounded-2xl border border-gray-200 shadow-sm p-8 mb-6">
+                <h2 id="feldbeschreibung" class="text-lg font-semibold text-gray-900 mb-4">Feldbeschreibung (JSON)</h2>
                 <p class="text-sm text-gray-600 leading-relaxed mb-4">
-                    Die Feldnamen entsprechen den JSON-Keys. Das vollständige TEI-Mapping finden Sie unter <a href="/hase-tei" class="text-blue-600 hover:underline">HASE-TEI</a>, das CIDOC-CRM-Mapping unter <a href="/hase-cidoc-crm" class="text-blue-600 hover:underline">HASE → CIDOC-CRM</a>.
+                    Die Feldnamen entsprechen den JSON-Keys. Das TEI-Mapping finden Sie unter <a href="/hase-tei" class="text-blue-600 hover:underline">HASE-TEI</a>.
                 </p>
 
                 <!-- project -->
