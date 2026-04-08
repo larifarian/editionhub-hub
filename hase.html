@@ -55,10 +55,10 @@
                 <ul class="text-xs text-gray-400 space-y-1.5 border-l border-gray-200 pl-3">
                     <li><a href="#was-ist-hase" class="toc-link hover:text-gray-700 transition block py-0.5">Was ist HASE?</a></li>
                     <li><a href="#daten-einreichen" class="toc-link hover:text-gray-700 transition block py-0.5">Daten einreichen</a></li>
-                    <li><a href="#datenmodell" class="toc-link hover:text-gray-700 transition block py-0.5">Datenmodell</a></li>
                     <li><a href="#minimalbeispiel" class="toc-link hover:text-gray-700 transition block py-0.5">Minimalbeispiel</a></li>
+                    <li><a href="#datenmodell" class="toc-link hover:text-gray-700 transition block py-0.5">Datenmodell</a></li>
                     <li><a href="#felder" class="toc-link hover:text-gray-700 transition block py-0.5">Feld-Mapping</a></li>
-                    <li><a href="#feldbeschreibung" class="toc-link hover:text-gray-700 transition block py-0.5">Feldbeschreibung</a></li>
+                    <li><a href="#formate" class="toc-link hover:text-gray-700 transition block py-0.5">Formate</a></li>
                     <li><a href="#kernkatalog" class="toc-link hover:text-gray-700 transition block py-0.5">Kernkatalog</a></li>
                     <li><a href="#vollstaendiges-beispiel" class="toc-link hover:text-gray-700 transition block py-0.5">Vollst. Beispiel</a></li>
                     <li><a href="#verarbeitung" class="toc-link hover:text-gray-700 transition block py-0.5">Verarbeitung</a></li>
@@ -140,37 +140,6 @@
                 </div>
             </section>
 
-            <!-- Datenmodell -->
-            <section class="bg-gray-50 rounded-2xl border border-gray-200 shadow-sm p-8 mb-6">
-                <h2 id="datenmodell" class="text-lg font-semibold text-gray-900 mb-4">Datenmodell</h2>
-                <p class="text-sm text-gray-600 leading-relaxed mb-4">
-                    HASE strukturiert Daten in drei Bereichen — unabhängig vom Format (TEI/XML oder JSON):
-                </p>
-                <div class="space-y-4">
-                    <div>
-                        <h3 class="text-sm font-semibold text-gray-800">1. Metadaten</h3>
-                        <p class="text-xs text-gray-600 mt-1">Projekt-ID, Titel, URL, Lizenz, Kontakt — und optional eine Untergliederung in Editionen.</p>
-                    </div>
-                    <div>
-                        <h3 class="text-sm font-semibold text-gray-800">2. Typen</h3>
-                        <p class="text-xs text-gray-600 mt-1">Katalog der verwendeten Handlungs- und Quellentypen. Standard-Typen können aufgeführt, eigene Typen vorgeschlagen werden.</p>
-                    </div>
-                    <div>
-                        <h3 class="text-sm font-semibold text-gray-800">3. Daten</h3>
-                        <div class="ml-4 mt-2 space-y-2">
-                            <div>
-                                <h4 class="text-xs font-semibold text-gray-700">Handlungen</h4>
-                                <p class="text-xs text-gray-600 mt-0.5">Historische Ereignisse — wer tat was, wo und wann? Verknüpft über Zusammenhänge (Korrespondenz, Reise, Begegnung) und Verkettung (vorher/nachher).</p>
-                            </div>
-                            <div>
-                                <h4 class="text-xs font-semibold text-gray-700">Quellen</h4>
-                                <p class="text-xs text-gray-600 mt-0.5">Überlieferte Dokumente, die Handlungen bezeugen — Briefe, Tagebücher etc. Mit Archiv, Signatur, IIIF-Manifest und Editions-URL.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
             <!-- Minimalbeispiel -->
             <section class="bg-gray-50 rounded-2xl border border-gray-200 shadow-sm p-8 mb-6">
                 <h2 id="minimalbeispiel" class="text-lg font-semibold text-gray-900 mb-4">Minimalbeispiel</h2>
@@ -223,6 +192,37 @@
   <span class="text-blue-400">&lt;/teiHeader&gt;</span>
   <span class="text-blue-400">&lt;text&gt;&lt;body&gt;&lt;p/&gt;&lt;/body&gt;&lt;/text&gt;</span>
 <span class="text-blue-400">&lt;/TEI&gt;</span></pre>
+                </div>
+            </section>
+
+            <!-- Datenmodell -->
+            <section class="bg-gray-50 rounded-2xl border border-gray-200 shadow-sm p-8 mb-6">
+                <h2 id="datenmodell" class="text-lg font-semibold text-gray-900 mb-4">Datenmodell</h2>
+                <p class="text-sm text-gray-600 leading-relaxed mb-4">
+                    HASE strukturiert Daten in drei Bereichen — unabhängig vom Format (TEI/XML oder JSON):
+                </p>
+                <div class="space-y-4">
+                    <div>
+                        <h3 class="text-sm font-semibold text-gray-800">1. Metadaten</h3>
+                        <p class="text-xs text-gray-600 mt-1">Projekt-ID, Titel, URL, Lizenz, Kontakt — und optional eine Untergliederung in Editionen.</p>
+                    </div>
+                    <div>
+                        <h3 class="text-sm font-semibold text-gray-800">2. Typen</h3>
+                        <p class="text-xs text-gray-600 mt-1">Katalog der verwendeten Handlungs- und Quellentypen. Standard-Typen können aufgeführt, eigene Typen vorgeschlagen werden.</p>
+                    </div>
+                    <div>
+                        <h3 class="text-sm font-semibold text-gray-800">3. Daten</h3>
+                        <div class="ml-4 mt-2 space-y-2">
+                            <div>
+                                <h4 class="text-xs font-semibold text-gray-700">Handlungen</h4>
+                                <p class="text-xs text-gray-600 mt-0.5">Historische Ereignisse — wer tat was, wo und wann? Verknüpft über Zusammenhänge (Korrespondenz, Reise, Begegnung) und Verkettung (vorher/nachher).</p>
+                            </div>
+                            <div>
+                                <h4 class="text-xs font-semibold text-gray-700">Quellen</h4>
+                                <p class="text-xs text-gray-600 mt-0.5">Überlieferte Dokumente, die Handlungen bezeugen — Briefe, Tagebücher etc. Mit Archiv, Signatur, IIIF-Manifest und Editions-URL.</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </section>
 
@@ -297,161 +297,6 @@
 
             </section>
 
-            <!-- Detaillierte Feldbeschreibung -->
-            <section class="bg-gray-50 rounded-2xl border border-gray-200 shadow-sm p-8 mb-6">
-                <h2 id="feldbeschreibung" class="text-lg font-semibold text-gray-900 mb-4">Feldbeschreibung (JSON)</h2>
-                <p class="text-sm text-gray-600 leading-relaxed mb-4">
-                    Die Feldnamen entsprechen den JSON-Keys. Das TEI-Mapping finden Sie unter <a href="/hase-tei" class="text-blue-600 hover:underline">HASE-TEI</a>.
-                </p>
-
-                <!-- project -->
-                <div class="mb-5 border border-gray-200 rounded-lg overflow-hidden">
-                    <div class="flex items-center gap-3 px-4 py-3 bg-gray-50">
-                        <code class="text-sm font-mono font-semibold text-gray-800">project</code>
-                        <span class="text-xs text-red-600 font-semibold">Pflicht</span>
-                    </div>
-                    <div class="p-4">
-                        <p class="text-sm text-gray-700 mb-3">Metadaten zum liefernden Projekt.</p>
-                        <table class="w-full text-sm">
-                            <thead><tr class="text-left text-xs text-gray-500 border-b border-gray-200"><th class="pb-1 pr-4">Feld</th><th class="pb-1 pr-4">Pflicht</th><th class="pb-1">Beschreibung</th></tr></thead>
-                            <tbody class="text-gray-700">
-                                <tr class="border-b border-gray-100"><td class="py-1.5 pr-4 font-mono text-xs">id</td><td class="py-1.5 pr-4 text-xs">&#10003;</td><td class="py-1.5 text-xs">Eindeutiger Projektschlüssel (a-z, 0-9, Bindestriche, 3–32 Zeichen)</td></tr>
-                                <tr class="border-b border-gray-100"><td class="py-1.5 pr-4 font-mono text-xs">title</td><td class="py-1.5 pr-4 text-xs">&#10003;</td><td class="py-1.5 text-xs">Anzeigename</td></tr>
-                                <tr class="border-b border-gray-100"><td class="py-1.5 pr-4 font-mono text-xs">description</td><td class="py-1.5 pr-4 text-xs"></td><td class="py-1.5 text-xs">Kurze Beschreibung</td></tr>
-                                <tr class="border-b border-gray-100"><td class="py-1.5 pr-4 font-mono text-xs">url</td><td class="py-1.5 pr-4 text-xs"></td><td class="py-1.5 text-xs">URL der Projektwebseite</td></tr>
-                                <tr class="border-b border-gray-100"><td class="py-1.5 pr-4 font-mono text-xs">license</td><td class="py-1.5 pr-4 text-xs"></td><td class="py-1.5 text-xs">Lizenz (empfohlen: CC-BY-4.0)</td></tr>
-                                <tr class="border-b border-gray-100"><td class="py-1.5 pr-4 font-mono text-xs">contact</td><td class="py-1.5 pr-4 text-xs"></td><td class="py-1.5 text-xs">Kontakt-E-Mail</td></tr>
-                                <tr><td class="py-1.5 pr-4 font-mono text-xs">editions</td><td class="py-1.5 pr-4 text-xs"></td><td class="py-1.5 text-xs">Untergliederung in Editionen (Array von <code class="font-mono text-xs">{id, title, url}</code>)</td></tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-
-                <!-- activityTypes -->
-                <div class="mb-5 border border-gray-200 rounded-lg overflow-hidden">
-                    <div class="flex items-center gap-3 px-4 py-3 bg-gray-50">
-                        <code class="text-sm font-mono font-semibold text-gray-800">activityTypes</code>
-                        <span class="text-xs text-gray-500">Optional</span>
-                    </div>
-                    <div class="p-4">
-                        <p class="text-sm text-gray-700 mb-3">
-                            Verzeichnis der verwendeten Handlungstypen. Standard-Typen können zur Vollständigkeit aufgeführt werden; neue Typen müssen hier mit <code class="font-mono text-xs bg-gray-100 px-1 py-0.5 rounded">status: "proposed"</code> deklariert werden.
-                        </p>
-                        <div class="bg-gray-900 rounded p-3 overflow-x-auto">
-                            <pre class="text-xs text-green-400 font-mono leading-relaxed">"activityTypes": {
-  "LETTER_SENDING": {
-    "label": { "en": "Letter sending", "de": "Briefversand" },
-    "context": [{ "type": "CORRESPONDENCE",
-                  "label": { "en": "Correspondence", "de": "Korrespondenz" } }]
-  },
-  "THEATER_VISIT": {
-    "label": { "en": "Theater visit", "de": "Theaterbesuch" },
-    "status": "proposed",
-    "description": { "en": "Attendance at a theater performance.",
-                     "de": "Besuch einer Theateraufführung." }
-  }
-}</pre>
-                        </div>
-                        <p class="text-xs text-gray-500 mt-3">
-                            Das <code class="font-mono">context</code>-Feld definiert, zu welchen Zusammenhangstypen eine Handlung gehören kann. Labels sind zweisprachig (<code class="font-mono text-xs">{en, de}</code>).
-                        </p>
-                    </div>
-                </div>
-
-                <!-- sourceTypes -->
-                <div class="mb-5 border border-gray-200 rounded-lg overflow-hidden">
-                    <div class="flex items-center gap-3 px-4 py-3 bg-gray-50">
-                        <code class="text-sm font-mono font-semibold text-gray-800">sourceTypes</code>
-                        <span class="text-xs text-gray-500">Optional</span>
-                    </div>
-                    <div class="p-4">
-                        <p class="text-sm text-gray-700 mb-3">Verzeichnis der verwendeten Quellentypen.</p>
-                        <div class="bg-gray-900 rounded p-3 overflow-x-auto">
-                            <pre class="text-xs text-green-400 font-mono leading-relaxed">"sourceTypes": {
-  "LETTER":      { "label": { "en": "Letter", "de": "Brief" } },
-  "DIARY_ENTRY": { "label": { "en": "Diary entry", "de": "Tagebucheintrag" } }
-}</pre>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- activities -->
-                <div class="mb-5 border border-gray-200 rounded-lg overflow-hidden">
-                    <div class="flex items-center gap-3 px-4 py-3 bg-gray-50">
-                        <code class="text-sm font-mono font-semibold text-gray-800">activities</code>
-                        <span class="text-xs text-red-600 font-semibold">Pflicht</span>
-                    </div>
-                    <div class="p-4">
-                        <p class="text-sm text-gray-700 mb-3">Die historischen Handlungen des Projekts.</p>
-
-                        <h4 class="text-xs font-semibold text-gray-600 uppercase tracking-wider mb-2">Pflichtfelder</h4>
-                        <table class="w-full text-sm mb-4">
-                            <thead><tr class="text-left text-xs text-gray-500 border-b border-gray-200"><th class="pb-1 pr-4">Feld</th><th class="pb-1 pr-4">Typ</th><th class="pb-1">Beschreibung</th></tr></thead>
-                            <tbody class="text-gray-700">
-                                <tr class="border-b border-gray-100"><td class="py-1.5 pr-4 font-mono text-xs">id</td><td class="py-1.5 pr-4 text-xs">string</td><td class="py-1.5 text-xs">Eindeutige ID innerhalb des Projekts</td></tr>
-                                <tr><td class="py-1.5 pr-4 font-mono text-xs">type</td><td class="py-1.5 pr-4 text-xs">string</td><td class="py-1.5 text-xs">Typ-ID (z.B. LETTER_SENDING, ENCOUNTER_PARTICIPATION)</td></tr>
-                            </tbody>
-                        </table>
-
-                        <h4 class="text-xs font-semibold text-gray-600 uppercase tracking-wider mb-2">Optionale Felder</h4>
-                        <table class="w-full text-sm mb-4">
-                            <thead><tr class="text-left text-xs text-gray-500 border-b border-gray-200"><th class="pb-1 pr-4">Feld</th><th class="pb-1 pr-4">Typ</th><th class="pb-1">Beschreibung</th></tr></thead>
-                            <tbody class="text-gray-700">
-                                <tr class="border-b border-gray-100"><td class="py-1.5 pr-4 font-mono text-xs">date</td><td class="py-1.5 pr-4 text-xs">string | object</td><td class="py-1.5 text-xs">Datum (siehe unten)</td></tr>
-                                <tr class="border-b border-gray-100"><td class="py-1.5 pr-4 font-mono text-xs">actor</td><td class="py-1.5 pr-4 text-xs">object</td><td class="py-1.5 text-xs">Beteiligte Person oder Gruppe (<code class="font-mono text-xs">{type, label, gnd}</code>)</td></tr>
-                                <tr class="border-b border-gray-100"><td class="py-1.5 pr-4 font-mono text-xs">place</td><td class="py-1.5 pr-4 text-xs">object</td><td class="py-1.5 text-xs">Ort der Handlung (<code class="font-mono text-xs">{label, gnd}</code>)</td></tr>
-                                <tr class="border-b border-gray-100"><td class="py-1.5 pr-4 font-mono text-xs">thing</td><td class="py-1.5 pr-4 text-xs">object</td><td class="py-1.5 text-xs">Historisches Objekt (<code class="font-mono text-xs">sourceRef</code> oder inline)</td></tr>
-                                <tr class="border-b border-gray-100"><td class="py-1.5 pr-4 font-mono text-xs">context</td><td class="py-1.5 pr-4 text-xs">object</td><td class="py-1.5 text-xs">Zusammenhang (<code class="font-mono text-xs">{id, type}</code>) — z.B. Korrespondenz, Reise</td></tr>
-                                <tr class="border-b border-gray-100"><td class="py-1.5 pr-4 font-mono text-xs">attestedBySource</td><td class="py-1.5 pr-4 text-xs">array</td><td class="py-1.5 text-xs">IDs der bezeugenden Quellen</td></tr>
-                                <tr class="border-b border-gray-100"><td class="py-1.5 pr-4 font-mono text-xs">continued</td><td class="py-1.5 pr-4 text-xs">array</td><td class="py-1.5 text-xs">IDs von Handlungen, die diese fortsetzt (P134)</td></tr>
-                                <tr><td class="py-1.5 pr-4 font-mono text-xs">wasContinuedBy</td><td class="py-1.5 pr-4 text-xs">array</td><td class="py-1.5 text-xs">IDs von Handlungen, die diese fortsetzen (P134i)</td></tr>
-                            </tbody>
-                        </table>
-
-                        <h4 class="text-xs font-semibold text-gray-600 uppercase tracking-wider mb-2">Datumsformate</h4>
-                        <div class="bg-gray-900 rounded p-3 overflow-x-auto mb-3">
-                            <pre class="text-xs text-green-400 font-mono leading-relaxed"><span class="text-gray-500">// Exaktes Datum (Kurzform)</span>
-"date": "1774-08-16"
-
-<span class="text-gray-500">// Zeitpunkt mit Qualifikator (frühestens/spätestens)</span>
-"date": { "value": "1774-08-20", "qualifier": "latest" }
-
-<span class="text-gray-500">// Zeitspanne</span>
-"date": { "from": "1786-09-11", "to": "1786-09-12" }</pre>
-                        </div>
-                        <p class="text-xs text-gray-500">
-                            <code class="font-mono">qualifier</code>: <code class="font-mono">exact</code> (Standard), <code class="font-mono">earliest</code> (frühestens), <code class="font-mono">latest</code> (spätestens).
-                        </p>
-                    </div>
-                </div>
-
-                <!-- sources -->
-                <div class="border border-gray-200 rounded-lg overflow-hidden">
-                    <div class="flex items-center gap-3 px-4 py-3 bg-gray-50">
-                        <code class="text-sm font-mono font-semibold text-gray-800">sources</code>
-                        <span class="text-xs text-gray-500">Optional</span>
-                    </div>
-                    <div class="p-4">
-                        <p class="text-sm text-gray-700 mb-3">Überlieferte Quellen (Briefe, Tagebucheinträge etc.), die Handlungen bezeugen.</p>
-                        <table class="w-full text-sm mb-4">
-                            <thead><tr class="text-left text-xs text-gray-500 border-b border-gray-200"><th class="pb-1 pr-4">Feld</th><th class="pb-1 pr-4">Pflicht</th><th class="pb-1">Beschreibung</th></tr></thead>
-                            <tbody class="text-gray-700">
-                                <tr class="border-b border-gray-100"><td class="py-1.5 pr-4 font-mono text-xs">id</td><td class="py-1.5 pr-4 text-xs">&#10003;</td><td class="py-1.5 text-xs">Eindeutige ID der Quelle</td></tr>
-                                <tr class="border-b border-gray-100"><td class="py-1.5 pr-4 font-mono text-xs">type</td><td class="py-1.5 pr-4 text-xs">&#10003;</td><td class="py-1.5 text-xs">Quellentyp (z.B. LETTER, DIARY_ENTRY)</td></tr>
-                                <tr class="border-b border-gray-100"><td class="py-1.5 pr-4 font-mono text-xs">archive</td><td class="py-1.5 pr-4 text-xs"></td><td class="py-1.5 text-xs">Aufbewahrende Institution (<code class="font-mono text-xs">{label, gnd}</code>)</td></tr>
-                                <tr class="border-b border-gray-100"><td class="py-1.5 pr-4 font-mono text-xs">shelfmark</td><td class="py-1.5 pr-4 text-xs"></td><td class="py-1.5 text-xs">Signatur im Archiv</td></tr>
-                                <tr class="border-b border-gray-100"><td class="py-1.5 pr-4 font-mono text-xs">iiif</td><td class="py-1.5 pr-4 text-xs"></td><td class="py-1.5 text-xs">URL zum IIIF-Manifest</td></tr>
-                                <tr class="border-b border-gray-100"><td class="py-1.5 pr-4 font-mono text-xs">references</td><td class="py-1.5 pr-4 text-xs"></td><td class="py-1.5 text-xs">Inhaltliche Bezüge (Personen, Orte, Werke, Sachbegriffe)</td></tr>
-                                <tr class="border-b border-gray-100"><td class="py-1.5 pr-4 font-mono text-xs">attestsActivity</td><td class="py-1.5 pr-4 text-xs"></td><td class="py-1.5 text-xs">IDs der bezeugten Handlungen</td></tr>
-                                <tr class="border-b border-gray-100"><td class="py-1.5 pr-4 font-mono text-xs">edition</td><td class="py-1.5 pr-4 text-xs"></td><td class="py-1.5 text-xs">Editions-ID (wenn project.editions definiert)</td></tr>
-                                <tr class="border-b border-gray-100"><td class="py-1.5 pr-4 font-mono text-xs">editionUrl</td><td class="py-1.5 pr-4 text-xs"></td><td class="py-1.5 text-xs">Permalink zur Quelle in der digitalen Edition</td></tr>
-                                <tr><td class="py-1.5 pr-4 font-mono text-xs">catalogUrl</td><td class="py-1.5 pr-4 text-xs"></td><td class="py-1.5 text-xs">URL des Katalogeintrags (z.B. Kalliope)</td></tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </section>
-
             <!-- Kernkatalog -->
             <section id="hase-kernkatalog" class="bg-gray-50 rounded-2xl border border-gray-200 shadow-sm p-8 mb-6">
                 <h2 id="kernkatalog" class="text-lg font-semibold text-gray-900 mb-4">Kernkatalog</h2>
@@ -502,76 +347,41 @@
                 </div>
             </section>
 
-            <!-- Vollständiges Beispiel -->
+            <!-- Formate & Referenz -->
             <section class="bg-gray-50 rounded-2xl border border-gray-200 shadow-sm p-8 mb-6">
-                <h2 id="vollstaendiges-beispiel" class="text-lg font-semibold text-gray-900 mb-4">Vollständiges Beispiel</h2>
+                <h2 id="formate" class="text-lg font-semibold text-gray-900 mb-4">Formate &amp; Referenz</h2>
                 <p class="text-sm text-gray-600 leading-relaxed mb-4">
-                    Eine HASE-Datei mit Korrespondenz, Quelle, Verkettung und Zusammenhang (JSON). Das TEI-Äquivalent finden Sie unter <a href="/hase-tei#vollstaendiges-beispiel" class="text-blue-600 hover:underline">HASE-TEI</a>.
+                    Detaillierte Dokumentation, Beispiele und Schemata für jedes Format:
                 </p>
-                <div class="bg-gray-900 rounded-lg p-4 overflow-x-auto">
-                    <pre class="text-xs text-green-400 font-mono leading-relaxed">{
-  "$schema": "https://editionhub.org/hase/schema/0.1",
-  "@context": "https://editionhub.org/hase/context/0.1",
-  "hase": "0.1",
-  "project": {
-    "id": "goethe-biographica",
-    "title": "Goethe Biographica",
-    "url": "https://goethe-biographica.de",
-    "license": "CC-BY-4.0",
-    "contact": "fdh@goethehaus-frankfurt.de"
-  },
-  "activityTypes": {
-    "LETTER_SENDING":  { "label": { "en": "Letter sending",  "de": "Briefversand" },
-                         "context": [{ "type": "CORRESPONDENCE",
-                                       "label": { "en": "Correspondence", "de": "Korrespondenz" } }] },
-    "LETTER_RECEIVING": { "label": { "en": "Letter receiving", "de": "Briefempfang" },
-                          "context": [{ "type": "CORRESPONDENCE",
-                                        "label": { "en": "Correspondence", "de": "Korrespondenz" } }] }
-  },
-  "sourceTypes": {
-    "LETTER": { "label": { "en": "Letter", "de": "Brief" } }
-  },
-  "activities": [
-    {
-      "id": "gb-10280-send",
-      "type": "LETTER_SENDING",
-      "date": "1774-08-16",
-      "actor": { "type": "person", "label": "Goethe, Johann Wolfgang von", "gnd": "118540238" },
-      "place": { "label": "Frankfurt am Main", "gnd": "4018118-2" },
-      "thing": { "sourceRef": "z-gsa-28-5" },
-      "attestedBySource": ["z-gsa-28-5"],
-      "context": { "id": "gb-10280-korr", "type": "CORRESPONDENCE" },
-      "wasContinuedBy": ["gb-10280-receive"]
-    },
-    {
-      "id": "gb-10280-receive",
-      "type": "LETTER_RECEIVING",
-      "date": { "value": "1774-08-20", "qualifier": "latest" },
-      "actor": { "type": "person", "label": "Kestner, Johann Christian", "gnd": "118722026" },
-      "place": { "label": "Hannover", "gnd": "4023349-2" },
-      "thing": { "sourceRef": "z-gsa-28-5" },
-      "attestedBySource": ["z-gsa-28-5"],
-      "context": { "id": "gb-10280-korr", "type": "CORRESPONDENCE" },
-      "continued": ["gb-10280-send"]
-    }
-  ],
-  "sources": [
-    {
-      "id": "z-gsa-28-5",
-      "type": "LETTER",
-      "archive": { "label": "Goethe- und Schiller-Archiv", "gnd": "5080444-3" },
-      "shelfmark": "GSA 28/5, Bl. 1-2",
-      "references": [
-        { "type": "person", "label": "Kestner, Johann Christian", "gnd": "118722026" },
-        { "type": "work", "label": "Die Leiden des jungen Werthers", "gnd": "4099312-4" }
-      ],
-      "attestsActivity": ["gb-10280-send", "gb-10280-receive"],
-      "edition": "briefe",
-      "editionUrl": "https://goethe-biographica.de/briefe/gb-10280",
-      "catalogUrl": "https://kalliope-verbund.info/DE-611-HS-1234567"
-    }
-  ]
-}</pre>
+                <div class="space-y-3">
+                    <a href="/hase-tei" class="flex items-center justify-between p-4 border border-gray-200 rounded-lg hover:border-blue-300 hover:bg-blue-50 transition no-underline group">
+                        <div>
+                            <h3 class="text-sm font-semibold text-gray-800 group-hover:text-blue-700">HASE als TEI/XML</h3>
+                            <p class="text-xs text-gray-500 mt-0.5">F&uuml;r Projekte, die bereits TEI nutzen — Mapping, Schema und Beispiele</p>
+                        </div>
+                        <svg class="w-5 h-5 text-gray-400 group-hover:text-blue-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+                    </a>
+                    <a href="/hase/schema/0.1" class="flex items-center justify-between p-4 border border-gray-200 rounded-lg hover:border-blue-300 hover:bg-blue-50 transition no-underline group">
+                        <div>
+                            <h3 class="text-sm font-semibold text-gray-800 group-hover:text-blue-700">HASE als JSON</h3>
+                            <p class="text-xs text-gray-500 mt-0.5">JSON-Schema zur Validierung — Feldbeschreibungen und Beispiele</p>
+                        </div>
+                        <svg class="w-5 h-5 text-gray-400 group-hover:text-blue-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+                    </a>
+                    <a href="/hase-cidoc-crm" class="flex items-center justify-between p-4 border border-gray-200 rounded-lg hover:border-blue-300 hover:bg-blue-50 transition no-underline group">
+                        <div>
+                            <h3 class="text-sm font-semibold text-gray-800 group-hover:text-blue-700">CIDOC-CRM</h3>
+                            <p class="text-xs text-gray-500 mt-0.5">Wie HASE intern auf CIDOC-CRM abgebildet wird</p>
+                        </div>
+                        <svg class="w-5 h-5 text-gray-400 group-hover:text-blue-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+                    </a>
+                    <a href="/hase-projekte" class="flex items-center justify-between p-4 border border-gray-200 rounded-lg hover:border-blue-300 hover:bg-blue-50 transition no-underline group">
+                        <div>
+                            <h3 class="text-sm font-semibold text-gray-800 group-hover:text-blue-700">HASE f&uuml;r Ihr Projekt</h3>
+                            <p class="text-xs text-gray-500 mt-0.5">Passt HASE zu Ihrem Vorhaben? Schnelltest und &Uuml;bersicht</p>
+                        </div>
+                        <svg class="w-5 h-5 text-gray-400 group-hover:text-blue-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+                    </a>
                 </div>
             </section>
 
