@@ -535,6 +535,11 @@
         const links = document.querySelectorAll('.toc-link');
         const ids = Array.from(links).map(a => a.getAttribute('href').slice(1));
         function update() {
+            if (window.innerHeight + window.scrollY >= document.body.scrollHeight - 2) {
+                links.forEach(a => a.classList.remove('active'));
+                links.forEach(a => { if (a.getAttribute('href') === '#' + ids[ids.length - 1]) a.classList.add('active'); });
+                return;
+            }
             let current = ids[0];
             for (const id of ids) {
                 const el = document.getElementById(id);
