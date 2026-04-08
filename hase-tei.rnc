@@ -177,7 +177,6 @@ bibl = element bibl {
 # ──────────────────────────────────────────────
 
 persName = element persName {
-  attribute role { "actor" | "participant" | text }?,
   attribute ref { text }?,
   text
 }
