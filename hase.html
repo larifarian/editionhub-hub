@@ -60,7 +60,6 @@
                     <li><a href="#felder" class="toc-link hover:text-gray-700 transition block py-0.5">Felder</a></li>
                     <li><a href="#kernkatalog" class="toc-link hover:text-gray-700 transition block py-0.5">Kernkatalog</a></li>
                     <li><a href="#vollstaendiges-beispiel" class="toc-link hover:text-gray-700 transition block py-0.5">Vollst. Beispiel</a></li>
-                    <li><a href="#formate" class="toc-link hover:text-gray-700 transition block py-0.5">Formate</a></li>
                     <li><a href="#verarbeitung" class="toc-link hover:text-gray-700 transition block py-0.5">Verarbeitung</a></li>
                     <li><a href="#ressourcen" class="toc-link hover:text-gray-700 transition block py-0.5">Ressourcen</a></li>
                 </ul>
@@ -218,8 +217,29 @@
             <!-- Felder -->
             <section class="bg-gray-50 rounded-2xl border border-gray-200 shadow-sm p-8 mb-6">
                 <h2 id="felder" class="text-lg font-semibold text-gray-900 mb-4">Felder</h2>
+
+                <!-- Mapping-Übersicht -->
+                <h3 class="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">Mapping-Übersicht</h3>
+                <div class="overflow-x-auto mb-6">
+                    <table class="w-full text-sm">
+                        <thead><tr class="text-left text-xs text-gray-500 border-b border-gray-200"><th class="pb-1 pr-4">HASE</th><th class="pb-1 pr-4">JSON</th><th class="pb-1 pr-4">TEI/XML</th><th class="pb-1">CIDOC-CRM</th></tr></thead>
+                        <tbody class="text-gray-700">
+                            <tr class="border-b border-gray-100"><td class="py-1.5 pr-4 text-xs font-semibold">Projekt</td><td class="py-1.5 pr-4 font-mono text-xs">project</td><td class="py-1.5 pr-4 font-mono text-xs">fileDesc</td><td class="py-1.5 text-xs">—</td></tr>
+                            <tr class="border-b border-gray-100"><td class="py-1.5 pr-4 text-xs font-semibold">Handlung</td><td class="py-1.5 pr-4 font-mono text-xs">activities[]</td><td class="py-1.5 pr-4 font-mono text-xs">event</td><td class="py-1.5 font-mono text-xs">E7_Activity</td></tr>
+                            <tr class="border-b border-gray-100"><td class="py-1.5 pr-4 text-xs font-semibold">Akteur</td><td class="py-1.5 pr-4 font-mono text-xs">actor</td><td class="py-1.5 pr-4 font-mono text-xs">persName @role</td><td class="py-1.5 font-mono text-xs">P14_carried_out_by</td></tr>
+                            <tr class="border-b border-gray-100"><td class="py-1.5 pr-4 text-xs font-semibold">Ort</td><td class="py-1.5 pr-4 font-mono text-xs">place</td><td class="py-1.5 pr-4 font-mono text-xs">placeName</td><td class="py-1.5 font-mono text-xs">P7_took_place_at</td></tr>
+                            <tr class="border-b border-gray-100"><td class="py-1.5 pr-4 text-xs font-semibold">Datum</td><td class="py-1.5 pr-4 font-mono text-xs">date</td><td class="py-1.5 pr-4 font-mono text-xs">@when / @notBefore / @from-to</td><td class="py-1.5 font-mono text-xs">P4_has_time-span</td></tr>
+                            <tr class="border-b border-gray-100"><td class="py-1.5 pr-4 text-xs font-semibold">Quelle</td><td class="py-1.5 pr-4 font-mono text-xs">sources[]</td><td class="py-1.5 pr-4 font-mono text-xs">msDesc</td><td class="py-1.5 font-mono text-xs">E31_Document</td></tr>
+                            <tr class="border-b border-gray-100"><td class="py-1.5 pr-4 text-xs font-semibold">Zusammenhang</td><td class="py-1.5 pr-4 font-mono text-xs">context</td><td class="py-1.5 pr-4 font-mono text-xs">@corresp + listEvent</td><td class="py-1.5 font-mono text-xs">E5_Event</td></tr>
+                            <tr class="border-b border-gray-100"><td class="py-1.5 pr-4 text-xs font-semibold">Verkettung</td><td class="py-1.5 pr-4 font-mono text-xs">continued / wasContinuedBy</td><td class="py-1.5 pr-4 font-mono text-xs">@prev / @next</td><td class="py-1.5 font-mono text-xs">P134 / P134i</td></tr>
+                            <tr><td class="py-1.5 pr-4 text-xs font-semibold">Typen</td><td class="py-1.5 pr-4 font-mono text-xs">activityTypes / sourceTypes</td><td class="py-1.5 pr-4 font-mono text-xs">taxonomy / category</td><td class="py-1.5 font-mono text-xs">E55_Type</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3 class="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-3">Detaillierte Feldbeschreibung</h3>
                 <p class="text-sm text-gray-600 leading-relaxed mb-4">
-                    Die folgenden Felder gelten für beide Formate (TEI/XML und JSON). Die Feldnamen entsprechen den JSON-Keys; das TEI-Mapping finden Sie unter <a href="/hase-tei" class="text-blue-600 hover:underline">HASE-TEI</a>.
+                    Die Feldnamen entsprechen den JSON-Keys. Das vollständige TEI-Mapping finden Sie unter <a href="/hase-tei" class="text-blue-600 hover:underline">HASE-TEI</a>, das CIDOC-CRM-Mapping unter <a href="/hase-cidoc-crm" class="text-blue-600 hover:underline">HASE → CIDOC-CRM</a>.
                 </p>
 
                 <!-- project -->
@@ -490,44 +510,6 @@
     }
   ]
 }</pre>
-                </div>
-            </section>
-
-            <!-- Formate -->
-            <section class="bg-gray-50 rounded-2xl border border-gray-200 shadow-sm p-8 mb-6">
-                <h2 id="formate" class="text-lg font-semibold text-gray-900 mb-4">Formate &amp; Referenz</h2>
-                <p class="text-sm text-gray-600 leading-relaxed mb-4">
-                    HASE ist in zwei Formaten für den Datenaustausch implementiert. Intern speichert EH:historia alle Daten als CIDOC-CRM.
-                </p>
-                <div class="space-y-3">
-                    <a href="/hase-tei" class="flex items-center justify-between p-4 border border-gray-200 rounded-lg hover:border-blue-300 hover:bg-blue-50 transition no-underline group">
-                        <div>
-                            <h3 class="text-sm font-semibold text-gray-800 group-hover:text-blue-700">TEI/XML</h3>
-                            <p class="text-xs text-gray-500 mt-0.5">F&uuml;r Projekte, die bereits TEI nutzen — Mapping, Schema und Beispiele</p>
-                        </div>
-                        <svg class="w-5 h-5 text-gray-400 group-hover:text-blue-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
-                    </a>
-                    <a href="/hase/schema/0.1" class="flex items-center justify-between p-4 border border-gray-200 rounded-lg hover:border-blue-300 hover:bg-blue-50 transition no-underline group">
-                        <div>
-                            <h3 class="text-sm font-semibold text-gray-800 group-hover:text-blue-700">JSON</h3>
-                            <p class="text-xs text-gray-500 mt-0.5">JSON-Schema zur Validierung — die Felddokumentation finden Sie oben</p>
-                        </div>
-                        <svg class="w-5 h-5 text-gray-400 group-hover:text-blue-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
-                    </a>
-                    <a href="/hase-cidoc-crm" class="flex items-center justify-between p-4 border border-gray-200 rounded-lg hover:border-blue-300 hover:bg-blue-50 transition no-underline group">
-                        <div>
-                            <h3 class="text-sm font-semibold text-gray-800 group-hover:text-blue-700">CIDOC-CRM</h3>
-                            <p class="text-xs text-gray-500 mt-0.5">Wie HASE intern auf CIDOC-CRM abgebildet wird</p>
-                        </div>
-                        <svg class="w-5 h-5 text-gray-400 group-hover:text-blue-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
-                    </a>
-                    <a href="/hase-projekte" class="flex items-center justify-between p-4 border border-gray-200 rounded-lg hover:border-blue-300 hover:bg-blue-50 transition no-underline group">
-                        <div>
-                            <h3 class="text-sm font-semibold text-gray-800 group-hover:text-blue-700">HASE f&uuml;r Ihr Projekt</h3>
-                            <p class="text-xs text-gray-500 mt-0.5">Passt HASE zu Ihrem Vorhaben? Schnelltest und &Uuml;bersicht</p>
-                        </div>
-                        <svg class="w-5 h-5 text-gray-400 group-hover:text-blue-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
-                    </a>
                 </div>
             </section>
 
