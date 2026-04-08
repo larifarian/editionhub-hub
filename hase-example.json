@@ -60,8 +60,8 @@
       "id": "gb-10280-send",
       "type": "LETTER_SENDING",
       "date": "1774-08-16",
-      "person": { "label": "Goethe, Johann Wolfgang von", "gnd": "118540238" },
-      "place": { "label": "Frankfurt am Main", "gnd": "4018118-2" },
+      "person": { "label": "Goethe, Johann Wolfgang von", "ref": ["gnd:118540238"] },
+      "place": { "label": "Frankfurt am Main", "ref": ["gnd:4018118-2"] },
       "thing": { "sourceRef": "z-gsa-28-5" },
       "attestedBySource": ["z-gsa-28-5"],
       "context": { "id": "gb-10280-korr", "type": "CORRESPONDENCE" },
@@ -71,8 +71,8 @@
       "id": "gb-10280-receive",
       "type": "LETTER_RECEIVING",
       "date": { "value": "1774-08-20", "qualifier": "latest" },
-      "person": { "label": "Kestner, Johann Christian", "gnd": "118722026" },
-      "place": { "label": "Hannover", "gnd": "4023349-2" },
+      "person": { "label": "Kestner, Johann Christian", "ref": ["gnd:118722026"] },
+      "place": { "label": "Hannover", "ref": ["gnd:4023349-2"] },
       "thing": { "sourceRef": "z-gsa-28-5" },
       "attestedBySource": ["z-gsa-28-5"],
       "context": { "id": "gb-10280-korr", "type": "CORRESPONDENCE" },
@@ -82,8 +82,8 @@
       "id": "gb-99001-begegnung-goethe",
       "type": "ENCOUNTER_PARTICIPATION",
       "date": "1794-09-07",
-      "person": { "label": "Goethe, Johann Wolfgang von", "gnd": "118540238" },
-      "place": { "label": "Jena", "gnd": "4028557-1" },
+      "person": { "label": "Goethe, Johann Wolfgang von", "ref": ["gnd:118540238"] },
+      "place": { "label": "Jena", "ref": ["gnd:4028557-1"] },
       "attestedBySource": ["z-tagebuch-1794-09-07"],
       "context": { "id": "gb-99001-begegnung", "type": "ENCOUNTER" }
     },
@@ -91,8 +91,8 @@
       "id": "gb-99001-begegnung-schiller",
       "type": "ENCOUNTER_PARTICIPATION",
       "date": "1794-09-07",
-      "person": { "label": "Schiller, Friedrich", "gnd": "118607626" },
-      "place": { "label": "Jena", "gnd": "4028557-1" },
+      "person": { "label": "Schiller, Friedrich", "ref": ["gnd:118607626"] },
+      "place": { "label": "Jena", "ref": ["gnd:4028557-1"] },
       "attestedBySource": ["z-tagebuch-1794-09-07"],
       "context": { "id": "gb-99001-begegnung", "type": "ENCOUNTER" }
     },
@@ -100,11 +100,11 @@
       "id": "gb-50001-lektuere",
       "type": "READING",
       "date": { "value": "1774-01-15", "qualifier": "earliest" },
-      "person": { "label": "Goethe, Johann Wolfgang von", "gnd": "118540238" },
-      "place": { "label": "Frankfurt am Main", "gnd": "4018118-2" },
+      "person": { "label": "Goethe, Johann Wolfgang von", "ref": ["gnd:118540238"] },
+      "place": { "label": "Frankfurt am Main", "ref": ["gnd:4018118-2"] },
       "thing": {
         "references": [
-          { "type": "work", "label": "Die Leiden des jungen Werthers", "gnd": "4099312-4" }
+          { "type": "work", "label": "Die Leiden des jungen Werthers", "ref": ["gnd:4099312-4"] }
         ]
       },
       "attestedBySource": ["z-brief-an-merck-1774"]
@@ -113,16 +113,16 @@
       "id": "gb-60001-uebernachtung",
       "type": "OVERNIGHT_STAY",
       "date": { "from": "1786-09-11", "to": "1786-09-12" },
-      "person": { "label": "Goethe, Johann Wolfgang von", "gnd": "118540238" },
-      "place": { "label": "Innsbruck", "gnd": "4027096-8" },
+      "person": { "label": "Goethe, Johann Wolfgang von", "ref": ["gnd:118540238"] },
+      "place": { "label": "Innsbruck", "ref": ["gnd:4027096-8"] },
       "attestedBySource": ["z-tagebuch-italien-1786"]
     },
     {
       "id": "gb-60010-reise-innsbruck",
       "type": "TRAVEL_STOP",
       "date": "1786-09-11",
-      "person": { "label": "Goethe, Johann Wolfgang von", "gnd": "118540238" },
-      "place": { "label": "Innsbruck", "gnd": "4027096-8" },
+      "person": { "label": "Goethe, Johann Wolfgang von", "ref": ["gnd:118540238"] },
+      "place": { "label": "Innsbruck", "ref": ["gnd:4027096-8"] },
       "attestedBySource": ["z-tagebuch-italien-1786"],
       "context": { "id": "gb-60000-italienreise", "type": "JOURNEY" },
       "wasContinuedBy": ["gb-60010-reise-brenner"]
@@ -131,8 +131,8 @@
       "id": "gb-60010-reise-brenner",
       "type": "TRAVEL_STOP",
       "date": "1786-09-12",
-      "person": { "label": "Goethe, Johann Wolfgang von", "gnd": "118540238" },
-      "place": { "label": "Brenner", "gnd": "4008271-1" },
+      "person": { "label": "Goethe, Johann Wolfgang von", "ref": ["gnd:118540238"] },
+      "place": { "label": "Brenner", "ref": ["gnd:4008271-1"] },
       "attestedBySource": ["z-tagebuch-italien-1786"],
       "context": { "id": "gb-60000-italienreise", "type": "JOURNEY" },
       "continued": ["gb-60010-reise-innsbruck"],
@@ -142,8 +142,8 @@
       "id": "gb-60010-reise-trient",
       "type": "TRAVEL_STOP",
       "date": "1786-09-13",
-      "person": { "label": "Goethe, Johann Wolfgang von", "gnd": "118540238" },
-      "place": { "label": "Trient", "gnd": "4078405-0" },
+      "person": { "label": "Goethe, Johann Wolfgang von", "ref": ["gnd:118540238"] },
+      "place": { "label": "Trient", "ref": ["gnd:4078405-0"] },
       "attestedBySource": ["z-tagebuch-italien-1786"],
       "context": { "id": "gb-60000-italienreise", "type": "JOURNEY" },
       "continued": ["gb-60010-reise-brenner"]
@@ -153,12 +153,12 @@
     {
       "id": "z-gsa-28-5",
       "type": "LETTER",
-      "archive": { "label": "Goethe- und Schiller-Archiv", "gnd": "5080444-3" },
+      "archive": { "label": "Goethe- und Schiller-Archiv", "ref": ["gnd:5080444-3"] },
       "shelfmark": "GSA 28/5, Bl. 1-2",
       "references": [
-        { "type": "person", "label": "Kestner, Johann Christian", "gnd": "118722026" },
-        { "type": "place", "label": "Wetzlar", "gnd": "4065445-3" },
-        { "type": "work", "label": "Die Leiden des jungen Werthers", "gnd": "4099312-4" },
+        { "type": "person", "label": "Kestner, Johann Christian", "ref": ["gnd:118722026"] },
+        { "type": "place", "label": "Wetzlar", "ref": ["gnd:4065445-3"] },
+        { "type": "work", "label": "Die Leiden des jungen Werthers", "ref": ["gnd:4099312-4"] },
         { "type": "concept", "label": "Freundschaft" },
         { "type": "group", "label": "Wetzlarer Tafelrunde" }
       ],
@@ -170,7 +170,7 @@
     {
       "id": "z-tagebuch-1794-09-07",
       "type": "DIARY_ENTRY",
-      "archive": { "label": "Goethe- und Schiller-Archiv", "gnd": "5080444-3" },
+      "archive": { "label": "Goethe- und Schiller-Archiv", "ref": ["gnd:5080444-3"] },
       "shelfmark": "Tgb. 1794, Bl. 42",
       "attestsActivity": ["gb-99001-begegnung-goethe", "gb-99001-begegnung-schiller"],
       "edition": "begegnungen",
@@ -179,7 +179,7 @@
     {
       "id": "z-brief-an-merck-1774",
       "type": "LETTER",
-      "archive": { "label": "Universitätsbibliothek Frankfurt", "gnd": "800170-5" },
+      "archive": { "label": "Universitätsbibliothek Frankfurt", "ref": ["gnd:800170-5"] },
       "shelfmark": "Ms. Ff. Merck 1774/15",
       "iiif": "https://sammlungen.ub.uni-frankfurt.de/iiif/manifest/merck-1774-15",
       "attestsActivity": ["gb-50001-lektuere"],
@@ -189,7 +189,7 @@
     {
       "id": "z-tagebuch-italien-1786",
       "type": "DIARY_ENTRY",
-      "archive": { "label": "Goethe- und Schiller-Archiv", "gnd": "5080444-3" },
+      "archive": { "label": "Goethe- und Schiller-Archiv", "ref": ["gnd:5080444-3"] },
       "shelfmark": "Tgb. Italienische Reise, Bl. 8",
       "attestsActivity": ["gb-60001-uebernachtung", "gb-60010-reise-innsbruck", "gb-60010-reise-brenner", "gb-60010-reise-trient"],
       "edition": "reisen",

@@ -143,9 +143,10 @@
           "type": "string",
           "description": "Display name (e.g. 'Goethe, Johann Wolfgang von'). — Anzeigename (z.B. 'Goethe, Johann Wolfgang von')."
         },
-        "gnd": {
-          "type": "string",
-          "description": "GND identifier (without prefix). — GND-Nummer (ohne Präfix)."
+        "ref": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Authority identifiers with prefix (e.g. 'gnd:118540238', 'wikidata:Q5879'). — Normdaten-Identifier mit Prefix (z.B. 'gnd:118540238', 'wikidata:Q5879')."
         }
       }
     },
@@ -159,9 +160,10 @@
           "type": "string",
           "description": "Place name (e.g. 'Frankfurt am Main'). — Ortsname (z.B. 'Frankfurt am Main')."
         },
-        "gnd": {
-          "type": "string",
-          "description": "GND identifier (without prefix). — GND-Nummer (ohne Präfix)."
+        "ref": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Authority identifiers with prefix (e.g. 'gnd:4018118-2'). — Normdaten-Identifier mit Prefix (z.B. 'gnd:4018118-2')."
         }
       }
     },
@@ -175,9 +177,10 @@
           "type": "string",
           "description": "Name of the archive or library. — Name des Archivs/der Bibliothek."
         },
-        "gnd": {
-          "type": "string",
-          "description": "GND identifier (without prefix). — GND-Nummer (ohne Präfix)."
+        "ref": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Authority identifiers with prefix (e.g. 'gnd:5080444-3'). — Normdaten-Identifier mit Prefix (z.B. 'gnd:5080444-3')."
         }
       }
     },
@@ -193,12 +196,13 @@
         },
         "type": {
           "type": "string",
-          "enum": ["person", "group", "place", "work", "concept"],
-          "description": "Type of reference: person/group (E39 Actor), place (E53 Place), work (E73 Information Object), concept (E28 Conceptual Object). — Art des Bezugs: person/group (E39 Actor), place (E53 Place), work (E73 Information Object), concept (E28 Conceptual Object)."
+          "enum": ["person", "place", "work", "concept"],
+          "description": "Type of reference: person (E21 Person), place (E53 Place), work (E73 Information Object), concept (E28 Conceptual Object). — Art des Bezugs: person (E21 Person), place (E53 Place), work (E73 Information Object), concept (E28 Conceptual Object)."
         },
-        "gnd": {
-          "type": "string",
-          "description": "GND identifier (without prefix). — GND-Nummer (ohne Präfix)."
+        "ref": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Authority identifiers with prefix (e.g. 'gnd:4099312-4'). — Normdaten-Identifier mit Prefix (z.B. 'gnd:4099312-4')."
         }
       }
     },
