@@ -29,15 +29,17 @@
 </head>
 <body class="bg-white min-h-screen flex flex-col">
 
-    <!-- Language Switch -->
-    <div class="absolute top-5 right-6 flex items-center gap-1 text-xs text-gray-400">
-        <button onclick="setLang('de')" class="lang-switch px-1.5 py-0.5 rounded hover:text-gray-600" data-lang="de">DE</button>
-        <span class="text-gray-300">|</span>
-        <button onclick="setLang('en')" class="lang-switch px-1.5 py-0.5 rounded hover:text-gray-600" data-lang="en">EN</button>
-    </div>
+    <!-- Top Bar -->
+    <nav class="flex items-center justify-end px-6 py-3 text-xs text-gray-400">
+        <div class="flex items-center gap-1">
+            <button onclick="setLang('de')" class="lang-switch px-1.5 py-0.5 rounded hover:text-gray-600" data-lang="de">DE</button>
+            <span class="text-gray-300">|</span>
+            <button onclick="setLang('en')" class="lang-switch px-1.5 py-0.5 rounded hover:text-gray-600" data-lang="en">EN</button>
+        </div>
+    </nav>
 
     <!-- Hero -->
-    <header class="flex-1 flex flex-col items-center justify-center px-4 pt-20 pb-12">
+    <header class="flex-1 flex flex-col items-center justify-center px-4 pt-12 pb-12">
         <h1 class="text-5xl font-bold text-gray-900 tracking-tight">Edition<span class="text-blue-600">Hub</span> <sup class="text-xs font-medium text-gray-400 tracking-wide">beta</sup></h1>
         <p lang="de" class="mt-4 text-lg text-gray-400 font-light tracking-wide">Offene Forschungsplattformen für Digitale Editionen</p>
         <p lang="en" class="mt-4 text-lg text-gray-400 font-light tracking-wide">Open Research Platforms for Digital Scholarly Editions</p>
