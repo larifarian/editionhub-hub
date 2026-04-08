@@ -54,9 +54,9 @@
     </header>
 
     <!-- Main -->
-    <main class="flex-1 flex items-start justify-center px-4 pb-16">
-        <!-- Sidebar Navigation (Desktop) -->
-        <nav id="toc" class="hidden xl:block sticky top-8 w-48 shrink-0 mr-8 self-start">
+    <main class="flex-1 relative px-4 pb-16">
+        <!-- Sidebar Navigation (Desktop) — absolut positioniert, beeinflusst Content-Zentrierung nicht -->
+        <nav id="toc" class="hidden xl:block fixed top-1/3 w-48" style="left: max(1rem, calc(50% - 24rem - 14rem));">
             <ul lang="de" class="text-xs text-gray-400 space-y-1.5 border-l border-gray-200 pl-3">
                 <li><a href="#was-ist-eh-historia" class="toc-link hover:text-gray-700 transition block py-0.5">Was ist EH:historia?</a></li>
                 <li><a href="#editionen" class="toc-link hover:text-gray-700 transition block py-0.5">Verfügbare Projekte</a></li>
@@ -70,7 +70,7 @@
                 <li><a href="#hase-format" class="toc-link hover:text-gray-700 transition block py-0.5">HASE Format</a></li>
             </ul>
         </nav>
-        <div class="max-w-3xl w-full">
+        <div class="max-w-3xl w-full mx-auto">
 
             <!-- Überblick -->
             <section class="bg-gray-50 rounded-2xl border border-gray-200 shadow-sm p-8 mb-6">

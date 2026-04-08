@@ -48,9 +48,9 @@
     </header>
 
     <!-- Main -->
-    <main class="flex-1 flex items-start justify-center px-4 pb-16">
+    <main class="flex-1 relative px-4 pb-16">
         <!-- Sidebar Navigation (Desktop) -->
-        <nav id="toc" class="hidden xl:block sticky top-8 w-48 shrink-0 mr-8 self-start">
+        <nav id="toc" class="hidden xl:block fixed top-1/3 w-48" style="left: max(1rem, calc(50% - 24rem - 14rem));">
             <ul class="text-xs text-gray-400 space-y-1.5 border-l border-gray-200 pl-3">
                 <li><a href="#was-ist-hase" class="toc-link hover:text-gray-700 transition block py-0.5">Was ist HASE?</a></li>
                 <li><a href="#daten-einreichen" class="toc-link hover:text-gray-700 transition block py-0.5">Daten einreichen</a></li>
@@ -63,7 +63,7 @@
                 <li><a href="#ressourcen" class="toc-link hover:text-gray-700 transition block py-0.5">Ressourcen</a></li>
             </ul>
         </nav>
-        <div class="max-w-3xl w-full">
+        <div class="max-w-3xl w-full mx-auto">
 
             <!-- Titel -->
             <div class="mb-8">
