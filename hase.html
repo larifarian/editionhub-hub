@@ -55,11 +55,12 @@
                 <ul class="text-xs text-gray-400 space-y-1.5 border-l border-gray-200 pl-3">
                     <li><a href="#was-ist-hase" class="toc-link hover:text-gray-700 transition block py-0.5">Was ist HASE?</a></li>
                     <li><a href="#daten-einreichen" class="toc-link hover:text-gray-700 transition block py-0.5">Daten einreichen</a></li>
-                    <li><a href="#implementierung" class="toc-link hover:text-gray-700 transition block py-0.5">Implementierung</a></li>
+                    <li><a href="#datenmodell" class="toc-link hover:text-gray-700 transition block py-0.5">Datenmodell</a></li>
                     <li><a href="#minimalbeispiel" class="toc-link hover:text-gray-700 transition block py-0.5">Minimalbeispiel</a></li>
-                    <li><a href="#dateistruktur" class="toc-link hover:text-gray-700 transition block py-0.5">Dateistruktur</a></li>
+                    <li><a href="#felder" class="toc-link hover:text-gray-700 transition block py-0.5">Felder</a></li>
                     <li><a href="#kernkatalog" class="toc-link hover:text-gray-700 transition block py-0.5">Kernkatalog</a></li>
                     <li><a href="#vollstaendiges-beispiel" class="toc-link hover:text-gray-700 transition block py-0.5">Vollst. Beispiel</a></li>
+                    <li><a href="#formate" class="toc-link hover:text-gray-700 transition block py-0.5">Formate</a></li>
                     <li><a href="#verarbeitung" class="toc-link hover:text-gray-700 transition block py-0.5">Verarbeitung</a></li>
                     <li><a href="#ressourcen" class="toc-link hover:text-gray-700 transition block py-0.5">Ressourcen</a></li>
                 </ul>
@@ -139,32 +140,24 @@
                 </div>
             </section>
 
-            <!-- Implementierung -->
+            <!-- Datenmodell -->
             <section class="bg-gray-50 rounded-2xl border border-gray-200 shadow-sm p-8 mb-6">
-                <h2 id="implementierung" class="text-lg font-semibold text-gray-900 mb-4">Implementierung</h2>
-                <div class="space-y-3">
-                    <a href="/hase-projekte" class="flex items-center justify-between p-4 border border-gray-200 rounded-lg hover:border-blue-300 hover:bg-blue-50 transition no-underline group">
-                        <div>
-                            <h3 class="text-sm font-semibold text-gray-800 group-hover:text-blue-700">HASE f&uuml;r Ihr Projekt</h3>
-                            <p class="text-xs text-gray-500 mt-0.5">Passt HASE zu Ihrem Vorhaben? Schnelltest und &Uuml;bersicht nach Projekttypen</p>
-                        </div>
-                        <svg class="w-5 h-5 text-gray-400 group-hover:text-blue-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
-                    </a>
-                    <a href="/hase-tei" class="flex items-center justify-between p-4 border border-gray-200 rounded-lg hover:border-blue-300 hover:bg-blue-50 transition no-underline group">
-                        <div>
-                            <h3 class="text-sm font-semibold text-gray-800 group-hover:text-blue-700">HASE-TEI</h3>
-                            <p class="text-xs text-gray-500 mt-0.5">Mapping von HASE auf TEI XML — für Projekte, die bereits TEI nutzen</p>
-                        </div>
-                        <svg class="w-5 h-5 text-gray-400 group-hover:text-blue-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
-                    </a>
-                    <a href="/hase-cidoc-crm" class="flex items-center justify-between p-4 border border-gray-200 rounded-lg hover:border-blue-300 hover:bg-blue-50 transition no-underline group">
-                        <div>
-                            <h3 class="text-sm font-semibold text-gray-800 group-hover:text-blue-700">HASE &rarr; CIDOC-CRM</h3>
-                            <p class="text-xs text-gray-500 mt-0.5">Wie HASE intern auf CIDOC-CRM abgebildet wird</p>
-                        </div>
-                        <svg class="w-5 h-5 text-gray-400 group-hover:text-blue-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
-                    </a>
-                </div>
+                <h2 id="datenmodell" class="text-lg font-semibold text-gray-900 mb-4">Datenmodell</h2>
+                <p class="text-sm text-gray-600 leading-relaxed mb-4">
+                    HASE strukturiert Daten in fünf Konzepten — unabhängig vom Format (TEI/XML oder JSON):
+                </p>
+                <table class="w-full text-sm mb-4">
+                    <tbody class="text-gray-700">
+                        <tr class="border-b border-gray-100"><td class="py-2 pr-4 text-xs font-semibold">Projekt</td><td class="py-2 text-xs">Metadaten zum liefernden Forschungs- oder Editionsprojekt</td></tr>
+                        <tr class="border-b border-gray-100"><td class="py-2 pr-4 text-xs font-semibold">Handlung</td><td class="py-2 text-xs">Ein historisches Ereignis — wer tat was, wo und wann?</td></tr>
+                        <tr class="border-b border-gray-100"><td class="py-2 pr-4 text-xs font-semibold">Quelle</td><td class="py-2 text-xs">Ein überliefertes Dokument, das Handlungen bezeugt (Brief, Tagebuch etc.)</td></tr>
+                        <tr class="border-b border-gray-100"><td class="py-2 pr-4 text-xs font-semibold">Zusammenhang</td><td class="py-2 text-xs">Gruppierung von Handlungen — z.B. eine Korrespondenz, eine Reise, eine Begegnung</td></tr>
+                        <tr><td class="py-2 pr-4 text-xs font-semibold">Typen</td><td class="py-2 text-xs">Katalog der Handlungs- und Quellentypen (erweiterbar durch Projekte)</td></tr>
+                    </tbody>
+                </table>
+                <p class="text-sm text-gray-600 leading-relaxed">
+                    Personen, Orte, Werke und weitere Entitäten werden über Normdaten (GND, Wikidata) referenziert — das ermöglicht projektübergreifende Verknüpfungen.
+                </p>
             </section>
 
             <!-- Minimalbeispiel -->
@@ -173,7 +166,9 @@
                 <p class="text-sm text-gray-600 leading-relaxed mb-4">
                     Die einfachste gültige HASE-Datei — ein Projekt mit einer einzigen Briefsendung:
                 </p>
-                <div class="bg-gray-900 rounded-lg p-4 overflow-x-auto">
+
+                <h3 class="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">JSON</h3>
+                <div class="bg-gray-900 rounded-lg p-4 overflow-x-auto mb-5">
                     <pre class="text-xs text-green-400 font-mono leading-relaxed">{
   "$schema": "https://editionhub.org/hase/schema/0.1",
   "@context": "https://editionhub.org/hase/context/0.1",
@@ -193,13 +188,38 @@
   ]
 }</pre>
                 </div>
+
+                <h3 class="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">TEI/XML</h3>
+                <div class="bg-gray-900 rounded-lg p-4 overflow-x-auto">
+                    <pre class="text-xs text-green-400 font-mono leading-relaxed"><span class="text-gray-500">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<span class="text-blue-400">&lt;TEI</span> xmlns="http://www.tei-c.org/ns/1.0"<span class="text-blue-400">&gt;</span>
+  <span class="text-blue-400">&lt;teiHeader&gt;</span>
+    <span class="text-blue-400">&lt;fileDesc&gt;</span>
+      <span class="text-blue-400">&lt;titleStmt&gt;&lt;title&gt;</span>Mein Forschungsprojekt<span class="text-blue-400">&lt;/title&gt;&lt;/titleStmt&gt;</span>
+      <span class="text-blue-400">&lt;publicationStmt&gt;&lt;idno</span> type="hase"<span class="text-blue-400">&gt;</span>mein-projekt<span class="text-blue-400">&lt;/idno&gt;&lt;/publicationStmt&gt;</span>
+      <span class="text-blue-400">&lt;sourceDesc&gt;&lt;p/&gt;&lt;/sourceDesc&gt;</span>
+    <span class="text-blue-400">&lt;/fileDesc&gt;</span>
+    <span class="text-blue-400">&lt;profileDesc&gt;&lt;abstract&gt;</span>
+      <span class="text-blue-400">&lt;listEvent&gt;</span>
+        <span class="text-blue-400">&lt;event</span> xml:id="brief-001" ana="#LETTER_SENDING" when="1786-09-03"<span class="text-blue-400">&gt;</span>
+          <span class="text-blue-400">&lt;desc&gt;</span>
+            <span class="text-blue-400">&lt;persName</span> role="actor" ref="gnd:118540238"<span class="text-blue-400">&gt;</span>Goethe, Johann Wolfgang von<span class="text-blue-400">&lt;/persName&gt;</span>
+            <span class="text-blue-400">&lt;placeName</span> ref="gnd:4029702-0"<span class="text-blue-400">&gt;</span>Karlsbad<span class="text-blue-400">&lt;/placeName&gt;</span>
+          <span class="text-blue-400">&lt;/desc&gt;</span>
+        <span class="text-blue-400">&lt;/event&gt;</span>
+      <span class="text-blue-400">&lt;/listEvent&gt;</span>
+    <span class="text-blue-400">&lt;/abstract&gt;&lt;/profileDesc&gt;</span>
+  <span class="text-blue-400">&lt;/teiHeader&gt;</span>
+  <span class="text-blue-400">&lt;text&gt;&lt;body&gt;&lt;p/&gt;&lt;/body&gt;&lt;/text&gt;</span>
+<span class="text-blue-400">&lt;/TEI&gt;</span></pre>
+                </div>
             </section>
 
-            <!-- Dateistruktur -->
+            <!-- Felder -->
             <section class="bg-gray-50 rounded-2xl border border-gray-200 shadow-sm p-8 mb-6">
-                <h2 id="dateistruktur" class="text-lg font-semibold text-gray-900 mb-4">Dateistruktur</h2>
+                <h2 id="felder" class="text-lg font-semibold text-gray-900 mb-4">Felder</h2>
                 <p class="text-sm text-gray-600 leading-relaxed mb-4">
-                    Eine HASE-Datei besteht aus bis zu fünf Abschnitten:
+                    Die folgenden Felder gelten für beide Formate (TEI/XML und JSON). Die Feldnamen entsprechen den JSON-Keys; das TEI-Mapping finden Sie unter <a href="/hase-tei" class="text-blue-600 hover:underline">HASE-TEI</a>.
                 </p>
 
                 <!-- project -->
@@ -404,7 +424,7 @@
             <section class="bg-gray-50 rounded-2xl border border-gray-200 shadow-sm p-8 mb-6">
                 <h2 id="vollstaendiges-beispiel" class="text-lg font-semibold text-gray-900 mb-4">Vollständiges Beispiel</h2>
                 <p class="text-sm text-gray-600 leading-relaxed mb-4">
-                    Eine HASE-Datei mit Korrespondenz, Quelle, Verkettung und Zusammenhang:
+                    Eine HASE-Datei mit Korrespondenz, Quelle, Verkettung und Zusammenhang (JSON). Das TEI-Äquivalent finden Sie unter <a href="/hase-tei#vollstaendiges-beispiel" class="text-blue-600 hover:underline">HASE-TEI</a>.
                 </p>
                 <div class="bg-gray-900 rounded-lg p-4 overflow-x-auto">
                     <pre class="text-xs text-green-400 font-mono leading-relaxed">{
@@ -473,6 +493,44 @@
                 </div>
             </section>
 
+            <!-- Formate -->
+            <section class="bg-gray-50 rounded-2xl border border-gray-200 shadow-sm p-8 mb-6">
+                <h2 id="formate" class="text-lg font-semibold text-gray-900 mb-4">Formate &amp; Referenz</h2>
+                <p class="text-sm text-gray-600 leading-relaxed mb-4">
+                    HASE ist in zwei Formaten für den Datenaustausch implementiert. Intern speichert EH:historia alle Daten als CIDOC-CRM.
+                </p>
+                <div class="space-y-3">
+                    <a href="/hase-tei" class="flex items-center justify-between p-4 border border-gray-200 rounded-lg hover:border-blue-300 hover:bg-blue-50 transition no-underline group">
+                        <div>
+                            <h3 class="text-sm font-semibold text-gray-800 group-hover:text-blue-700">TEI/XML</h3>
+                            <p class="text-xs text-gray-500 mt-0.5">F&uuml;r Projekte, die bereits TEI nutzen — Mapping, Schema und Beispiele</p>
+                        </div>
+                        <svg class="w-5 h-5 text-gray-400 group-hover:text-blue-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+                    </a>
+                    <a href="/hase/schema/0.1" class="flex items-center justify-between p-4 border border-gray-200 rounded-lg hover:border-blue-300 hover:bg-blue-50 transition no-underline group">
+                        <div>
+                            <h3 class="text-sm font-semibold text-gray-800 group-hover:text-blue-700">JSON</h3>
+                            <p class="text-xs text-gray-500 mt-0.5">JSON-Schema zur Validierung — die Felddokumentation finden Sie oben</p>
+                        </div>
+                        <svg class="w-5 h-5 text-gray-400 group-hover:text-blue-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+                    </a>
+                    <a href="/hase-cidoc-crm" class="flex items-center justify-between p-4 border border-gray-200 rounded-lg hover:border-blue-300 hover:bg-blue-50 transition no-underline group">
+                        <div>
+                            <h3 class="text-sm font-semibold text-gray-800 group-hover:text-blue-700">CIDOC-CRM</h3>
+                            <p class="text-xs text-gray-500 mt-0.5">Wie HASE intern auf CIDOC-CRM abgebildet wird</p>
+                        </div>
+                        <svg class="w-5 h-5 text-gray-400 group-hover:text-blue-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+                    </a>
+                    <a href="/hase-projekte" class="flex items-center justify-between p-4 border border-gray-200 rounded-lg hover:border-blue-300 hover:bg-blue-50 transition no-underline group">
+                        <div>
+                            <h3 class="text-sm font-semibold text-gray-800 group-hover:text-blue-700">HASE f&uuml;r Ihr Projekt</h3>
+                            <p class="text-xs text-gray-500 mt-0.5">Passt HASE zu Ihrem Vorhaben? Schnelltest und &Uuml;bersicht</p>
+                        </div>
+                        <svg class="w-5 h-5 text-gray-400 group-hover:text-blue-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+                    </a>
+                </div>
+            </section>
+
             <!-- Verarbeitung -->
             <section class="bg-gray-50 rounded-2xl border border-gray-200 shadow-sm p-8 mb-6">
                 <h2 id="verarbeitung" class="text-lg font-semibold text-gray-900 mb-4">Verarbeitung</h2>
@@ -480,9 +538,9 @@
                     EditionHub verarbeitet HASE-Dateien automatisch:
                 </p>
                 <div class="bg-gray-900 rounded-lg p-4 overflow-x-auto">
-                    <pre class="text-xs text-gray-300 font-mono leading-relaxed">HASE-Datei (JSON)
+                    <pre class="text-xs text-gray-300 font-mono leading-relaxed">HASE-Datei (TEI/XML oder JSON)
     |
-    +-- Validierung (JSON-Schema)
+    +-- Validierung (RelaxNG / JSON-Schema)
     |
     +-- Normdaten-Aufloesung
     |       GND --> EditionHub-Index (automatischer Match)
