@@ -133,20 +133,15 @@
         }
       }
     },
-    "actor": {
+    "person": {
       "type": "object",
-      "description": "A participating person or group. — Eine beteiligte Person oder Gruppe.",
-      "required": ["label", "type"],
+      "description": "A participating person. — Eine beteiligte Person.",
+      "required": ["label"],
       "additionalProperties": false,
       "properties": {
         "label": {
           "type": "string",
           "description": "Display name (e.g. 'Goethe, Johann Wolfgang von'). — Anzeigename (z.B. 'Goethe, Johann Wolfgang von')."
-        },
-        "type": {
-          "type": "string",
-          "enum": ["person", "group"],
-          "description": "Type of actor. — Art des Akteurs."
         },
         "gnd": {
           "type": "string",
@@ -267,9 +262,9 @@
           ],
           "description": "Date of the activity. String for exact date, object with value+qualifier for point in time, object with from+to for time span. — Datum der Handlung. String für exaktes Datum, Objekt mit value+qualifier für Zeitpunkt, Objekt mit from+to für Zeitspanne."
         },
-        "actor": {
-          "$ref": "#/$defs/actor",
-          "description": "Participating person or group (exactly one per activity). — Beteiligte Person oder Gruppe (genau eine pro Handlung)."
+        "person": {
+          "$ref": "#/$defs/person",
+          "description": "Participating person (exactly one per activity). — Beteiligte Person (genau eine pro Handlung)."
         },
         "place": {
           "$ref": "#/$defs/place",
