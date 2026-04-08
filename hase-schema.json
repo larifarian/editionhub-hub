@@ -22,6 +22,11 @@
       "const": "0.1",
       "description": "HASE version number. — HASE-Versionsnummer."
     },
+    "version": {
+      "type": "string",
+      "format": "date",
+      "description": "Optional data version (ISO 8601 date, e.g. 2026-04-08). If set, a new named graph is created for each new version. If omitted, the existing graph is replaced on every harvest. — Optionale Datenversion (ISO-8601-Datum, z.B. 2026-04-08). Wenn gesetzt, wird bei jeder neuen Version ein neuer Named Graph erzeugt. Wenn nicht gesetzt, wird der bestehende Graph bei jedem Harvest ersetzt."
+    },
     "project": {
       "$ref": "#/$defs/project"
     },

@@ -2,17 +2,19 @@
   "$schema": "https://editionhub.org/hase/schema/0.1",
   "@context": "https://editionhub.org/hase/context/0.1",
   "hase": "0.1",
+  "version": "2026-04-08",
   "project": {
-    "id": "goethe-biographica",
-    "title": "Goethe Biographica",
+    "id": "prop",
+    "title": "Propyläen — Goethes Biographica",
     "description": "Biographische Daten zu Johann Wolfgang von Goethe.",
     "url": "https://goethe-biographica.de",
     "license": "CC-BY-4.0",
-    "contact": "fdh@goethehaus-frankfurt.de",
+    "contact": "kontakt@goethe-biographica.de",
     "editions": [
-      { "id": "briefe", "title": "Goethe-Briefe", "url": "https://goethe-biographica.de/briefe" },
-      { "id": "begegnungen", "title": "Goethe-Begegnungen", "url": "https://goethe-biographica.de/begegnungen" },
-      { "id": "reisen", "title": "Goethe-Reisen", "url": "https://goethe-biographica.de/reisen" }
+      { "id": "prop-gt", "title": "Goethes Tagebücher", "description": "Die in der Frühzeit meist eigenhändig geführten, seit 1797 überwiegend diktierten Tagebücher dokumentieren bis zu Goethes Tod 1832 ein reiches und kommunikatives Leben. Sie zeigen Goethe unter anderem als Dichter, Naturforscher, Gesprächs- und Korrespondenzpartner, als Beamten, Lesenden, Reisenden sowie als Beobachter und Kommentator seiner Zeit. Auf faszinierende Weise vermitteln sie einen Eindruck davon, wie die Facetten von Leben und Werk zusammenspielen, sich wechselseitig bedingen, ergänzen und bereichern.", "url": "https://goethe-biographica.de/recherche/tagebuecher.html" },
+      { "id": "prop-bug", "title": "Begegnungen und Gespräche", "description": "„Herrlicher als Gold“ und „erquicklicher als Licht“ sei Goethe das Gespräch gewesen, Bedürfnis und Ausdruck seines rastlos tätigen Bildungstriebs wie Gebot seiner mächtigen Sprachphantasie. In enger Verzahnung von Fremdzeugnissen und Selbstzeugnissen des Dichters dokumentiert die Ausgabe Goethes täglichen Umgang mit seinen Zeitgenossen und zeigt ihn im engeren Umfeld Weimars und auf frühen wie späten Reisen als Gesprächspartner von Schriftstellern, Schauspielern, Beamten und Politikern sowie von Naturforschern und Künstlern.", "url": "https://goethe-biographica.de/recherche/begegnungen-und-gespraeche.html" },
+      { "id": "prop-gb", "title": "Briefe von Goethe", "description": "Goethes Briefwerk gilt als einer der Höhepunkte europäischer Briefkultur. Seine Briefe sind nicht nur biographische Dokumente, sondern auch sprachliche Kunstwerke. Die etwa 15.000 überlieferten Briefe stammen aus einem Zeitraum von fast 70 Jahren und richten sich an mehr als 1 400 Empfängerinnen und Empfänger.", "url": "https://goethe-biographica.de/recherche/briefe.html" },
+      { "id": "prop-ra", "title": "Briefe an Goethe", "description": "Die Briefe an Goethe beleuchten nicht nur dessen persönliches, künstlerisches, wissenschaftliches und dienstliches Umfeld, sondern auch das der Briefschreiber:innen. So entsteht ein lebendiges Bild der Literatur-, Ideen-, Kommunikations- und Alltagsgeschichte um 1800.", "url": "https://goethe-biographica.de/recherche/regesten.html" }
     ]
   },
   "activityTypes": {
