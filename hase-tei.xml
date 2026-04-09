@@ -27,12 +27,6 @@
               <idno type="shelfmark">GSA 28/5, Bl. 1-2</idno>
               <idno type="URL">https://kalliope-verbund.info/DE-611-HS-1234567</idno>
             </msIdentifier>
-            <msContents>
-              <p>
-                <persName ref="gnd:118722026">Kestner, Johann Christian</persName>,
-                <title ref="gnd:4099312-4">Die Leiden des jungen Werthers</title>
-              </p>
-            </msContents>
             <additional>
               <surrogates>
                 <bibl>
