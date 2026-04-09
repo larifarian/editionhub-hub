@@ -236,7 +236,13 @@
                     <table class="w-full text-sm">
                         <thead><tr class="text-left text-xs text-gray-500 border-b border-gray-200"><th class="pb-1 pr-3">HASE</th><th class="pb-1 pr-3">JSON</th><th class="pb-1 pr-3">TEI/XML</th><th class="pb-1">CIDOC-CRM (RDF)</th></tr></thead>
                         <tbody class="text-gray-700">
-                            <tr class="border-b border-gray-100"><td class="py-1.5 pr-3 text-xs font-semibold">Projekt</td><td class="py-1.5 pr-3 font-mono text-xs">project</td><td class="py-1.5 pr-3 font-mono text-xs">fileDesc/titleStmt + publicationStmt</td><td class="py-1.5 text-xs">Named Graph + rdfs:label</td></tr>
+                            <tr class="border-b border-gray-100"><td class="py-1.5 pr-3 text-xs font-semibold">Schema</td><td class="py-1.5 pr-3 font-mono text-xs">$schema, @context</td><td class="py-1.5 pr-3 font-mono text-xs">&lt;?xml-model href="..."?&gt;</td><td class="py-1.5 text-xs">—</td></tr>
+                            <tr class="border-b border-gray-100"><td class="py-1.5 pr-3 text-xs font-semibold">Projekt-Titel</td><td class="py-1.5 pr-3 font-mono text-xs">project.title</td><td class="py-1.5 pr-3 font-mono text-xs">fileDesc/titleStmt/title</td><td class="py-1.5 text-xs">rdfs:label</td></tr>
+                            <tr class="border-b border-gray-100"><td class="py-1.5 pr-3 text-xs font-semibold">Projekt-ID</td><td class="py-1.5 pr-3 font-mono text-xs">project.id</td><td class="py-1.5 pr-3 font-mono text-xs">publicationStmt/idno @type="hase"</td><td class="py-1.5 text-xs">Named Graph</td></tr>
+                            <tr class="border-b border-gray-100"><td class="py-1.5 pr-3 text-xs font-semibold">Projekt-URL</td><td class="py-1.5 pr-3 font-mono text-xs">project.url</td><td class="py-1.5 pr-3 font-mono text-xs">publicationStmt/idno @type="URL"</td><td class="py-1.5 text-xs">—</td></tr>
+                            <tr class="border-b border-gray-100"><td class="py-1.5 pr-3 text-xs font-semibold">Kontakt</td><td class="py-1.5 pr-3 font-mono text-xs">project.contact</td><td class="py-1.5 pr-3 font-mono text-xs">publicationStmt/email</td><td class="py-1.5 text-xs">—</td></tr>
+                            <tr class="border-b border-gray-100"><td class="py-1.5 pr-3 text-xs font-semibold">Lizenz</td><td class="py-1.5 pr-3 font-mono text-xs">project.license</td><td class="py-1.5 pr-3 font-mono text-xs">publicationStmt/availability/licence</td><td class="py-1.5 text-xs">—</td></tr>
+                            <tr class="border-b border-gray-100"><td class="py-1.5 pr-3 text-xs font-semibold">Editionen</td><td class="py-1.5 pr-3 font-mono text-xs">project.editions[]</td><td class="py-1.5 pr-3 font-mono text-xs">seriesStmt (title, idno, p)</td><td class="py-1.5 text-xs">—</td></tr>
                             <tr><td class="py-1.5 pr-3 text-xs font-semibold">Version</td><td class="py-1.5 pr-3 font-mono text-xs">version</td><td class="py-1.5 pr-3 font-mono text-xs">publicationStmt/idno @type="version"</td><td class="py-1.5 text-xs">Graph-URI</td></tr>
                         </tbody>
                     </table>
@@ -248,8 +254,8 @@
                     <table class="w-full text-sm">
                         <thead><tr class="text-left text-xs text-gray-500 border-b border-gray-200"><th class="pb-1 pr-3">HASE</th><th class="pb-1 pr-3">JSON</th><th class="pb-1 pr-3">TEI/XML</th><th class="pb-1">CIDOC-CRM (RDF)</th></tr></thead>
                         <tbody class="text-gray-700">
-                            <tr class="border-b border-gray-100"><td class="py-1.5 pr-3 text-xs font-semibold">Handlungstypen</td><td class="py-1.5 pr-3 font-mono text-xs">activityTypes</td><td class="py-1.5 pr-3 font-mono text-xs">category @xml:id</td><td class="py-1.5 font-mono text-xs">E55 Type</td></tr>
-                            <tr><td class="py-1.5 pr-3 text-xs font-semibold">Quellentypen</td><td class="py-1.5 pr-3 font-mono text-xs">sourceTypes</td><td class="py-1.5 pr-3 font-mono text-xs">category @xml:id</td><td class="py-1.5 font-mono text-xs">E55 Type</td></tr>
+                            <tr class="border-b border-gray-100"><td class="py-1.5 pr-3 text-xs font-semibold">Handlungstypen</td><td class="py-1.5 pr-3 font-mono text-xs">activityTypes</td><td class="py-1.5 pr-3 font-mono text-xs">encodingDesc/classDecl/taxonomy/category @xml:id</td><td class="py-1.5 font-mono text-xs">E55 Type</td></tr>
+                            <tr><td class="py-1.5 pr-3 text-xs font-semibold">Quellentypen</td><td class="py-1.5 pr-3 font-mono text-xs">sourceTypes</td><td class="py-1.5 pr-3 font-mono text-xs">encodingDesc/classDecl/taxonomy/category @xml:id</td><td class="py-1.5 font-mono text-xs">E55 Type</td></tr>
                         </tbody>
                     </table>
                 </div>
@@ -290,7 +296,7 @@
                             <tr class="border-b border-gray-100"><td class="py-1.5 pr-3 text-xs font-semibold">URL</td><td class="py-1.5 pr-3 font-mono text-xs">.url</td><td class="py-1.5 pr-3 font-mono text-xs">/msIdentifier/idno @type="URL"</td><td class="py-1.5 font-mono text-xs">P67i is referred to by</td></tr>
                             <tr class="border-b border-gray-100"><td class="py-1.5 pr-3 text-xs font-semibold">Edition</td><td class="py-1.5 pr-3 font-mono text-xs">.edition</td><td class="py-1.5 pr-3 font-mono text-xs">/additional/surrogates/bibl/title</td><td class="py-1.5 font-mono text-xs"></td></tr>
                             <tr class="border-b border-gray-100"><td class="py-1.5 pr-3 text-xs font-semibold">Editions-URL</td><td class="py-1.5 pr-3 font-mono text-xs">.editionUrl</td><td class="py-1.5 pr-3 font-mono text-xs">/additional/surrogates/bibl/idno @type="url"</td><td class="py-1.5 font-mono text-xs"></td></tr>
-                            <tr class="border-b border-gray-100"><td class="py-1.5 pr-3 text-xs font-semibold">Inhaltsbezüge</td><td class="py-1.5 pr-3 font-mono text-xs">.references</td><td class="py-1.5 pr-3 font-mono text-xs">msContents / persName, title</td><td class="py-1.5 font-mono text-xs">P130 shows features of</td></tr>
+                            <tr class="border-b border-gray-100"><td class="py-1.5 pr-3 text-xs font-semibold">Inhaltsbezüge</td><td class="py-1.5 pr-3 font-mono text-xs">.references</td><td class="py-1.5 pr-3 font-mono text-xs">/msContents/p/persName, title</td><td class="py-1.5 font-mono text-xs">P130 shows features of</td></tr>
                             <tr><td class="py-1.5 pr-3 text-xs font-semibold">Bezeugung</td><td class="py-1.5 pr-3 font-mono text-xs">.attestsActivity</td><td class="py-1.5 pr-3 font-mono text-xs">—</td><td class="py-1.5 font-mono text-xs">E13 Attribute Assignment</td></tr>
                         </tbody>
                     </table>
