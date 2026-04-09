@@ -18,7 +18,7 @@
         </availability>
       </publicationStmt>
 
-      <!-- 3b. Quellen: sourceDesc/listBibl/msDesc/msIdentifier @xml:id -->
+      <!-- 3b. Quellen: sourceDesc/listBibl/msDesc @xml:id @ana -->
       <sourceDesc>
         <listBibl>
           <msDesc xml:id="z-gsa-28-5" ana="#LETTER">
@@ -27,12 +27,34 @@
               <idno type="shelfmark">GSA 28/5, Bl. 1-2</idno>
               <idno type="URL">https://kalliope-verbund.info/DE-611-HS-1234567</idno>
             </msIdentifier>
+            <msContents>
+              <p>
+                <persName ref="gnd:118722026">Kestner, Johann Christian</persName>,
+                <title ref="gnd:4099312-4">Die Leiden des jungen Werthers</title>
+              </p>
+            </msContents>
+            <additional>
+              <surrogates>
+                <bibl>
+                  <title>Briefe von Goethe</title>
+                  <idno type="url">https://goethe-biographica.de/briefe/gb-10280</idno>
+                </bibl>
+              </surrogates>
+            </additional>
           </msDesc>
           <msDesc xml:id="z-tagebuch-1794-09-07" ana="#DIARY_ENTRY">
             <msIdentifier>
               <institution ref="gnd:5080444-3">Goethe- und Schiller-Archiv</institution>
               <idno type="shelfmark">Tgb. 1794, Bl. 42</idno>
             </msIdentifier>
+            <additional>
+              <surrogates>
+                <bibl>
+                  <title>Begegnungen und Gespräche</title>
+                  <idno type="url">https://goethe-biographica.de/begegnungen/gb-99001</idno>
+                </bibl>
+              </surrogates>
+            </additional>
           </msDesc>
           <msDesc xml:id="z-brief-an-merck-1774" ana="#LETTER">
             <msIdentifier>
@@ -40,12 +62,28 @@
               <idno type="shelfmark">Ms. Ff. Merck 1774/15</idno>
               <idno type="iiif">https://sammlungen.ub.uni-frankfurt.de/iiif/manifest/merck-1774-15</idno>
             </msIdentifier>
+            <additional>
+              <surrogates>
+                <bibl>
+                  <title>Briefe von Goethe</title>
+                  <idno type="url">https://goethe-biographica.de/briefe/gb-50001</idno>
+                </bibl>
+              </surrogates>
+            </additional>
           </msDesc>
           <msDesc xml:id="z-tagebuch-italien-1786" ana="#DIARY_ENTRY">
             <msIdentifier>
               <institution ref="gnd:5080444-3">Goethe- und Schiller-Archiv</institution>
               <idno type="shelfmark">Tgb. Italienische Reise, Bl. 8</idno>
             </msIdentifier>
+            <additional>
+              <surrogates>
+                <bibl>
+                  <title>Goethes Tagebücher</title>
+                  <idno type="url">https://goethe-biographica.de/reisen/gb-60000</idno>
+                </bibl>
+              </surrogates>
+            </additional>
           </msDesc>
         </listBibl>
       </sourceDesc>
