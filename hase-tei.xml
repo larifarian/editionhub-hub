@@ -4,7 +4,7 @@
     <!-- 1. Metadaten: project → fileDesc/titleStmt + publicationStmt -->
     <fileDesc>
       <titleStmt>
-        <title>Propyläen — Goethes Biographica</title>
+        <title>Propyläen — Goethes Biographica: HASE-FORMAT</title>
       </titleStmt>
       <publicationStmt>
         <idno type="hase">prop</idno>
