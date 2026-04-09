@@ -181,7 +181,7 @@
       "type": "LETTER",
       "institution": { "label": "Universitätsbibliothek Frankfurt", "ref": ["gnd:800170-5"] },
       "shelfmark": "Ms. Ff. Merck 1774/15",
-      "iiif-manifest": "https://sammlungen.ub.uni-frankfurt.de/iiif/manifest/merck-1774-15",
+      "iiif": "https://sammlungen.ub.uni-frankfurt.de/iiif/manifest/merck-1774-15",
       "attestsActivity": ["gb-50001-lektuere"],
       "edition": "briefe",
       "editionUrl": "https://goethe-biographica.de/briefe/gb-50001"

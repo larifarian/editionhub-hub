@@ -353,7 +353,7 @@
           "type": "string",
           "description": "Shelfmark / call number in the archive. — Signatur/Standort im Archiv."
         },
-        "iiif-manifest": {
+        "iiif": {
           "type": "string",
           "format": "uri",
           "description": "URL of the IIIF manifest of the digitized source. — URL zum IIIF-Manifest des Digitalisats."
