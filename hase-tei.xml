@@ -6,9 +6,6 @@
       <titleStmt>
         <title>Propyläen — Goethes Biographica</title>
       </titleStmt>
-      <seriesStmt>
-        <title>Briefe von Goethe</title>
-      </seriesStmt>
       <publicationStmt>
         <idno type="hase">prop</idno>
         <idno type="URL">https://goethe-biographica.de</idno>
@@ -17,6 +14,31 @@
           <licence target="https://creativecommons.org/licenses/by/4.0/">CC-BY-4.0</licence>
         </availability>
       </publicationStmt>
+      <!-- project.editions[] -->
+      <seriesStmt>
+        <title>Goethes Tagebücher</title>
+        <idno type="hase">prop-gt</idno>
+        <idno type="URL">https://goethe-biographica.de/recherche/tagebuecher.html</idno>
+        <p>Die in der Frühzeit meist eigenhändig geführten, seit 1797 überwiegend diktierten Tagebücher dokumentieren bis zu Goethes Tod 1832 ein reiches und kommunikatives Leben.</p>
+      </seriesStmt>
+      <seriesStmt>
+        <title>Begegnungen und Gespräche</title>
+        <idno type="hase">prop-bug</idno>
+        <idno type="URL">https://goethe-biographica.de/recherche/begegnungen-und-gespraeche.html</idno>
+        <p>In enger Verzahnung von Fremdzeugnissen und Selbstzeugnissen des Dichters dokumentiert die Ausgabe Goethes täglichen Umgang mit seinen Zeitgenossen.</p>
+      </seriesStmt>
+      <seriesStmt>
+        <title>Briefe von Goethe</title>
+        <idno type="hase">prop-gb</idno>
+        <idno type="URL">https://goethe-biographica.de/recherche/briefe.html</idno>
+        <p>Goethes Briefwerk gilt als einer der Höhepunkte europäischer Briefkultur. Die etwa 15.000 überlieferten Briefe stammen aus einem Zeitraum von fast 70 Jahren.</p>
+      </seriesStmt>
+      <seriesStmt>
+        <title>Briefe an Goethe</title>
+        <idno type="hase">prop-ra</idno>
+        <idno type="URL">https://goethe-biographica.de/recherche/regesten.html</idno>
+        <p>Die Briefe an Goethe beleuchten nicht nur dessen persönliches, künstlerisches, wissenschaftliches und dienstliches Umfeld, sondern auch das der Briefschreiber:innen.</p>
+      </seriesStmt>
 
       <!-- 3b. Quellen: sourceDesc/listBibl/msDesc @xml:id @ana -->
       <sourceDesc>
