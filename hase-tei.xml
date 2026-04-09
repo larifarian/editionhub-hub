@@ -1,24 +1,193 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="http://www.tei-c.org/release/xml/tei/custom/schema/relaxng/tei_all.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
-<?xml-model href="http://www.tei-c.org/release/xml/tei/custom/schema/relaxng/tei_all.rng" type="application/xml"
-	schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0">
   <teiHeader>
-      <fileDesc>
-         <titleStmt>
-            <title>Title</title>
-         </titleStmt>
-         <publicationStmt>
-            <p>Publication Information</p>
-         </publicationStmt>
-         <sourceDesc>
-            <p>Information about the source</p>
-         </sourceDesc>
-      </fileDesc>
+    <!-- 1. Metadaten: project → fileDesc/titleStmt + publicationStmt -->
+    <fileDesc>
+      <titleStmt>
+        <title>Propyläen — Goethes Biographica</title>
+      </titleStmt>
+      <seriesStmt>
+        <title>Briefe von Goethe</title>
+      </seriesStmt>
+      <publicationStmt>
+        <idno type="hase">prop</idno>
+        <idno type="URL">https://goethe-biographica.de</idno>
+        <email>kontakt@goethe-biographica.de</email>
+        <availability>
+          <licence target="https://creativecommons.org/licenses/by/4.0/">CC-BY-4.0</licence>
+        </availability>
+      </publicationStmt>
+
+      <!-- 3b. Quellen: msIdentifier @xml:id -->
+      <sourceDesc>
+        <listBibl>
+          <msIdentifier xml:id="z-gsa-28-5" ana="#LETTER">
+            <institution ref="gnd:5080444-3">Goethe- und Schiller-Archiv</institution>
+            <idno type="shelfmark">GSA 28/5, Bl. 1-2</idno>
+            <idno type="URL">https://kalliope-verbund.info/DE-611-HS-1234567</idno>
+          </msIdentifier>
+          <msIdentifier xml:id="z-tagebuch-1794-09-07" ana="#DIARY_ENTRY">
+            <institution ref="gnd:5080444-3">Goethe- und Schiller-Archiv</institution>
+            <idno type="shelfmark">Tgb. 1794, Bl. 42</idno>
+          </msIdentifier>
+          <msIdentifier xml:id="z-brief-an-merck-1774" ana="#LETTER">
+            <institution ref="gnd:800170-5">Universitätsbibliothek Frankfurt</institution>
+            <idno type="shelfmark">Ms. Ff. Merck 1774/15</idno>
+            <idno type="iiif">https://sammlungen.ub.uni-frankfurt.de/iiif/manifest/merck-1774-15</idno>
+          </msIdentifier>
+          <msIdentifier xml:id="z-tagebuch-italien-1786" ana="#DIARY_ENTRY">
+            <institution ref="gnd:5080444-3">Goethe- und Schiller-Archiv</institution>
+            <idno type="shelfmark">Tgb. Italienische Reise, Bl. 8</idno>
+          </msIdentifier>
+        </listBibl>
+      </sourceDesc>
+    </fileDesc>
+
+    <!-- 2. Typen: category @xml:id -->
+    <encodingDesc>
+      <classDecl>
+        <taxonomy xml:id="hase-activity" source="https://editionhub.org/hase/context/0.1">
+          <category xml:id="LETTER_SENDING">
+            <catDesc xml:lang="en">Letter sending</catDesc>
+            <catDesc xml:lang="de">Briefversand</catDesc>
+          </category>
+          <category xml:id="LETTER_RECEIVING">
+            <catDesc xml:lang="en">Letter receiving</catDesc>
+            <catDesc xml:lang="de">Briefempfang</catDesc>
+          </category>
+          <category xml:id="ENCOUNTER_PARTICIPATION">
+            <catDesc xml:lang="en">Encounter participation</catDesc>
+            <catDesc xml:lang="de">Begegnungsteilnahme</catDesc>
+          </category>
+          <category xml:id="READING">
+            <catDesc xml:lang="en">Reading</catDesc>
+            <catDesc xml:lang="de">Lektüre</catDesc>
+          </category>
+          <category xml:id="OVERNIGHT_STAY">
+            <catDesc xml:lang="en">Overnight stay</catDesc>
+            <catDesc xml:lang="de">Übernachtung</catDesc>
+          </category>
+          <category xml:id="TRAVEL_STOP">
+            <catDesc xml:lang="en">Travel stop</catDesc>
+            <catDesc xml:lang="de">Reisestation</catDesc>
+          </category>
+        </taxonomy>
+        <taxonomy xml:id="hase-source" source="https://editionhub.org/hase/context/0.1">
+          <category xml:id="LETTER">
+            <catDesc xml:lang="en">Letter</catDesc>
+            <catDesc xml:lang="de">Brief</catDesc>
+          </category>
+          <category xml:id="DIARY_ENTRY">
+            <catDesc xml:lang="en">Diary entry</catDesc>
+            <catDesc xml:lang="de">Tagebucheintrag</catDesc>
+          </category>
+        </taxonomy>
+        <taxonomy xml:id="hase-context" source="https://editionhub.org/hase/context/0.1">
+          <category xml:id="CORRESPONDENCE">
+            <catDesc xml:lang="en">Correspondence</catDesc>
+            <catDesc xml:lang="de">Korrespondenz</catDesc>
+          </category>
+          <category xml:id="ENCOUNTER">
+            <catDesc xml:lang="en">Encounter</catDesc>
+            <catDesc xml:lang="de">Begegnung</catDesc>
+          </category>
+          <category xml:id="JOURNEY">
+            <catDesc xml:lang="en">Journey</catDesc>
+            <catDesc xml:lang="de">Reise</catDesc>
+          </category>
+        </taxonomy>
+      </classDecl>
+    </encodingDesc>
+
+    <!-- 3a. Handlungen: listEvent/event @xml:id -->
+    <profileDesc>
+      <abstract>
+        <!-- Handlungen -->
+        <listEvent>
+          <!-- Briefsendung: Zeitpunkt (@when), Verkettung (@next), Zusammenhang (@corresp), Bezeugung (ptr) -->
+          <event xml:id="gb-10280-send" ana="#LETTER_SENDING"
+                 when="1774-08-16" corresp="#gb-10280-korr"
+                 next="#gb-10280-receive">
+            <persName ref="gnd:118540238">Goethe, Johann Wolfgang von</persName>
+            <placeName ref="gnd:4018118-2">Frankfurt am Main</placeName>
+            <ptr type="source" target="#z-gsa-28-5"/>
+          </event>
+
+          <!-- Briefempfang: Datum vor (@notAfter), Verkettung (@prev) -->
+          <event xml:id="gb-10280-receive" ana="#LETTER_RECEIVING"
+                 notAfter="1774-08-20" corresp="#gb-10280-korr"
+                 prev="#gb-10280-send">
+            <persName ref="gnd:118722026">Kestner, Johann Christian</persName>
+            <placeName ref="gnd:4023349-2">Hannover</placeName>
+            <ptr type="source" target="#z-gsa-28-5"/>
+          </event>
+
+          <!-- Begegnung: Zeitpunkt, Zusammenhang -->
+          <event xml:id="gb-99001-begegnung-goethe" ana="#ENCOUNTER_PARTICIPATION"
+                 when="1794-09-07" corresp="#gb-99001-begegnung">
+            <persName ref="gnd:118540238">Goethe, Johann Wolfgang von</persName>
+            <placeName ref="gnd:4028557-1">Jena</placeName>
+            <ptr type="source" target="#z-tagebuch-1794-09-07"/>
+          </event>
+
+          <event xml:id="gb-99001-begegnung-schiller" ana="#ENCOUNTER_PARTICIPATION"
+                 when="1794-09-07" corresp="#gb-99001-begegnung">
+            <persName ref="gnd:118607626">Schiller, Friedrich</persName>
+            <placeName ref="gnd:4028557-1">Jena</placeName>
+            <ptr type="source" target="#z-tagebuch-1794-09-07"/>
+          </event>
+
+          <!-- Lektüre: Datum nach (@notBefore) -->
+          <event xml:id="gb-50001-lektuere" ana="#READING"
+                 notBefore="1774-01-15">
+            <persName ref="gnd:118540238">Goethe, Johann Wolfgang von</persName>
+            <placeName ref="gnd:4018118-2">Frankfurt am Main</placeName>
+            <ptr type="source" target="#z-brief-an-merck-1774"/>
+          </event>
+
+          <!-- Übernachtung: Zeitspanne (@from @to) -->
+          <event xml:id="gb-60001-uebernachtung" ana="#OVERNIGHT_STAY"
+                 from="1786-09-11" to="1786-09-12">
+            <persName ref="gnd:118540238">Goethe, Johann Wolfgang von</persName>
+            <placeName ref="gnd:4027096-8">Innsbruck</placeName>
+            <ptr type="source" target="#z-tagebuch-italien-1786"/>
+          </event>
+
+          <!-- Reisestationen: Verkettung (@prev @next), Zusammenhang -->
+          <event xml:id="gb-60010-reise-innsbruck" ana="#TRAVEL_STOP"
+                 when="1786-09-11" corresp="#gb-60000-italienreise"
+                 next="#gb-60010-reise-brenner">
+            <persName ref="gnd:118540238">Goethe, Johann Wolfgang von</persName>
+            <placeName ref="gnd:4027096-8">Innsbruck</placeName>
+            <ptr type="source" target="#z-tagebuch-italien-1786"/>
+          </event>
+
+          <event xml:id="gb-60010-reise-brenner" ana="#TRAVEL_STOP"
+                 when="1786-09-12" corresp="#gb-60000-italienreise"
+                 prev="#gb-60010-reise-innsbruck" next="#gb-60010-reise-trient">
+            <persName ref="gnd:118540238">Goethe, Johann Wolfgang von</persName>
+            <placeName ref="gnd:4008271-1">Brenner</placeName>
+            <ptr type="source" target="#z-tagebuch-italien-1786"/>
+          </event>
+
+          <event xml:id="gb-60010-reise-trient" ana="#TRAVEL_STOP"
+                 when="1786-09-13" corresp="#gb-60000-italienreise"
+                 prev="#gb-60010-reise-brenner">
+            <persName ref="gnd:118540238">Goethe, Johann Wolfgang von</persName>
+            <placeName ref="gnd:4078405-0">Trient</placeName>
+            <ptr type="source" target="#z-tagebuch-italien-1786"/>
+          </event>
+        </listEvent>
+
+        <!-- Zusammenhänge -->
+        <listEvent type="context">
+          <event xml:id="gb-10280-korr" ana="#CORRESPONDENCE"/>
+          <event xml:id="gb-99001-begegnung" ana="#ENCOUNTER"/>
+          <event xml:id="gb-60000-italienreise" ana="#JOURNEY"/>
+        </listEvent>
+      </abstract>
+    </profileDesc>
   </teiHeader>
-  <text>
-      <body>
-         <p>Some text here.</p>
-      </body>
-  </text>
+
+  <text><body><p/></body></text>
 </TEI>
