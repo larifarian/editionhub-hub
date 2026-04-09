@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="https://editionhub.org/hase/schema-tei/0.1"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0">
   <teiHeader>
     <!-- 1. Metadaten: project → fileDesc/titleStmt + publicationStmt -->
     <fileDesc>
       <titleStmt>
-        <title>Propyläen — Goethes Biographica: HASE-FORMAT</title>
+        <title>Propyläen — Goethes Biographica</title>
       </titleStmt>
       <publicationStmt>
         <idno type="hase">prop</idno>
