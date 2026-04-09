@@ -153,7 +153,7 @@
     {
       "id": "z-gsa-28-5",
       "type": "LETTER",
-      "archive": { "label": "Goethe- und Schiller-Archiv", "ref": ["gnd:5080444-3"] },
+      "institution": { "label": "Goethe- und Schiller-Archiv", "ref": ["gnd:5080444-3"] },
       "shelfmark": "GSA 28/5, Bl. 1-2",
       "references": [
         { "type": "person", "label": "Kestner, Johann Christian", "ref": ["gnd:118722026"] },
@@ -170,7 +170,7 @@
     {
       "id": "z-tagebuch-1794-09-07",
       "type": "DIARY_ENTRY",
-      "archive": { "label": "Goethe- und Schiller-Archiv", "ref": ["gnd:5080444-3"] },
+      "institution": { "label": "Goethe- und Schiller-Archiv", "ref": ["gnd:5080444-3"] },
       "shelfmark": "Tgb. 1794, Bl. 42",
       "attestsActivity": ["gb-99001-begegnung-goethe", "gb-99001-begegnung-schiller"],
       "edition": "begegnungen",
@@ -179,7 +179,7 @@
     {
       "id": "z-brief-an-merck-1774",
       "type": "LETTER",
-      "archive": { "label": "Universitätsbibliothek Frankfurt", "ref": ["gnd:800170-5"] },
+      "institution": { "label": "Universitätsbibliothek Frankfurt", "ref": ["gnd:800170-5"] },
       "shelfmark": "Ms. Ff. Merck 1774/15",
       "iiif": "https://sammlungen.ub.uni-frankfurt.de/iiif/manifest/merck-1774-15",
       "attestsActivity": ["gb-50001-lektuere"],
@@ -189,7 +189,7 @@
     {
       "id": "z-tagebuch-italien-1786",
       "type": "DIARY_ENTRY",
-      "archive": { "label": "Goethe- und Schiller-Archiv", "ref": ["gnd:5080444-3"] },
+      "institution": { "label": "Goethe- und Schiller-Archiv", "ref": ["gnd:5080444-3"] },
       "shelfmark": "Tgb. Italienische Reise, Bl. 8",
       "attestsActivity": ["gb-60001-uebernachtung", "gb-60010-reise-innsbruck", "gb-60010-reise-brenner", "gb-60010-reise-trient"],
       "edition": "reisen",

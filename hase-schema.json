@@ -167,7 +167,7 @@
         }
       }
     },
-    "archive": {
+    "institution": {
       "type": "object",
       "description": "Holding institution. — Aufbewahrende Institution.",
       "required": ["label"],
@@ -345,7 +345,7 @@
           "type": "string",
           "description": "Type of source (e.g. LETTER, DIARY_ENTRY, INVOICE, NEWSPAPER_REPORT). — Quellentyp (z.B. LETTER, DIARY_ENTRY, INVOICE, NEWSPAPER_REPORT)."
         },
-        "archive": {
+        "institution": {
           "$ref": "#/$defs/archive",
           "description": "Holding institution. — Aufbewahrende Institution."
         },
