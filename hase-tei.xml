@@ -21,28 +21,28 @@
       <!-- 3b. Quellen: sourceDesc/listBibl/msDesc/msIdentifier @xml:id -->
       <sourceDesc>
         <listBibl>
-          <msDesc>
-            <msIdentifier xml:id="z-gsa-28-5" ana="#LETTER">
+          <msDesc xml:id="z-gsa-28-5" ana="#LETTER">
+            <msIdentifier>
               <institution ref="gnd:5080444-3">Goethe- und Schiller-Archiv</institution>
               <idno type="shelfmark">GSA 28/5, Bl. 1-2</idno>
               <idno type="URL">https://kalliope-verbund.info/DE-611-HS-1234567</idno>
             </msIdentifier>
           </msDesc>
-          <msDesc>
-            <msIdentifier xml:id="z-tagebuch-1794-09-07" ana="#DIARY_ENTRY">
+          <msDesc xml:id="z-tagebuch-1794-09-07" ana="#DIARY_ENTRY">
+            <msIdentifier>
               <institution ref="gnd:5080444-3">Goethe- und Schiller-Archiv</institution>
               <idno type="shelfmark">Tgb. 1794, Bl. 42</idno>
             </msIdentifier>
           </msDesc>
-          <msDesc>
-            <msIdentifier xml:id="z-brief-an-merck-1774" ana="#LETTER">
+          <msDesc xml:id="z-brief-an-merck-1774" ana="#LETTER">
+            <msIdentifier>
               <institution ref="gnd:800170-5">Universitätsbibliothek Frankfurt</institution>
               <idno type="shelfmark">Ms. Ff. Merck 1774/15</idno>
               <idno type="iiif">https://sammlungen.ub.uni-frankfurt.de/iiif/manifest/merck-1774-15</idno>
             </msIdentifier>
           </msDesc>
-          <msDesc>
-            <msIdentifier xml:id="z-tagebuch-italien-1786" ana="#DIARY_ENTRY">
+          <msDesc xml:id="z-tagebuch-italien-1786" ana="#DIARY_ENTRY">
+            <msIdentifier>
               <institution ref="gnd:5080444-3">Goethe- und Schiller-Archiv</institution>
               <idno type="shelfmark">Tgb. Italienische Reise, Bl. 8</idno>
             </msIdentifier>
