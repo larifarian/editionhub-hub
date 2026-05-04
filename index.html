@@ -78,7 +78,7 @@
                 <div class="mt-5">
                     <p lang="de" class="text-xs font-medium text-gray-500 uppercase tracking-wide mb-2">Verfügbare Projekte</p>
                     <p lang="en" class="text-xs font-medium text-gray-500 uppercase tracking-wide mb-2">Available Projects</p>
-                    <div id="projectList" class="flex flex-wrap gap-2 justify-center"></div>
+                    <ul id="projectList" class="list-none flex flex-col gap-1 items-center"></ul>
                 </div>
 
                 <!-- CTA -->
@@ -131,11 +131,11 @@
                     Object.entries(graphs)
                         .filter(([k, v]) => !k.startsWith('_') && v && Object.keys(v.versions || {}).length > 0)
                         .forEach(([label]) => {
-                            const span = document.createElement('span');
-                            span.className = 'inline-flex items-center px-2.5 py-1 rounded-md text-xs font-medium bg-blue-50 text-blue-700';
-                            span.insertAdjacentHTML('beforeend', CHECK_ICON);
-                            span.appendChild(document.createTextNode(label));
-                            list.appendChild(span);
+                            const li = document.createElement('li');
+                            li.className = 'flex items-center text-xs font-medium text-blue-700';
+                            li.insertAdjacentHTML('beforeend', CHECK_ICON);
+                            li.appendChild(document.createTextNode(label));
+                            list.appendChild(li);
                         });
                 }
             } catch (e) {}
