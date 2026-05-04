@@ -248,18 +248,6 @@
                     </table>
                 </div>
 
-                <!-- 2. Typen -->
-                <h3 class="text-sm font-semibold text-gray-800 mb-2">2. Typen</h3>
-                <div class="overflow-x-auto mb-5">
-                    <table class="w-full text-sm">
-                        <thead><tr class="text-left text-xs text-gray-500 border-b border-gray-200"><th class="pb-1 pr-3">HASE</th><th class="pb-1 pr-3">JSON</th><th class="pb-1 pr-3">TEI/XML</th><th class="pb-1">CIDOC-CRM (RDF)</th></tr></thead>
-                        <tbody class="text-gray-700">
-                            <tr class="border-b border-gray-100"><td class="py-1.5 pr-3 text-xs font-semibold">Handlungstypen</td><td class="py-1.5 pr-3 font-mono text-xs">activityTypes</td><td class="py-1.5 pr-3 text-xs">— <span class="text-gray-400">(Typen werden über <code class="font-mono">@ana</code> referenziert; <code class="font-mono">&lt;taxonomy&gt;</code> wird beim Ingest nicht ausgewertet, Typ-Definitionen kommen aus dem HASE-Kernkatalog)</span></td><td class="py-1.5 font-mono text-xs">E55 Type</td></tr>
-                            <tr><td class="py-1.5 pr-3 text-xs font-semibold">Quellentypen</td><td class="py-1.5 pr-3 font-mono text-xs">sourceTypes</td><td class="py-1.5 pr-3 text-xs">— <span class="text-gray-400">(dito)</span></td><td class="py-1.5 font-mono text-xs">E55 Type</td></tr>
-                        </tbody>
-                    </table>
-                </div>
-
                 <!-- 3. Daten — Handlungen -->
                 <h3 class="text-sm font-semibold text-gray-800 mb-2">3a. Handlungen</h3>
                 <div class="overflow-x-auto mb-5">
@@ -275,7 +263,7 @@
                             <tr class="border-b border-gray-100"><td class="py-1.5 pr-3 text-xs font-semibold">Person</td><td class="py-1.5 pr-3 font-mono text-xs">.person.label, .ref</td><td class="py-1.5 pr-3 font-mono text-xs">persName @ref</td><td class="py-1.5 font-mono text-xs">P14 carried out by → E21 Person</td></tr>
                             <tr class="border-b border-gray-100"><td class="py-1.5 pr-3 text-xs font-semibold">Ort</td><td class="py-1.5 pr-3 font-mono text-xs">.place.label, .ref</td><td class="py-1.5 pr-3 font-mono text-xs">placeName @ref</td><td class="py-1.5 font-mono text-xs">P7 took place at → E53 Place</td></tr>
                             <tr class="border-b border-gray-100"><td class="py-1.5 pr-3 text-xs font-semibold">Objekt</td><td class="py-1.5 pr-3 font-mono text-xs">.thing</td><td class="py-1.5 pr-3 font-mono text-xs">objectName @ref</td><td class="py-1.5 font-mono text-xs">P16 used specific object → E70 Thing</td></tr>
-                            <tr class="border-b border-gray-100"><td class="py-1.5 pr-3 text-xs font-semibold">Zusammenhang</td><td class="py-1.5 pr-3 font-mono text-xs">.context</td><td class="py-1.5 pr-3 text-xs">parent/children-Struktur</td><td class="py-1.5 font-mono text-xs">E5 Event + P9 consists of</td></tr>
+                            <tr class="border-b border-gray-100"><td class="py-1.5 pr-3 text-xs font-semibold">Zusammenhang</td><td class="py-1.5 pr-3 font-mono text-xs">.context</td><td class="py-1.5 pr-3 font-mono text-xs">parent::event</td><td class="py-1.5 font-mono text-xs">E5 Event + P9 consists of</td></tr>
                             <tr class="border-b border-gray-100"><td class="py-1.5 pr-3 text-xs font-semibold">Verkettung</td><td class="py-1.5 pr-3 font-mono text-xs">.continued / .wasContinuedBy</td><td class="py-1.5 pr-3 font-mono text-xs">@prev / @next</td><td class="py-1.5 font-mono text-xs">P134 continued / P134i was continued by → E7 Activity</td></tr>
                             <tr><td class="py-1.5 pr-3 text-xs font-semibold">Bezeugung</td><td class="py-1.5 pr-3 font-mono text-xs">.attestedBySource</td><td class="py-1.5 pr-3 font-mono text-xs">@source</td><td class="py-1.5 font-mono text-xs">E13 Attribute Assignment</td></tr>
                         </tbody>
