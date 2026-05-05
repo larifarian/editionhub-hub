@@ -207,11 +207,7 @@
                         <p class="text-xs text-gray-600 mt-1">Projekt-ID, Titel, URL, Lizenz, Kontakt — und optional eine Untergliederung in Editionen.</p>
                     </div>
                     <div>
-                        <h3 class="text-sm font-semibold text-gray-800">2. Typen</h3>
-                        <p class="text-xs text-gray-600 mt-1">Katalog der verwendeten Handlungs- und Quellentypen. Standard-Typen können aufgeführt, eigene Typen vorgeschlagen werden.</p>
-                    </div>
-                    <div>
-                        <h3 class="text-sm font-semibold text-gray-800">3. Daten</h3>
+                        <h3 class="text-sm font-semibold text-gray-800">2. Daten</h3>
                         <div class="ml-4 mt-2 space-y-2">
                             <div>
                                 <h4 class="text-xs font-semibold text-gray-700">Handlungen</h4>
@@ -251,13 +247,14 @@
                     </table>
                 </div>
 
-                <!-- 3. Daten — Handlungen -->
-                <h3 class="text-sm font-semibold text-gray-800 mb-2">3a. Handlungen</h3>
+                <!-- 2a. Daten — Handlungen -->
+                <h3 class="text-sm font-semibold text-gray-800 mb-2">2a. Handlungen</h3>
                 <div class="overflow-x-auto mb-5">
                     <table class="w-full text-sm">
                         <thead><tr class="text-left text-xs text-gray-500 border-b border-gray-200"><th class="pb-1 pr-3">HASE</th><th class="pb-1 pr-3">JSON</th><th class="pb-1 pr-3">TEI/XML</th><th class="pb-1">CIDOC-CRM (RDF)</th></tr></thead>
                         <tbody class="text-gray-700">
-                            <tr class="border-b border-gray-100"><td class="py-1.5 pr-3 text-xs font-semibold">Einzelhandlungen</td><td class="py-1.5 pr-3 font-mono text-xs">activities[].id</td><td class="py-1.5 pr-3 font-mono text-xs">event @xml:id</td><td class="py-1.5 font-mono text-xs">E7 Activity</td></tr>
+                            <tr class="border-b border-gray-100 bg-gray-50"><td class="py-1.5 pr-3 text-xs font-semibold">Container</td><td class="py-1.5 pr-3 text-xs">—</td><td class="py-1.5 pr-3 font-mono text-xs">/TEI/teiHeader/profileDesc/abstract/listEvent/event</td><td class="py-1.5 text-xs">—</td></tr>
+                            <tr class="border-b border-gray-100"><td class="py-1.5 pr-3 text-xs font-semibold">Einzelhandlungen</td><td class="py-1.5 pr-3 font-mono text-xs">activities[].id</td><td class="py-1.5 pr-3 font-mono text-xs">@xml:id</td><td class="py-1.5 font-mono text-xs">E7 Activity</td></tr>
                             <tr class="border-b border-gray-100"><td class="py-1.5 pr-3 text-xs font-semibold">Typ</td><td class="py-1.5 pr-3 font-mono text-xs">.type</td><td class="py-1.5 pr-3 font-mono text-xs">@ana</td><td class="py-1.5 font-mono text-xs">P2 has type → E55 Type</td></tr>
                             <tr class="border-b border-gray-100"><td class="py-1.5 pr-3 text-xs font-semibold">Datum (Zeitpunkt)</td><td class="py-1.5 pr-3 font-mono text-xs">.date: "1774-08-16"</td><td class="py-1.5 pr-3 font-mono text-xs">desc/date/@when</td><td class="py-1.5 font-mono text-xs">P4 has time-span → E52 Time-Span → P82a begin_of_the_begin + P82b end_of_the_end</td></tr>
                             <tr class="border-b border-gray-100"><td class="py-1.5 pr-3 text-xs font-semibold">Datum (Zeitspanne)</td><td class="py-1.5 pr-3 font-mono text-xs">.date: {from, to}</td><td class="py-1.5 pr-3 font-mono text-xs">desc/date/@from + @to</td><td class="py-1.5 font-mono text-xs">P4 has time-span → E52 Time-Span → P81a end_of_the_begin + P81b begin_of_the_end</td></tr>
@@ -273,20 +270,21 @@
                     </table>
                 </div>
 
-                <!-- 3. Daten — Quellen -->
-                <h3 class="text-sm font-semibold text-gray-800 mb-2">3b. Quellen</h3>
+                <!-- 2b. Daten — Quellen -->
+                <h3 class="text-sm font-semibold text-gray-800 mb-2">2b. Quellen</h3>
                 <div class="overflow-x-auto mb-6">
                     <table class="w-full text-sm">
                         <thead><tr class="text-left text-xs text-gray-500 border-b border-gray-200"><th class="pb-1 pr-3">HASE</th><th class="pb-1 pr-3">JSON</th><th class="pb-1 pr-3">TEI/XML</th><th class="pb-1">CIDOC-CRM (RDF)</th></tr></thead>
                         <tbody class="text-gray-700">
-                            <tr class="border-b border-gray-100"><td class="py-1.5 pr-3 text-xs font-semibold">Quelle</td><td class="py-1.5 pr-3 font-mono text-xs">sources[].id</td><td class="py-1.5 pr-3 font-mono text-xs">msDesc @xml:id</td><td class="py-1.5 font-mono text-xs">E22 Human-Made Object</td></tr>
+                            <tr class="border-b border-gray-100 bg-gray-50"><td class="py-1.5 pr-3 text-xs font-semibold">Container</td><td class="py-1.5 pr-3 text-xs">—</td><td class="py-1.5 pr-3 font-mono text-xs">/TEI/teiHeader/fileDesc/sourceDesc/listBibl/msDesc</td><td class="py-1.5 text-xs">—</td></tr>
+                            <tr class="border-b border-gray-100"><td class="py-1.5 pr-3 text-xs font-semibold">Quelle</td><td class="py-1.5 pr-3 font-mono text-xs">sources[].id</td><td class="py-1.5 pr-3 font-mono text-xs">@xml:id</td><td class="py-1.5 font-mono text-xs">E22 Human-Made Object</td></tr>
                             <tr class="border-b border-gray-100"><td class="py-1.5 pr-3 text-xs font-semibold">Typ</td><td class="py-1.5 pr-3 font-mono text-xs">.type</td><td class="py-1.5 pr-3 font-mono text-xs">@ana</td><td class="py-1.5 font-mono text-xs">P2 has type → E55 Type</td></tr>
-                            <tr class="border-b border-gray-100"><td class="py-1.5 pr-3 text-xs font-semibold">Institution</td><td class="py-1.5 pr-3 font-mono text-xs">.institution.label, .ref</td><td class="py-1.5 pr-3 font-mono text-xs">institution + @ref</td><td class="py-1.5 font-mono text-xs">P54 has current permanent location → E74 Group</td></tr>
-                            <tr class="border-b border-gray-100"><td class="py-1.5 pr-3 text-xs font-semibold">Signatur</td><td class="py-1.5 pr-3 font-mono text-xs">.shelfmark</td><td class="py-1.5 pr-3 font-mono text-xs">idno @type="shelfmark"</td><td class="py-1.5 font-mono text-xs">P48 has preferred identifier</td></tr>
-                            <tr class="border-b border-gray-100"><td class="py-1.5 pr-3 text-xs font-semibold">IIIF</td><td class="py-1.5 pr-3 font-mono text-xs">.iiif</td><td class="py-1.5 pr-3 font-mono text-xs">idno @type="IIIF"</td><td class="py-1.5 font-mono text-xs">P138i has representation</td></tr>
-                            <tr class="border-b border-gray-100"><td class="py-1.5 pr-3 text-xs font-semibold">URL</td><td class="py-1.5 pr-3 font-mono text-xs">.url</td><td class="py-1.5 pr-3 font-mono text-xs">idno @type="URLCatalogue"</td><td class="py-1.5 font-mono text-xs">P67i is referred to by</td></tr>
-                            <tr class="border-b border-gray-100"><td class="py-1.5 pr-3 text-xs font-semibold">Edition</td><td class="py-1.5 pr-3 font-mono text-xs">.edition</td><td class="py-1.5 pr-3 font-mono text-xs">bibl/title</td><td class="py-1.5 font-mono text-xs">—</td></tr>
-                            <tr class="border-b border-gray-100"><td class="py-1.5 pr-3 text-xs font-semibold">Editions-URL</td><td class="py-1.5 pr-3 font-mono text-xs">.editionUrl</td><td class="py-1.5 pr-3 font-mono text-xs">bibl/idno @type="url"</td><td class="py-1.5 font-mono text-xs">—</td></tr>
+                            <tr class="border-b border-gray-100"><td class="py-1.5 pr-3 text-xs font-semibold">Institution</td><td class="py-1.5 pr-3 font-mono text-xs">.institution.label, .ref</td><td class="py-1.5 pr-3 font-mono text-xs">msIdentifier/institution + @ref</td><td class="py-1.5 font-mono text-xs">P54 has current permanent location → E74 Group</td></tr>
+                            <tr class="border-b border-gray-100"><td class="py-1.5 pr-3 text-xs font-semibold">Signatur</td><td class="py-1.5 pr-3 font-mono text-xs">.shelfmark</td><td class="py-1.5 pr-3 font-mono text-xs">msIdentifier/idno[@type='shelfmark']</td><td class="py-1.5 font-mono text-xs">P48 has preferred identifier</td></tr>
+                            <tr class="border-b border-gray-100"><td class="py-1.5 pr-3 text-xs font-semibold">IIIF</td><td class="py-1.5 pr-3 font-mono text-xs">.iiif</td><td class="py-1.5 pr-3 font-mono text-xs">msIdentifier/idno[@type='IIIF']</td><td class="py-1.5 font-mono text-xs">P138i has representation</td></tr>
+                            <tr class="border-b border-gray-100"><td class="py-1.5 pr-3 text-xs font-semibold">URL</td><td class="py-1.5 pr-3 font-mono text-xs">.url</td><td class="py-1.5 pr-3 font-mono text-xs">msIdentifier/idno[@type='URLCatalogue']</td><td class="py-1.5 font-mono text-xs">P67i is referred to by</td></tr>
+                            <tr class="border-b border-gray-100"><td class="py-1.5 pr-3 text-xs font-semibold">Edition (Verweis)</td><td class="py-1.5 pr-3 font-mono text-xs">.edition</td><td class="py-1.5 pr-3 font-mono text-xs">additional/surrogates/bibl/@corresp</td><td class="py-1.5 font-mono text-xs">—</td></tr>
+                            <tr class="border-b border-gray-100"><td class="py-1.5 pr-3 text-xs font-semibold">Edition (URL)</td><td class="py-1.5 pr-3 font-mono text-xs">.editionUrl</td><td class="py-1.5 pr-3 font-mono text-xs">additional/surrogates/bibl/idno[@type='url']</td><td class="py-1.5 font-mono text-xs">—</td></tr>
                             <tr class="border-b border-gray-100"><td class="py-1.5 pr-3 text-xs font-semibold">Inhaltsbezüge</td><td class="py-1.5 pr-3 font-mono text-xs">.references</td><td class="py-1.5 pr-3 font-mono text-xs">msContents</td><td class="py-1.5 font-mono text-xs">P130 shows features of</td></tr>
                             <tr><td class="py-1.5 pr-3 text-xs font-semibold">Bezeugung</td><td class="py-1.5 pr-3 font-mono text-xs">.attestsActivity</td><td class="py-1.5 pr-3 font-mono text-xs">—</td><td class="py-1.5 font-mono text-xs">E13 Attribute Assignment</td></tr>
                         </tbody>
