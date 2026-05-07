@@ -80,7 +80,7 @@
             <section class="bg-gray-50 rounded-2xl border border-gray-200 shadow-sm p-8 mb-6">
                 <h2 id="was-ist-hase" class="text-lg font-semibold text-gray-900 mb-4">Was ist HASE?</h2>
                 <p class="text-sm text-gray-600 leading-relaxed mb-4">
-                    HASE (<strong>Historical Activity and Source Exchange</strong>) ist ein Austauschformat für historische Handlungen und Quellen. Für den Datentransfer mit EH:historia ist HASE in zwei Formaten implementiert: TEI/XML und JSON. So können Digitale Editionen und andere digitale Ressourcen ihre Daten unkompliziert in EH:historia einbringen.
+                    HASE (<strong>Historical Activity and Source Exchange</strong>) ist ein Austauschformat für historische Handlungen und Quellen. Für den Datentransfer mit EH:historia ist HASE in zwei Formaten implementiert: XML (TEI) und JSON. So können Digitale Editionen und andere digitale Ressourcen ihre Daten unkompliziert in EH:historia einbringen.
                 </p>
                 <p class="text-sm text-gray-600 leading-relaxed mb-4">
                     HASE modelliert <strong>historische Handlungen</strong> (Activities) und die <strong>Quellen</strong> (Sources), die sie bezeugen:
@@ -91,7 +91,7 @@
                     <h3 class="text-sm font-semibold text-gray-800 mb-3">Designprinzipien</h3>
                     <table class="w-full text-sm">
                         <tbody class="text-gray-700">
-                            <tr class="border-b border-gray-100"><td class="py-1.5 pr-4 text-xs font-semibold">Einfach</td><td class="py-1.5 text-xs">Eine Datei (TEI/XML oder JSON) pro Projekt — wenige Pflichtfelder</td></tr>
+                            <tr class="border-b border-gray-100"><td class="py-1.5 pr-4 text-xs font-semibold">Einfach</td><td class="py-1.5 text-xs">Eine Datei (XML (TEI) oder JSON) pro Projekt — wenige Pflichtfelder</td></tr>
                             <tr class="border-b border-gray-100"><td class="py-1.5 pr-4 text-xs font-semibold">Zweigeteilt</td><td class="py-1.5 text-xs">Handlungen (was ist passiert?) + Quellen (woher wissen wir das?)</td></tr>
                             <tr class="border-b border-gray-100"><td class="py-1.5 pr-4 text-xs font-semibold">Erweiterbar</td><td class="py-1.5 text-xs">Eigene Handlungs- und Quellentypen vorschlagen</td></tr>
                             <tr class="border-b border-gray-100"><td class="py-1.5 pr-4 text-xs font-semibold">Normdaten</td><td class="py-1.5 text-xs">Normdaten für Entitäten — automatische projektübergreifende Verknüpfung</td></tr>
@@ -168,7 +168,7 @@
 }</pre>
                 </div>
 
-                <h3 class="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">TEI/XML</h3>
+                <h3 class="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">XML (TEI)</h3>
                 <div class="bg-gray-900 rounded-lg p-4 overflow-x-auto">
                     <pre class="text-xs text-green-400 font-mono leading-relaxed"><span class="text-gray-500">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
 <span class="text-blue-400">&lt;TEI</span> xmlns="http://www.tei-c.org/ns/1.0"<span class="text-blue-400">&gt;</span>
@@ -199,7 +199,7 @@
             <section class="bg-gray-50 rounded-2xl border border-gray-200 shadow-sm p-8 mb-6">
                 <h2 id="datenmodell" class="text-lg font-semibold text-gray-900 mb-4">Datenmodell</h2>
                 <p class="text-sm text-gray-600 leading-relaxed mb-4">
-                    HASE strukturiert Daten in drei Bereichen — unabhängig vom Format (TEI/XML oder JSON):
+                    HASE strukturiert Daten in drei Bereichen — unabhängig vom Format (XML (TEI) oder JSON):
                 </p>
                 <div class="space-y-4">
                     <div>
@@ -233,7 +233,7 @@
                 <h3 class="text-sm font-semibold text-gray-800 mb-2">1. Metadaten</h3>
                 <div class="overflow-x-auto mb-5">
                     <table class="w-full text-sm">
-                        <thead><tr class="text-left text-xs text-gray-500 border-b border-gray-200"><th class="pb-1 pr-3">HASE</th><th class="pb-1 pr-3">JSON</th><th class="pb-1 pr-3">TEI/XML</th><th class="pb-1">CIDOC-CRM (RDF)</th></tr></thead>
+                        <thead><tr class="text-left text-xs text-gray-500 border-b border-gray-200"><th class="pb-1 pr-3">HASE</th><th class="pb-1 pr-3">JSON</th><th class="pb-1 pr-3">XML (TEI)</th><th class="pb-1">RDF (CIDOC-CRM)</th></tr></thead>
                         <tbody class="text-gray-700">
                             <tr class="border-b border-gray-100"><td class="py-1.5 pr-3 text-xs font-semibold">Schema</td><td class="py-1.5 pr-3 font-mono text-xs">$schema, @context</td><td class="py-1.5 pr-3 font-mono text-xs">&lt;?xml-model href="..."?&gt;</td><td class="py-1.5 text-xs">—</td></tr>
                             <tr class="border-b border-gray-100"><td class="py-1.5 pr-3 text-xs font-semibold">Projekt-Titel</td><td class="py-1.5 pr-3 font-mono text-xs">project.title</td><td class="py-1.5 pr-3 font-mono text-xs">fileDesc/titleStmt/title</td><td class="py-1.5 text-xs">rdfs:label</td></tr>
@@ -251,7 +251,7 @@
                 <h3 class="text-sm font-semibold text-gray-800 mb-2">2a. Handlungen</h3>
                 <div class="overflow-x-auto mb-5">
                     <table class="w-full text-sm">
-                        <thead><tr class="text-left text-xs text-gray-500 border-b border-gray-200"><th class="pb-1 pr-3">HASE</th><th class="pb-1 pr-3">JSON</th><th class="pb-1 pr-3">TEI/XML</th><th class="pb-1">CIDOC-CRM (RDF)</th></tr></thead>
+                        <thead><tr class="text-left text-xs text-gray-500 border-b border-gray-200"><th class="pb-1 pr-3">HASE</th><th class="pb-1 pr-3">JSON</th><th class="pb-1 pr-3">XML (TEI)</th><th class="pb-1">RDF (CIDOC-CRM)</th></tr></thead>
                         <tbody class="text-gray-700">
                             <tr class="border-b border-gray-100 bg-gray-50"><td class="py-1.5 pr-3 text-xs font-semibold">Container</td><td class="py-1.5 pr-3 font-mono text-xs">activities[]</td><td class="py-1.5 pr-3 font-mono text-xs font-semibold">/../profileDesc/abstract/listEvent</td><td class="py-1.5 text-xs">—</td></tr>
                             <tr class="border-b border-gray-100"><td class="py-1.5 pr-3 text-xs font-semibold">Einzelhandlungen</td><td class="py-1.5 pr-3 font-mono text-xs">.id</td><td class="py-1.5 pr-3 font-mono text-xs">./event + @xml:id</td><td class="py-1.5 font-mono text-xs">E7_Activity</td></tr>
@@ -275,7 +275,7 @@
                 <h3 class="text-sm font-semibold text-gray-800 mb-2">2b. Quellen</h3>
                 <div class="overflow-x-auto mb-6">
                     <table class="w-full text-sm">
-                        <thead><tr class="text-left text-xs text-gray-500 border-b border-gray-200"><th class="pb-1 pr-3">HASE</th><th class="pb-1 pr-3">JSON</th><th class="pb-1 pr-3">TEI/XML</th><th class="pb-1">CIDOC-CRM (RDF)</th></tr></thead>
+                        <thead><tr class="text-left text-xs text-gray-500 border-b border-gray-200"><th class="pb-1 pr-3">HASE</th><th class="pb-1 pr-3">JSON</th><th class="pb-1 pr-3">XML (TEI)</th><th class="pb-1">RDF (CIDOC-CRM)</th></tr></thead>
                         <tbody class="text-gray-700">
                             <tr class="border-b border-gray-100 bg-gray-50"><td class="py-1.5 pr-3 text-xs font-semibold">Container</td><td class="py-1.5 pr-3 font-mono text-xs">sources[]</td><td class="py-1.5 pr-3 font-mono text-xs font-semibold">/../fileDesc/sourceDesc/listBibl</td><td class="py-1.5 text-xs">—</td></tr>
                             <tr class="border-b border-gray-100"><td class="py-1.5 pr-3 text-xs font-semibold">Quelle</td><td class="py-1.5 pr-3 font-mono text-xs">.id</td><td class="py-1.5 pr-3 font-mono text-xs">./msDesc + @xml:id</td><td class="py-1.5 font-mono text-xs">E22_Human-Made_Object</td></tr>
@@ -354,7 +354,7 @@
                 <div class="space-y-3">
                     <a href="/hase-tei" class="flex items-center justify-between p-4 border border-gray-200 rounded-lg hover:border-blue-300 hover:bg-blue-50 transition no-underline group">
                         <div>
-                            <h3 class="text-sm font-semibold text-gray-800 group-hover:text-blue-700">HASE als TEI/XML</h3>
+                            <h3 class="text-sm font-semibold text-gray-800 group-hover:text-blue-700">HASE als XML (TEI)</h3>
                             <p class="text-xs text-gray-500 mt-0.5">F&uuml;r Projekte, die bereits TEI nutzen — Mapping, Schema und Beispiele</p>
                         </div>
                         <svg class="w-5 h-5 text-gray-400 group-hover:text-blue-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
@@ -390,7 +390,7 @@
                     EditionHub verarbeitet HASE-Dateien automatisch:
                 </p>
                 <div class="bg-gray-900 rounded-lg p-4 overflow-x-auto">
-                    <pre class="text-xs text-gray-300 font-mono leading-relaxed">HASE-Datei (TEI/XML oder JSON)
+                    <pre class="text-xs text-gray-300 font-mono leading-relaxed">HASE-Datei (XML (TEI) oder JSON)
     |
     +-- Validierung (RelaxNG / JSON-Schema)
     |
