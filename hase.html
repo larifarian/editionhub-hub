@@ -246,7 +246,7 @@
                         </tbody>
                     </table>
                 </div>
-                <p class="text-xs text-gray-500 mb-5">Pfade mit <code class="font-mono">./</code> sind relativ zum oben genannten Container.</p>
+                <p class="text-xs text-gray-500 mb-5">Pfade mit <code class="font-mono">./</code> sind relativ zum oben genannten Kontextknoten.</p>
 
                 <!-- 2a. Daten — Handlungen -->
                 <h3 class="text-sm font-semibold text-gray-800 mb-2">2a. Handlungen</h3>
@@ -257,21 +257,21 @@
                             <tr class="border-b border-gray-100 bg-gray-50 font-semibold"><td class="py-1.5 pr-3 text-xs font-semibold">Handlungen</td><td class="py-1.5 pr-3 font-mono text-xs font-semibold">activities[]</td><td class="py-1.5 pr-3 font-mono text-xs font-semibold">/../profileDesc/abstract/listEvent</td><td class="py-1.5 text-xs font-semibold">—</td></tr>
                             <tr class="border-b border-gray-100"><td class="py-1.5 pr-3 text-xs font-semibold">Einzelhandlung</td><td class="py-1.5 pr-3 font-mono text-xs">.id</td><td class="py-1.5 pr-3 font-mono text-xs">./event/@xml:id</td><td class="py-1.5 font-mono text-xs">E7 Activity</td></tr>
                             <tr class="border-b border-gray-100"><td class="py-1.5 pr-3 text-xs font-semibold">Typ</td><td class="py-1.5 pr-3 font-mono text-xs">.type</td><td class="py-1.5 pr-3 font-mono text-xs">./event/@ana</td><td class="py-1.5 font-mono text-xs">P2 has type → E55 Type</td></tr>
-                            <tr class="border-b border-gray-100"><td class="py-1.5 pr-3 text-xs font-semibold">Datum <strong>A</strong> (Zeitpunkt)</td><td class="py-1.5 pr-3 font-mono text-xs">.when</td><td class="py-1.5 pr-3 font-mono text-xs">./event/desc/date/@when</td><td class="py-1.5 font-mono text-xs">P82a begin of the begin + P82b end of the end (= when)</td></tr>
+                            <tr class="border-b border-gray-100"><td class="py-1.5 pr-3 text-xs font-semibold">Datum <strong>A</strong> (Zeitpunkt)</td><td class="py-1.5 pr-3 font-mono text-xs">.when</td><td class="py-1.5 pr-3 font-mono text-xs">./event/desc/date/@when</td><td class="py-1.5 font-mono text-xs">P82a begin of the begin + P82b end of the end</td></tr>
                             <tr class="border-b border-gray-100"><td class="py-1.5 pr-3 text-xs font-semibold">Datum <strong>B</strong> (Spanne, sicher)</td><td class="py-1.5 pr-3 font-mono text-xs">.from, .to</td><td class="py-1.5 pr-3 font-mono text-xs">./event/desc/date/@from + @to</td><td class="py-1.5 font-mono text-xs">P81a end of the begin + P81b begin of the end</td></tr>
                             <tr class="border-b border-gray-100"><td class="py-1.5 pr-3 text-xs font-semibold">Datum <strong>C</strong> (frühestens)</td><td class="py-1.5 pr-3 font-mono text-xs">.notBefore</td><td class="py-1.5 pr-3 font-mono text-xs">./event/desc/date/@notBefore</td><td class="py-1.5 font-mono text-xs">P82a begin of the begin</td></tr>
                             <tr class="border-b border-gray-100"><td class="py-1.5 pr-3 text-xs font-semibold">Datum <strong>D</strong> (spätestens)</td><td class="py-1.5 pr-3 font-mono text-xs">.notAfter</td><td class="py-1.5 pr-3 font-mono text-xs">./event/desc/date/@notAfter</td><td class="py-1.5 font-mono text-xs">P82b end of the end</td></tr>
                             <tr class="border-b border-gray-100"><td class="py-1.5 pr-3 text-xs font-semibold">Datum <strong>E</strong> (Spanne, unsicher)</td><td class="py-1.5 pr-3 font-mono text-xs">.notBefore, .notAfter</td><td class="py-1.5 pr-3 font-mono text-xs">./event/desc/date/@notBefore + @notAfter</td><td class="py-1.5 font-mono text-xs">P82a begin of the begin + P82b end of the end</td></tr>
                             <tr class="border-b border-gray-100"><td class="py-1.5 pr-3 text-xs font-semibold">Personen</td><td class="py-1.5 pr-3 font-mono text-xs">.persons[].label, .ref</td><td class="py-1.5 pr-3 font-mono text-xs">./event/desc/persName + @ref</td><td class="py-1.5 font-mono text-xs">P14 carried out by → E21 Person (eine pro Person)</td></tr>
                             <tr class="border-b border-gray-100"><td class="py-1.5 pr-3 text-xs font-semibold">Orte</td><td class="py-1.5 pr-3 font-mono text-xs">.places[].label, .ref</td><td class="py-1.5 pr-3 font-mono text-xs">./event/desc/placeName + @ref</td><td class="py-1.5 font-mono text-xs">P7 took place at → E53 Place (eine pro Ort)</td></tr>
-                            <tr class="border-b border-gray-100"><td class="py-1.5 pr-3 text-xs font-semibold">Objekt</td><td class="py-1.5 pr-3 font-mono text-xs">.thing</td><td class="py-1.5 pr-3 font-mono text-xs">./event/desc/objectName/@ref</td><td class="py-1.5 font-mono text-xs">P16 used specific object → E70 Thing</td></tr>
+                            <tr class="border-b border-gray-100"><td class="py-1.5 pr-3 text-xs font-semibold">Objekte</td><td class="py-1.5 pr-3 font-mono text-xs">.objects[].id</td><td class="py-1.5 pr-3 font-mono text-xs">./event/desc/objectName/@ref</td><td class="py-1.5 font-mono text-xs">P16 used specific object → E70 Thing (eine pro Objekt)</td></tr>
                             <tr class="border-b border-gray-100"><td class="py-1.5 pr-3 text-xs font-semibold">Zusammenhang</td><td class="py-1.5 pr-3 font-mono text-xs">.context</td><td class="py-1.5 pr-3 font-mono text-xs">./event/../event</td><td class="py-1.5 font-mono text-xs">E5 Event + P9 consists of</td></tr>
                             <tr class="border-b border-gray-100"><td class="py-1.5 pr-3 text-xs font-semibold">Handlungsverkettung</td><td class="py-1.5 pr-3 font-mono text-xs">.prev / .next</td><td class="py-1.5 pr-3 font-mono text-xs">./event/@prev + @next</td><td class="py-1.5 font-mono text-xs">P134 continued / P134i was continued by → E7 Activity</td></tr>
                             <tr><td class="py-1.5 pr-3 text-xs font-semibold">Bezeugung</td><td class="py-1.5 pr-3 font-mono text-xs">.source</td><td class="py-1.5 pr-3 font-mono text-xs">./event/@source</td><td class="py-1.5 font-mono text-xs">E13 Attribute Assignment</td></tr>
                         </tbody>
                     </table>
                 </div>
-                <p class="text-xs text-gray-500 mb-1">Pfade mit <code class="font-mono">./</code> sind relativ zum oben genannten Container.</p>
+                <p class="text-xs text-gray-500 mb-1">Pfade mit <code class="font-mono">./</code> sind relativ zum oben genannten Kontextknoten.</p>
                 <p class="text-xs text-gray-500 mb-5"><strong>Datums-Muster:</strong> Pro Activity ist genau eines der 5 Muster erlaubt: <strong>A</strong> nur <code class="font-mono">.when</code> · <strong>B</strong> nur <code class="font-mono">.from</code> + <code class="font-mono">.to</code> · <strong>C</strong> nur <code class="font-mono">.notBefore</code> · <strong>D</strong> nur <code class="font-mono">.notAfter</code> · <strong>E</strong> nur <code class="font-mono">.notBefore</code> + <code class="font-mono">.notAfter</code>.</p>
 
                 <!-- 2b. Daten — Quellen -->
@@ -294,7 +294,7 @@
                         </tbody>
                     </table>
                 </div>
-                <p class="text-xs text-gray-500">Pfade mit <code class="font-mono">./</code> sind relativ zum oben genannten Container.</p>
+                <p class="text-xs text-gray-500">Pfade mit <code class="font-mono">./</code> sind relativ zum oben genannten Kontextknoten.</p>
 
             </section>
 
