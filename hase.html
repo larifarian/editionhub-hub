@@ -54,6 +54,7 @@
             <nav id="toc" class="hidden xl:block sticky top-8 float-left -ml-56 w-48">
                 <ul class="text-xs text-gray-400 space-y-1.5 border-l border-gray-200 pl-3">
                     <li><a href="#was-ist-hase" class="toc-link hover:text-gray-700 transition block py-0.5">Was ist HASE?</a></li>
+                    <li><a href="#designprinzipien" class="toc-link hover:text-gray-700 transition block py-0.5">Designprinzipien</a></li>
                     <li><a href="#daten-einreichen" class="toc-link hover:text-gray-700 transition block py-0.5">Daten einreichen</a></li>
                     <li><a href="#minimalbeispiel" class="toc-link hover:text-gray-700 transition block py-0.5">Minimalbeispiel</a></li>
                     <li><a href="#datenmodell" class="toc-link hover:text-gray-700 transition block py-0.5">Datenmodell</a></li>
@@ -82,24 +83,25 @@
                 <p class="text-sm text-gray-600 leading-relaxed mb-4">
                     HASE (<strong>Historical Activity and Source Exchange</strong>) ist ein Austauschformat für historische Handlungen und Quellen. Für den Datentransfer mit EH:historia ist HASE in zwei Formaten implementiert: XML (TEI) und JSON. So können Digitale Editionen und andere digitale Ressourcen ihre Daten unkompliziert in EH:historia einbringen.
                 </p>
-                <p class="text-sm text-gray-600 leading-relaxed mb-4">
+                <p class="text-sm text-gray-600 leading-relaxed">
                     HASE modelliert <strong>historische Handlungen</strong> (Activities) und die <strong>Quellen</strong> (Sources), die sie bezeugen:
                     Briefkorrespondenz, Begegnungen, Reisen, Übernachtungen, Lektüre und mehr — aus Briefeditionen, Tagebüchern und anderen edierten Quellen.
                 </p>
+            </section>
 
-                <div class="bg-gray-50 border border-gray-200 rounded-lg p-4">
-                    <h3 class="text-sm font-semibold text-gray-800 mb-3">Designprinzipien</h3>
-                    <table class="w-full text-sm">
-                        <tbody class="text-gray-700">
-                            <tr class="border-b border-gray-100"><td class="py-1.5 pr-4 text-xs font-semibold">Einfach</td><td class="py-1.5 text-xs">Eine Datei (XML (TEI) oder JSON) pro Projekt — wenige Pflichtfelder</td></tr>
-                            <tr class="border-b border-gray-100"><td class="py-1.5 pr-4 text-xs font-semibold">Zweigeteilt</td><td class="py-1.5 text-xs">Handlungen (was ist passiert?) + Quellen (woher wissen wir das?)</td></tr>
-                            <tr class="border-b border-gray-100"><td class="py-1.5 pr-4 text-xs font-semibold">Erweiterbar</td><td class="py-1.5 text-xs">Eigene Handlungs- und Quellentypen vorschlagen</td></tr>
-                            <tr class="border-b border-gray-100"><td class="py-1.5 pr-4 text-xs font-semibold">Normdaten</td><td class="py-1.5 text-xs">Normdaten für Entitäten — automatische projektübergreifende Verknüpfung</td></tr>
-                            <tr class="border-b border-gray-100"><td class="py-1.5 pr-4 text-xs font-semibold">Zweisprachig</td><td class="py-1.5 text-xs">Labels und Beschreibungen in Englisch und Deutsch</td></tr>
-                            <tr><td class="py-1.5 pr-4 text-xs font-semibold">CIDOC-CRM</td><td class="py-1.5 text-xs">Basiert auf CIDOC-CRM — dem internationalen Standard für Kulturerbe</td></tr>
-                        </tbody>
-                    </table>
-                </div>
+            <!-- Designprinzipien -->
+            <section class="bg-gray-50 rounded-2xl border border-gray-200 shadow-sm p-8 mb-6">
+                <h2 id="designprinzipien" class="text-lg font-semibold text-gray-900 mb-4">Designprinzipien</h2>
+                <table class="w-full text-sm">
+                    <tbody class="text-gray-700">
+                        <tr class="border-b border-gray-100"><td class="py-1.5 pr-4 text-xs font-semibold">Einfach</td><td class="py-1.5 text-xs">Eine Datei (XML (TEI) oder JSON) pro Projekt — wenige Pflichtfelder</td></tr>
+                        <tr class="border-b border-gray-100"><td class="py-1.5 pr-4 text-xs font-semibold">Zweigeteilt</td><td class="py-1.5 text-xs">Handlungen (was ist passiert?) + Quellen (woher wissen wir das?)</td></tr>
+                        <tr class="border-b border-gray-100"><td class="py-1.5 pr-4 text-xs font-semibold">Erweiterbar</td><td class="py-1.5 text-xs">Eigene Handlungs- und Quellentypen vorschlagen</td></tr>
+                        <tr class="border-b border-gray-100"><td class="py-1.5 pr-4 text-xs font-semibold">Normdaten</td><td class="py-1.5 text-xs">Normdaten für Entitäten — automatische projektübergreifende Verknüpfung</td></tr>
+                        <tr class="border-b border-gray-100"><td class="py-1.5 pr-4 text-xs font-semibold">Zweisprachig</td><td class="py-1.5 text-xs">Labels und Beschreibungen in Englisch und Deutsch</td></tr>
+                        <tr><td class="py-1.5 pr-4 text-xs font-semibold">CIDOC-CRM</td><td class="py-1.5 text-xs">Basiert auf CIDOC-CRM — dem internationalen Standard für Kulturerbe</td></tr>
+                    </tbody>
+                </table>
             </section>
 
             <!-- Daten einreichen -->
